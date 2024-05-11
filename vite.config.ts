@@ -15,7 +15,7 @@ export default defineConfig({
   }),
   generalAssets(),
   libInjectCss(),
-  dts({ include: ['lib'] })],
+  dts({ include: ['src/palmyra', 'src/lib.ts'] })],
   server: {
     proxy: { "/api": "http://localhost:9090/" },
     open: true,
@@ -24,16 +24,26 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
+      entry: resolve(__dirname, 'src/lib.ts'),
       formats: ['es']
     }, rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
+      external: [
+        'axios',
+        'chart.js',
+        'chartjs-plugin-datalabels',
+        'd3',
+        'dayjs',
+        'react',
+        'react-dom',
+        'react-icons',
+        'react-router-dom',
+        'react/jsx-runtime',
+        'react-chartjs-2'        
+      ],
       input: Object.fromEntries(
-        glob.sync('lib/**/*.{ts,tsx}').map(file => [
-          // The name of the entry point
-          // lib/nested/foo.ts becomes nested/foo
+        glob.sync(['src/palmyra/**/*.{ts,tsx}', 'src/lib.ts']).map(file => [          
           relative(
-            'lib',
+            'src',
             file.slice(0, file.length - extname(file).length)
           ),
           // The absolute path to the entry file
@@ -42,8 +52,10 @@ export default defineConfig({
         ])
       ),
       output: {
+        // format: 'iife',
         assetFileNames: 'assets/[name][extname]',
         entryFileNames: '[name].js',
+        chunkFileNames: 'chunks/[name].js'
       }
     }
   }
