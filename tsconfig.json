@@ -22,7 +22,9 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src/**/*.tsx",
+    "demo/**/*.tsx",
+    "demo/main.tsx"
   ],
   "references": [
     {
