@@ -6,3 +6,4 @@ export * from './chartjs/DataConverterFactory';
 export * from './chartjs/StyleConverterFactory.ts'
 export * from './Types'
 export * from './chartjs/ChartJS'
+export * from './chartjs/rtu/index'

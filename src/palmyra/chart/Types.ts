@@ -1,4 +1,4 @@
-import { IEndPoint, IEndPointOptions, strings } from "palmyra-wire";
+import { IEndPoint, IEndPointOptions, StoreFactory, strings } from "palmyra-wire";
 
 interface ChartRegistry {
     Line: {},
@@ -142,6 +142,7 @@ interface storeBacked {
 
 interface IPalmyraChartOptions<T extends ChartType> extends IChartOptions<T>, storeBacked {
     data?: never,
+    storeFactory?: StoreFactory<any>,
     chartOptions?: any,
     type: ChartType,
     styleOptions?: StyleOptions
