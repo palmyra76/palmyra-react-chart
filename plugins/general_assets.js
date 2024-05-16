@@ -10,6 +10,6 @@ import serveStatic from 'serve-static';
 export default () => ({  
   name: 'general-assets',
   configureServer(server) {  
-    server.middlewares.use(serveStatic('testdata', { index: false }))
+    server.middlewares.use(serveStatic('demo/testdata', { index: false }))
   }
 })

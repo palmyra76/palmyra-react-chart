@@ -1,0 +1,93 @@
+{
+    "result": [
+        {
+            "id": 1,
+            "name": "Home",
+            "code": "home"
+        },
+        {
+            "id": 2,
+            "name": "Dynamic Fields",
+            "code": "dynamic"
+        },
+        {
+            "id": 3,
+            "name": "Tree Menu",
+            "code": "menu"
+        },
+        {
+            "id": 4,
+            "name": "Export Component",
+            "code": "export"
+        },
+        {
+            "id": 5,
+            "name": "Dependant Fields",
+            "code": "deps"
+        },
+        {
+            "id": 6,
+            "name": "Static SummaryGrid",
+            "code": "grid"
+        },
+        {
+            "id": 7,
+            "name": "Backend Grid Layout",
+            "code": "demo/simple/backendgrid"
+        },
+        {
+            "id": 8,
+            "rid": null,
+            "name": "Booth Status",
+            "code": "admin/masterdata/boothStatus",
+            "action": "summary",
+            "parent": 4,
+            "children": null,
+            "recordType": null,
+            "target": null
+        },
+        {
+            "id": 9,
+            "name": "Simple Layout Demo",
+            "code": "demo/simple",
+            "children": "10,11,12,13,14,15"
+        },
+        {
+            "id": 10,
+            "name": "Grid Layout",
+            "code": "demo/simple/grid",
+            "parent": 9
+        },
+        {
+            "id": 11,
+            "name": "Dashboard Layout",
+            "code": "demo/simple/dashboard",
+            "parent": 9
+        },
+        {
+            "id": 12,
+            "name": "Chart Layout",
+            "code": "demo/simple/chart",
+            "parent": 9
+        },
+        {
+            "id": 13,
+            "name": "Card Layout",
+            "code": "demo/simple/card",
+            "parent": 9
+        },
+        {
+            "id": 14,
+            "name": "Edit Form Layout",
+            "code": "demo/simple/formEdit",
+            "parent": 9
+        },
+        {
+            "id": 15,
+            "name": "View Form Layout",
+            "code": "demo/simple/formView",
+            "parent": 9
+        }
+    ],
+    "status": 200
+}
