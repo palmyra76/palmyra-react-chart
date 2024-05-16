@@ -1,7 +1,7 @@
 import { createContext } from "react";
-import { StoreFactory } from "palmyra-wire";
+import { ChartStoreFactory } from "palmyra-wire";
 
 const nullFactory: any = null;
-const ChartStoreFactoryContext = createContext<StoreFactory<any>>(nullFactory);
+const ChartStoreFactoryContext = createContext<ChartStoreFactory<any>>(nullFactory);
 
 export { ChartStoreFactoryContext };

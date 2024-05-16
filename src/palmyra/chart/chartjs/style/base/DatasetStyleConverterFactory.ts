@@ -26,7 +26,7 @@ const DatasetStyleConverterFactory: IStyleConverterFactory = (styleOptions: Styl
 
             if (data.datasets[0]) {
                 data.datasets[0].backgroundColor = backgroundColor;
-                data.datasets[0].borderColor = backgroundColor;
+                data.datasets[0].borderColor = borderColor;
             }
         }
         return data;

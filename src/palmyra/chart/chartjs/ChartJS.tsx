@@ -69,6 +69,8 @@ ChartJ.register(
 function ChartJS<T,>(p: IChartJSOptions<ChartType>) {
     const defaultPlugins = [];
 
+    const verbose = true;
+
     const ref = p.chartRef;
     const plugins = p.plugins || defaultPlugins;
     const options = p.options || defaultOptions;
@@ -79,19 +81,28 @@ function ChartJS<T,>(p: IChartJSOptions<ChartType>) {
         return chartOptions.current;
     }
 
+    function log(msg:string, d:any){
+        if(verbose)
+            console.log(msg, {...d});
+    }
+
     const processRawData = (data: any) => {
         if (data) {
             const props = getProps();
+            log('incoming data', data);
             var d = transform(data, props.type, props.transformOptions);
+            log('post data transformation', d);
             if (props.postProcessors) {
                 props.postProcessors.map((p: PostProcessor, index) => {
                     d = p(d);
+                    log('post processing ' + index, d);
                 })
             }
             return d;
         }
         return { datasets: [] }
     }
+    
 
     const chartData = useRef(processRawData(p.data));
     const currentRef = ref ? ref : useRef<IChartJS>(null);

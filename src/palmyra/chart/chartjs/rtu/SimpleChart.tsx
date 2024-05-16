@@ -5,7 +5,7 @@ import { ChartType, IPalmyraChartOptions } from '../../Types';
 import { ChartJS, IChartJS } from '../ChartJS';
 import { mergeDeep } from '../util';
 import { getStyleConverter } from '../StyleConverterFactory';
-import { StoreFactory } from 'palmyra-wire';
+import { ChartStoreFactory } from 'palmyra-wire';
 import { ChartStoreFactoryContext } from '../../ChartLayoutContext';
 
 interface ISimpleChartOptions<T extends ChartType> extends IPalmyraChartOptions<T> {
@@ -25,7 +25,7 @@ Chart.register(...registerables, TimeScale);
 const SimpleChart = <T extends ChartType,>(props: ISimpleChartOptions<T>) => {
     const currentRef = props.chartRef || useRef<ISimpleChart<T>>();
     const chartRef = useRef<IChartJS>(null);
-    const storeFactory: StoreFactory<any> = props.storeFactory || useContext(ChartStoreFactoryContext);
+    const storeFactory: ChartStoreFactory<any> = props.storeFactory || useContext(ChartStoreFactoryContext);
     var storeOptions = props.storeOptions || {};
 
     var storeRequest: any = {};
@@ -34,6 +34,7 @@ const SimpleChart = <T extends ChartType,>(props: ISimpleChartOptions<T>) => {
     const store = storeFactory.getChartStore(storeRequest, storeOptions.endPoint);
 
     const [data, setData] = useState(null);
+    
     useImperativeHandle(currentRef, () => {
         return {
             setFilter(filter) {

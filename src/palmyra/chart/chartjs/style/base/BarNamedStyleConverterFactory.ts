@@ -13,6 +13,7 @@ const BarNamedStyleConverterFactory: IStyleConverterFactory = (styleOptions: Sty
         if (data.labels) {
             const backgroundColor: any[] = generateColors(data.labels.length);
             const borderColor: any[] = generateColors(data.labels.length);
+            let borderWidth: any;
 
             data.labels.map((label, index) => {
                 const style: ChartStyle = styleOptions[label];
@@ -21,12 +22,15 @@ const BarNamedStyleConverterFactory: IStyleConverterFactory = (styleOptions: Sty
                         backgroundColor[index] = style.backgroundColor;
                     if (style.borderColor)
                         borderColor[index] = style.borderColor;
+                    if (style.borderWidth)
+                        borderWidth = style.borderWidth;
                 }
             })
 
             if (data.datasets[0]) {
                 data.datasets[0].backgroundColor = backgroundColor;
-                data.datasets[0].borderColor = backgroundColor;
+                data.datasets[0].borderColor = borderColor;
+                data.datasets[0].borderWidth = borderWidth;
             }
         }
         return data;
