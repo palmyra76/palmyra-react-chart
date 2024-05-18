@@ -1,28 +1,25 @@
-import { MutableRefObject, useImperativeHandle, useRef } from "react";
-import { IDashBoardChart, IDashboardOptions } from "./Types";
-import { ChartType } from "../../Types";
+import { useImperativeHandle, useRef } from "react";
+import { IDashBoard, IDashboardOptions } from "./Types";
+import { ChartStoreFactoryContext } from "../../ChartLayoutContext";
 
-interface IDashboardInput<T extends ChartType> extends IDashboardOptions {
-    chartRef?: MutableRefObject<IDashBoardChart<T>>
-}
-
-const Dashboard = <T extends ChartType>(props: IDashboardInput<T>) => {
-
-    const currentRef = props.chartRef || useRef<IDashBoardChart<T>>();
-
+const Dashboard = (props: IDashboardOptions) => {
+    const currentRef = props.chartRef || useRef<IDashBoard>();
+    // TODO - get chartstorefactory from props  or  context
+    const storeFactory = props.storeFactory;
 
     useImperativeHandle(currentRef, () => {
         return {
             setRefreshOptions(refresh) {
-
+                console.log('Dashboard refresh called');
             }
         }
     }, [])
 
     return (
-        <div>Dashboard</div>
+        <ChartStoreFactoryContext.Provider value={storeFactory}>
+            <div>Dashboard</div>
+        </ChartStoreFactoryContext.Provider>        
     )
-
 }
 
 export { Dashboard };

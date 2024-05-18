@@ -1,6 +1,16 @@
-import { ChartStoreFactory, IEndPoint } from "palmyra-wire";
+import { ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
 import { ChartType, StyleOptions } from "../../Types";
+import { MutableRefObject } from "react";
 
+type converter = (d: any) => any;
+type dataConsumer = (d: any) => void;
+
+type chartJsOptions = any;
+
+interface AsyncDataProvider {
+    fetch: () => void,
+    subscribe: (dataConsumer) => void;
+}
 
 interface AccessorOptions {
     xKey?: String,
@@ -10,72 +20,81 @@ interface AccessorOptions {
 }
 
 interface DataPipeLineOptions {
-    preProcess?: any,
-    convertData?: any,
-    applyStyle?: any,
-    postProcess?: any
-}
-
-interface IEndPointOptions {
-    endPoint: IEndPoint,
-    endPointVars?: Record<string, any>;
+    preProcess?: converter,
+    convertData?: converter,
+    applyStyle?: converter,
+    postProcess?: converter
 }
 
 interface IDashboardOptions {
     refreshOptions?: any,
-    storeFactory: ChartStoreFactory<any>
+    storeFactory?: ChartStoreFactory<any>,
+    chartRef?: MutableRefObject<IDashBoard>
 }
 
-interface IDashBoardChart<T extends ChartType> {
-    setRefreshOptions?: (refresh: any) => void
+interface IDashBoard {
+    setRefreshOptions: (refresh: any) => void
 }
 
-interface IStaticChartOptions {
+interface IAbstractChartOptions {
     type: ChartType
     styleOptions?: StyleOptions,
     accessorOptions?: AccessorOptions,
     dataPipeLine?: DataPipeLineOptions,
     verbose?: boolean,
-    guideLine?: any,
+    guideLine?: any,   // TODO guideline type to be defined
     plugins?: any,
-    chartOptions?: any,
-    onPointClick?: (data: any) => void,
-    onAreaSelect?: (data: any) => void
+    chartOptions?: chartJsOptions,
+    onPointClick?: (data: any) => void, //TODO  argument definitions to be updated
+    onAreaSelect?: (data: any) => void //TODO  argument definitions to be updated    
 }
 
-interface IStaticChart<T extends ChartType> {
-    toggleLegend?: () => void,
-    showDataset?: () => void,
-    hideDataset?: () => void,
-    // setAccessOptions: (d: AccessorOptions) => void,
-    // setStyleOptions: (d: StyleOptions) => void
-    // setChartOptions: (d: any) => void
+interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions {
+    chartRef?: MutableRefObject<IStaticChart<T>>,
+    chartData: any
 }
 
-
-interface ISimpleChartOptions extends IStaticChartOptions {
-    store?: any,
-    endPointOptions?: IEndPointOptions,
-    filter?: Record<string, string | number>,
+interface remoteData {
+    endPoint: IEndPoint,
+    endPointVars?: IEndPointOptions
+    defaultFilter?: any
 }
 
-interface ISimpleChart<T extends ChartType> extends IStaticChart<T> {
-    setEndPointOptions?: (d: any) => void,
-    setFilter?: (filter: any) => void,
-    resetFilter?: () => void,
+interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions, remoteData {
+    chartRef?: MutableRefObject<ISimpleChart<T>>,
+    dataProvider: AsyncDataProvider
 }
 
-interface IDynamicChartOptions extends ISimpleChartOptions {
+interface IDynamicChartOptions<T extends ChartType> extends ISimpleChartOptions<T> {
+    chartRef?: MutableRefObject<IDynamicChart<T>>,
+}
 
+interface IAbstractChart<T extends ChartType> {
+    toggleLegend: () => void,
+    showDataset: () => void,
+    hideDataset: () => void
+}
+
+interface IStaticChart<T extends ChartType> extends IAbstractChart<T> {
+    setData: (data: any) => void
+}
+
+interface ISimpleChart<T extends ChartType> extends IAbstractChart<T> {
+    setEndPointOptions: (d: IEndPointOptions) => void,
+    setFilter: (filter: any) => void,
+    resetFilter: () => void,
+    onDataRefresh?: (rawData: any) => void
 }
 
 interface IDynamicChart<T extends ChartType> extends ISimpleChart<T> {
-    setAccessOptions?: (d: AccessorOptions) => void,
-    setStyleOptions?: (d: StyleOptions) => void
-    setChartOptions?: (d: any) => void
+    setAccessorOptions: (d: AccessorOptions) => void,
+    setStyleOptions: (d: StyleOptions) => void
+    setChartOptions: (d: chartJsOptions) => void
 }
 
 
 export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDynamicChartOptions }
 
-export type { IDashBoardChart, IStaticChart, ISimpleChart, IDynamicChart }
+export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart }
+
+export type { AsyncDataProvider, dataConsumer }

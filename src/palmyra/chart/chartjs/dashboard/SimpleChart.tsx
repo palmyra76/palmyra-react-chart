@@ -1,15 +1,9 @@
-import { MutableRefObject, useImperativeHandle, useRef } from "react";
+import { useImperativeHandle, useRef } from "react";
 import { ChartType } from "../../Types";
 import { ISimpleChart, ISimpleChartOptions } from "./Types";
 
-interface ISimpleInput<T extends ChartType> extends ISimpleChartOptions {
-    chartRef?: MutableRefObject<ISimpleChart<T>>,
-}
-
-const Simple = <T extends ChartType>(props: ISimpleInput<T>) => {
-
+const Simple = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
     const currentRef = props.chartRef || useRef<ISimpleChart<T>>();
-
 
     useImperativeHandle(currentRef, () => {
         return {
