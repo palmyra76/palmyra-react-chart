@@ -1,4 +1,4 @@
-import { ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
+import { ChartStore, ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
 import { ChartType, StyleOptions } from "../../Types";
 import { MutableRefObject } from "react";
 
@@ -19,15 +19,20 @@ interface AccessorOptions {
     yLabel?: String
 }
 
-interface DataPipeLineOptions {
+interface DataPipeLine {
     preProcess?: converter,
     convertData?: converter,
     applyStyle?: converter,
     postProcess?: converter
 }
 
+interface refreshOptions {
+    interval: number,
+    needDataRefresh: () => void
+}
+
 interface IDashboardOptions {
-    refreshOptions?: any,
+    refreshOptions?: refreshOptions,
     storeFactory?: ChartStoreFactory<any>,
     chartRef?: MutableRefObject<IDashBoard>
 }
@@ -36,11 +41,14 @@ interface IDashBoard {
     setRefreshOptions: (refresh: any) => void
 }
 
-interface IAbstractChartOptions {
+interface DataPipeLineOptions {
+    styleOptions: StyleOptions,
+    accessorOptions: AccessorOptions
+}
+
+interface IAbstractChartOptions extends DataPipeLineOptions {
     type: ChartType
-    styleOptions?: StyleOptions,
-    accessorOptions?: AccessorOptions,
-    dataPipeLine?: DataPipeLineOptions,
+    dataPipeLine?: DataPipeLine,
     verbose?: boolean,
     guideLine?: any,   // TODO guideline type to be defined
     plugins?: any,
@@ -54,15 +62,16 @@ interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions
     chartData: any
 }
 
-interface remoteData {
+interface RemoteQueryOptions {
+    store: ChartStore<any>,
     endPoint: IEndPoint,
     endPointVars?: IEndPointOptions
-    defaultFilter?: any
+    filter?: any
 }
 
-interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions, remoteData {
+interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions, RemoteQueryOptions {
     chartRef?: MutableRefObject<ISimpleChart<T>>,
-    dataProvider: AsyncDataProvider
+    dataProvider?: AsyncDataProvider
 }
 
 interface IDynamicChartOptions<T extends ChartType> extends ISimpleChartOptions<T> {
@@ -93,8 +102,8 @@ interface IDynamicChart<T extends ChartType> extends ISimpleChart<T> {
 }
 
 
-export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDynamicChartOptions }
+export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDynamicChartOptions, DataPipeLineOptions, IAbstractChartOptions }
 
 export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart }
 
-export type { AsyncDataProvider, dataConsumer }
+export type { AsyncDataProvider, dataConsumer, RemoteQueryOptions, DataPipeLine }
