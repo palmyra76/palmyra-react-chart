@@ -4,6 +4,9 @@ import generateColors from "./GenerateColors";
 const assignStyles = (d, style: ChartStyle) => {
     d.backgroundColor = style?.backgroundColor || generateColors(1)[0];
     d.borderColor = style?.borderColor || generateColors(1)[0];
+    d.hoverRadius = style?.hoverRadius
+    d.radius = style?.radius
+    d.hidden = style?.hidden
 
     if (!style)
         return;
@@ -11,6 +14,8 @@ const assignStyles = (d, style: ChartStyle) => {
     assign(style, d, 'radius');
     assign(style, d, 'borderWidth');
     assign(style, d, 'hoverRadius');
+    assign(style, d, 'hidden');
+    
 }
 
 const assign = (src, tgt, key: keyof ChartStyle) => {

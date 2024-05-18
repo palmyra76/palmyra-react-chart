@@ -18,12 +18,14 @@ const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleO
             data.datasets.map((ds) => {
                 ds.backgroundColor = [];
                 ds.borderColor = [];
+                ds.borderWidth = [];
                 if (ds.data) {
                     ds.data.map((d, index) => {
                         const i = index % length;
                         const style: ChartStyle = styleOptions[i];
                         ds.backgroundColor.push(style?.backgroundColor)
                         ds.borderColor.push(style?.borderColor);
+                        ds.borderWidth.push(style?.borderWidth);
                     })
                 }
             })
