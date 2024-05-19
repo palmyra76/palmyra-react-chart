@@ -2,8 +2,8 @@
 import { IEndPoint, IEndPointOptions, PalmyraStoreFactory } from "palmyra-wire";
 
 import { useEffect } from "react";
-import { DataTransformer, storeBacked } from "../Types";
-import { mergeDeep } from "../chartjs/util";
+import { DataTransformer, storeBacked } from "../../chart/Types";
+import { mergeDeep } from "../../chart/chartjs/util";
 
 interface IDataManagerInput extends storeBacked {
   filter?: any

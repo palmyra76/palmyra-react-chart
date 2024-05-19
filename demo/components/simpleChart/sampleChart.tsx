@@ -1,6 +1,6 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { Simple } from "../../../src/palmyra/chart/chartjs/dashboard";
 import { barChart } from "./chartColors";
+import { SimpleChart } from "../../../src/palmyra/react";
 
 const SampleChart = () => {
 
@@ -8,7 +8,7 @@ const SampleChart = () => {
 
 
     return (
-        <Simple endPoint={'/simple/barChartData.json'} type="Bar" store={store} styleOptions={barChart} accessorOptions={{xKey: 'name'}}/>
+        <SimpleChart endPoint={'/simple/barChartData.json'} type="Bar" store={store} styleOptions={barChart} accessorOptions={{xKey: 'name'}}/>
     )
 }
 

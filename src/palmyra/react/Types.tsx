@@ -1,16 +1,12 @@
 import { ChartStore, ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
-import { ChartType, StyleOptions } from "../../Types";
+import { ChartType, StyleOptions } from "../chart/Types";
 import { MutableRefObject } from "react";
 
 type converter = (d: any) => any;
-type dataConsumer = (d: any) => void;
+
 
 type chartJsOptions = any;
 
-interface AsyncDataProvider {
-    fetch: () => void,
-    subscribe: (dataConsumer) => void;
-}
 
 interface AccessorOptions {
     xKey?: String,
@@ -70,8 +66,7 @@ interface RemoteQueryOptions {
 }
 
 interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions, RemoteQueryOptions {
-    chartRef?: MutableRefObject<ISimpleChart<T>>,
-    dataProvider?: AsyncDataProvider
+    chartRef?: MutableRefObject<ISimpleChart<T>>
 }
 
 interface IDynamicChartOptions<T extends ChartType> extends ISimpleChartOptions<T> {
@@ -106,4 +101,4 @@ export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDyna
 
 export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart }
 
-export type { AsyncDataProvider, dataConsumer, RemoteQueryOptions, DataPipeLine }
+export type { RemoteQueryOptions, DataPipeLine }

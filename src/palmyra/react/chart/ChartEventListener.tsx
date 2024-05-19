@@ -1,8 +1,8 @@
 import { InteractionItem, Plugin, ChartType as ChartJsType } from "chart.js";
 import { MouseEventHandler, MutableRefObject } from "react";
 import { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } from "react-chartjs-2";
-import { getPointConverter } from "./DataConverterFactory";
-import { AreaSelectDrag, ChartType, IChartOptions } from "..";
+import { getPointConverter } from "../../chart/chartjs/DataConverterFactory";
+import { AreaSelectDrag, ChartType, IChartOptions } from "../../chart";
 
 
 function isPointClicked(dataset: InteractionItem[]): boolean {

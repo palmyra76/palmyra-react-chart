@@ -1,5 +1,6 @@
 import { ChartStore, IEndPoint, IEndPointOptions } from "palmyra-wire";
-import { AsyncDataProvider, dataConsumer } from "../chartjs/dashboard";
+import { AsyncDataProvider, dataConsumer } from "./Types";
+
 
 class PalmyraDataProvider implements AsyncDataProvider {
     store: ChartStore<any>

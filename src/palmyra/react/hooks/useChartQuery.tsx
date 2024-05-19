@@ -1,6 +1,6 @@
 import { QueryRequest } from "palmyra-wire";
 import { useState } from "react";
-import { RemoteQueryOptions } from "../chartjs/dashboard";
+import { RemoteQueryOptions } from "../Types";
 
 const useChartQuery = (props: RemoteQueryOptions) => {
     const [endPointVars, setEndPointVars] = useState(props.endPointVars);

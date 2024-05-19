@@ -1,7 +1,7 @@
 
 import { Chart as ChartRef, ChartType as ChartJSType, ChartOptions } from 'chart.js';
 import { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
-import { ChartType, DataSetType, DataSets, IChart, IChartJSOptions, ITransformOptions, RawDataType, getDataConverter, useAreaSelectListener } from '..';
+import { ChartType, DataSetType, DataSets, IChart, IChartJSOptions, ITransformOptions, RawDataType, getDataConverter, useAreaSelectListener } from '../../chart';
 import { Chart } from 'react-chartjs-2';
 
 import {
@@ -17,7 +17,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { NoopConverter } from './converters/ScaleConverter';
+import { NoopConverter } from '../../chart/chartjs/converters/ScaleConverter';
 
 
 const ChartJSTypeRegistry: Partial<Record<ChartType, ChartJSType>> = {

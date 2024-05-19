@@ -2,11 +2,11 @@ import { MutableRefObject, useContext, useEffect, useImperativeHandle, useRef, u
 import { Chart, ChartType as ChartJsType, Plugin, registerables, TimeScale } from 'chart.js';
 
 import { ChartType, IPalmyraChartOptions, TypedTransformOptions } from '../../Types';
-import { ChartJS, IChartJS } from '../ChartJS';
+import { ChartJS, IChartJS } from '../../../react/chart/ChartJS';
 import { mergeDeep } from '../util';
 import { getStyleConverter } from '../StyleConverterFactory';
 import { ChartStoreFactory } from 'palmyra-wire';
-import { ChartStoreFactoryContext } from '../../ChartLayoutContext';
+import { ChartStoreFactoryContext } from '../../../react/ChartLayoutContext';
 
 interface IDynamicChartOptions<T extends ChartType> extends IPalmyraChartOptions<T> {
     filter?: any,

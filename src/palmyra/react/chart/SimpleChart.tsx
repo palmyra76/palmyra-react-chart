@@ -1,10 +1,10 @@
 import { useEffect, useImperativeHandle, useRef } from "react";
-import { ChartType } from "../../Types";
-import { ISimpleChart, ISimpleChartOptions } from "./Types";
-import { useChartQuery } from "../../wire/useChartQuery";
-import { generateDataPipeLine } from "./DataPipeLineGenerator";
+import { ISimpleChart, ISimpleChartOptions } from "../Types";
+import { generateDataPipeLine } from "../../chart/chartjs/DataPipeLineGenerator";
+import { ChartType } from "../../chart";
+import { useChartQuery } from "../hooks/useChartQuery";
 
-const Simple = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
+const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
     const currentRef = props.chartRef || useRef<ISimpleChart<T>>();
 
     const { fetch, setFilter, data, setEndPointVars } = useChartQuery(props)
@@ -45,4 +45,4 @@ const Simple = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
 
 }
 
-export { Simple };
+export { SimpleChart };

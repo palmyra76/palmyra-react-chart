@@ -1,9 +1,9 @@
 import { useImperativeHandle, useRef } from "react";
-import { ChartType } from "../../Types";
-import { IDynamicChart, IDynamicChartOptions } from "./Types";
+import { IDynamicChart, IDynamicChartOptions } from "../Types";
 import { IEndPointOptions } from "palmyra-wire";
+import { ChartType } from "../../chart";
 
-const Dynamic = <T extends ChartType>(props: IDynamicChartOptions<T>) => {
+const DynamicChart = <T extends ChartType>(props: IDynamicChartOptions<T>) => {
 
     const currentRef = props.chartRef || useRef<IDynamicChart<T>>();
 
@@ -45,4 +45,4 @@ const Dynamic = <T extends ChartType>(props: IDynamicChartOptions<T>) => {
 
 }
 
-export { Dynamic };
+export { DynamicChart };

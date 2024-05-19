@@ -1,6 +1,7 @@
 import { useImperativeHandle, useRef } from "react";
-import { IDashBoard, IDashboardOptions } from "./Types";
-import { ChartStoreFactoryContext } from "../../ChartLayoutContext";
+import { IDashBoard, IDashboardOptions } from "../Types";
+import { ChartStoreFactoryContext } from "../ChartLayoutContext";
+
 
 const Dashboard = (props: IDashboardOptions) => {
     const currentRef = props.chartRef || useRef<IDashBoard>();

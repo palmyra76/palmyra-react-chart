@@ -1,9 +1,9 @@
 import { useImperativeHandle, useRef } from "react";
-import { ChartType } from "../../Types";
-import { IStaticChart, IStaticChartOptions } from "./Types";
+import { IStaticChart, IStaticChartOptions } from "../Types";
+import { ChartType } from "../../chart";
 
 
-const Static = <T extends ChartType>(props: IStaticChartOptions<T>) => {
+const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
 
     const currentRef = props.chartRef || useRef<IStaticChart<T>>();
 
@@ -31,4 +31,4 @@ const Static = <T extends ChartType>(props: IStaticChartOptions<T>) => {
 
 }
 
-export { Static };
+export { StaticChart };
