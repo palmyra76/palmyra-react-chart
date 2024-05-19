@@ -3,13 +3,24 @@ import { ISimpleChart, ISimpleChartOptions } from "../Types";
 import { generateDataPipeLine } from "../../chart/chartjs/DataPipeLineGenerator";
 import { ChartType } from "../../chart";
 import { useChartQuery } from "../hooks/useChartQuery";
+import { AbstractChartJS } from "./AbstractChartJS";
+import { IChartJS } from "./Types";
 
 const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
     const currentRef = props.chartRef || useRef<ISimpleChart<T>>();
-
-    const { fetch, setFilter, data, setEndPointVars } = useChartQuery(props)
-
     const pipeLine = generateDataPipeLine(props);
+    const chartJsRef = useRef<IChartJS>(null);
+
+    const onData = (d: any) => {
+        if(null != chartJsRef.current){
+            const chartData = pipeLine(d);
+            chartJsRef.current.setData(chartData);
+        }        
+    }
+
+    const { fetch, setFilter, setEndPointVars } = useChartQuery(props, {
+        onData
+    });
 
     useImperativeHandle(currentRef, () => {
         return {
@@ -33,14 +44,15 @@ const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
             }
         }
     }, [])
+
     useEffect(() => {
         fetch()
     }, []);
-    
-    console.log(pipeLine(data));
 
     return (
-        <div>Simple</div>
+        <div>
+           <AbstractChartJS type={props.type} chartRef={chartJsRef}></AbstractChartJS> 
+        </div>
     )
 
 }

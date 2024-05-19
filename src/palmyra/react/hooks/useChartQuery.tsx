@@ -1,18 +1,22 @@
-import { QueryRequest } from "palmyra-wire";
-import { useState } from "react";
+import { IEndPointOptions, QueryRequest } from "palmyra-wire";
+import { useRef } from "react";
 import { RemoteQueryOptions } from "../Types";
 
-const useChartQuery = (props: RemoteQueryOptions) => {
-    const [endPointVars, setEndPointVars] = useState(props.endPointVars);
+interface Callback {
+    onData: (d: any) => void;
+    onError?: () => void;
+}
 
-    const [filter, setFilter] = useState(props.filter || {});
-    const [data, setData] = useState(null);
+const useChartQuery = (props: RemoteQueryOptions, callback: Callback) => {
+    const ev = useRef<IEndPointOptions>(props.endPointVars || {});
+    const filterRef = useRef<any>(props.filter || {});
 
     const defaultFilter = {};
     const store = props.store;
 
     const getQueryRequest = (): QueryRequest => {
-
+        const endPointVars = ev.current;
+        const filter = filterRef.current;
         const params: QueryRequest = {
             endPointVars, filter: { ...filter, ...defaultFilter }
         };
@@ -21,19 +25,11 @@ const useChartQuery = (props: RemoteQueryOptions) => {
     }
 
     const setResult = (result: any) => {
-        setData((old: any) => {
-            console.log(result)
-            // setTimeout(() => {
-            //     if (props.onDataChange) {
-            //         props.onDataChange(result, old);
-            //     }
-            // }, 300)
-            return result;
-        })
+        callback.onData(result);
     }
 
     const setEmptyData = () => {
-        setResult([]);
+        callback.onError();
     }
 
     const setNoData = () => {
@@ -62,7 +58,22 @@ const useChartQuery = (props: RemoteQueryOptions) => {
         }
     }
 
-    return { fetch, setFilter, data, setEndPointVars }
+    const setEndPointVars = (options: IEndPointOptions, deferFetch: boolean = false) => {
+        ev.current = options;
+        if (!deferFetch) {
+            fetch();
+        }
+    }
+
+    const setFilter = (filter: any, deferFetch: boolean = false) => {
+        filterRef.current = filter;
+        if (!deferFetch) {
+            fetch();
+        }
+    }
+
+    return { fetch, setFilter, setEndPointVars }
 }
 
 export { useChartQuery }
+export type { AsyncRemoteQueryOptions }

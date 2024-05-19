@@ -1,6 +1,7 @@
 import { ChartStore, ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
 import { ChartType, StyleOptions } from "../chart/Types";
 import { MutableRefObject } from "react";
+import { ChartOptions, ChartType as ChartJStype } from "chart.js";
 
 type converter = (d: any) => any;
 
@@ -42,18 +43,19 @@ interface DataPipeLineOptions {
     accessorOptions: AccessorOptions
 }
 
-interface IAbstractChartOptions extends DataPipeLineOptions {
+interface IAbstractChartOptions<T extends ChartType> extends DataPipeLineOptions {
     type: ChartType
     dataPipeLine?: DataPipeLine,
     verbose?: boolean,
     guideLine?: any,   // TODO guideline type to be defined
     plugins?: any,
-    chartOptions?: chartJsOptions,
+    chartRef?: MutableRefObject<IAbstractChart<T>>
+    chartOptions?: ChartOptions<ChartJStype>,
     onPointClick?: (data: any) => void, //TODO  argument definitions to be updated
     onAreaSelect?: (data: any) => void //TODO  argument definitions to be updated    
 }
 
-interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions {
+interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions<T> {
     chartRef?: MutableRefObject<IStaticChart<T>>,
     chartData: any
 }
@@ -65,7 +67,7 @@ interface RemoteQueryOptions {
     filter?: any
 }
 
-interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions, RemoteQueryOptions {
+interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions<T>, RemoteQueryOptions {
     chartRef?: MutableRefObject<ISimpleChart<T>>
 }
 

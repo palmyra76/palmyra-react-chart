@@ -8,7 +8,9 @@ const SampleChart = () => {
 
 
     return (
-        <SimpleChart endPoint={'/simple/barChartData.json'} type="Bar" store={store} styleOptions={barChart} accessorOptions={{xKey: 'name'}}/>
+        <SimpleChart endPoint={'/simple/barChartData.json'}
+            type="Bar" store={store} styleOptions={barChart}
+            accessorOptions={{ xKey: 'name', yKey: 'count' }} />
     )
 }
 
