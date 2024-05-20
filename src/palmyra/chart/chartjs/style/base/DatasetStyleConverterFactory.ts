@@ -10,12 +10,14 @@ const DatasetStyleConverterFactory: IStyleConverterFactory = (styleOptions: Styl
         if (null == data || undefined == data)
             return data;
 
+        const chartStyle = styleOptions.style;
+        
         if (data.labels) {
             const backgroundColor: any[] = generateColors(data.labels.length);
             const borderColor: any[] = generateColors(data.labels.length);
 
             data.labels.map((label, index) => {
-                const style: ChartStyle = styleOptions[label];
+                const style: ChartStyle = chartStyle[label];
                 if (style) {
                     if (style.backgroundColor)
                         backgroundColor[index] = style.backgroundColor;

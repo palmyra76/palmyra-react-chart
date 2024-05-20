@@ -1,5 +1,5 @@
 import { default as LineConverters } from './style/LineStyleConverter';
-import { default as BarConverters } from './style/BarStyleConverter';
+import { default as BarConverters } from './style/bar/BarStyleConverter';
 import { default as GroupedBarConverters } from './style/GroupedBarConverter'
 import { default as ScatterConverters } from './style/ScatterConverter';
 import { default as GroupedScatterConverters } from './style/GroupedScatterConverter';
@@ -34,13 +34,12 @@ var dataMap: Record<ChartType, Partial<Record<StyleType, IStyleConverterFactory>
 
 
 const getStyleType = (styleOptions: StyleOptions): StyleType => {
-    //@ts-ignore
     const type: StyleType = styleOptions?.type;
     if (type)
         return type;
 
     //@ts-ignore
-    const style = styleOptions?.style || styleOptions;
+    const style = styleOptions?.style;
     if (!style)
         return 'Random';
 

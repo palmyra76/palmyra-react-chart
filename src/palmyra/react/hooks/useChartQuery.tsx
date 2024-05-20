@@ -1,6 +1,7 @@
 import { IEndPointOptions, QueryRequest } from "palmyra-wire";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { RemoteQueryOptions } from "../Types";
+import { ChartStoreFactoryContext } from "../ChartLayoutContext";
 
 interface Callback {
     onData: (d: any) => void;
@@ -12,7 +13,7 @@ const useChartQuery = (props: RemoteQueryOptions, callback: Callback) => {
     const filterRef = useRef<any>(props.filter || {});
 
     const defaultFilter = {};
-    const storeFactory = props.storeFactory;
+    const storeFactory = props.storeFactory || useContext(ChartStoreFactoryContext);
 
     const getQueryRequest = (): QueryRequest => {
         const endPointVars = ev.current;

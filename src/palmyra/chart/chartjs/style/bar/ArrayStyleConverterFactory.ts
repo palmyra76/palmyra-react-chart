@@ -11,23 +11,23 @@ const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleO
         if (!data)
             return;
 
-        const chartStyle = styleOptions.style;
-
+        const chartStyle: any = styleOptions.style;
+        const optionsProvided: any = extractOptions(chartStyle);        
         // @ts-ignore
         const length: number = chartStyle.length;
 
         if (data.datasets) {
             data.datasets.map((ds) => {
-                ds.backgroundColor = [];
-                ds.borderColor = [];
-                ds.borderWidth = [];
+                optionsProvided.map((option) => {
+                    ds[option] = [];
+                })
                 if (ds.data) {
                     ds.data.map((d, index) => {
                         const i = index % length;
                         const style: ChartStyle = chartStyle[i];
-                        ds.backgroundColor.push(style?.backgroundColor)
-                        ds.borderColor.push(style?.borderColor);
-                        ds.borderWidth.push(style?.borderWidth);
+                        optionsProvided.map((option) => {
+                            ds[option].push(style?.[option]);
+                        })
                     })
                 }
             })
@@ -37,3 +37,17 @@ const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleO
 }
 
 export { ArrayStyleConverterFactory }
+
+function extractOptions(chartStyle: ChartStyle[]) {
+    const cache: any = {};
+    const result: string[] = [];
+    chartStyle.map((s) => {
+        Object.keys(s).map((k) => {
+            if (!cache[k]) {
+                result.push(k);
+                cache[k] = true;
+            }
+        })
+    })
+    return result;
+}

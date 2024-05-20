@@ -31,9 +31,10 @@ interface refreshOptions {
 }
 
 interface IDashboardOptions {
+    children?: any,
     refreshOptions?: refreshOptions,
     storeFactory?: ChartStoreFactory<any>,
-    chartRef?: MutableRefObject<IDashBoard>
+    dashboardRef?: MutableRefObject<IDashBoard>
 }
 
 interface IDashBoard {

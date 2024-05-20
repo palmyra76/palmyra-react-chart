@@ -5,7 +5,7 @@ import { getKeys, getLabels } from "../../util";
 
 const KeyValueScaleConverter = (options: ITransformOptions): ChartDataConverter<number> => {
     const { xKey } = getKeys(options);
-    const { xLabel } = getLabels(options);
+    const { xLabel, yLabels } = getLabels(options);
 
     return (record: any): ScaleDataInput => {
         var result: ScaleDataInput = {
@@ -16,8 +16,8 @@ const KeyValueScaleConverter = (options: ITransformOptions): ChartDataConverter<
             return result;
         }
 
-        const label = xLabel || 'value';
-        const key = xKey || xLabel || 'value';
+        const label = yLabels[0] || 'value';
+        const key = xKey || xLabel || 'name';
         var dataset: ScaleDataSet = { key, label: label, data: [] };
         result.datasets[0] = dataset;
 

@@ -16,7 +16,7 @@ interface ChartRegistry {
     PolarArea: {}
 }
 
-type RawDataType = 'Array' | 'Object' | 'KeyValue' | 'Custom' | 'noop';
+type RawDataType = 'Array' | 'Object' | 'KeyValue' | 'noop';
 
 interface ITransformOptions {
     sourceType?: RawDataType,
@@ -31,13 +31,6 @@ interface ITransformOptions {
 
 type ChartType = keyof ChartRegistry;
 
-type NamedStyle = Record<string, ChartStyle>;
-
-type IStyleOptions = {
-    type?: StyleType,
-    style?: NamedStyle | ChartStyle[] | Record<string, ChartStyle[]> | Record<string, NamedStyle>;
-}
-
 type measure = string | number;
 
 interface Positionable {
@@ -51,16 +44,30 @@ interface Titleable {
     hideTitle?: boolean
 }
 
-type StyleOptions = IStyleOptions | Record<string, ChartStyle> | ChartStyle[] | Record<string, ChartStyle[]>;
+type StyleOptions = IStyleOptions;
 
-interface ChartStyle {
-    backgroundColor?: string,
-    borderColor?: string,
+interface DataSetProperties {
     borderWidth?: number,
     radius?: number,
     hoverRadius?: number,
-    hidden? : boolean,
-    barThickness?: number
+    hidden?: boolean,
+    barPercentage?: number
+}
+
+type NamedStyle = Record<string, ChartStyle>;
+type NamedDataSetProperties = Record<string, DataSetProperties>
+
+type IStyleOptions = {
+    type?: StyleType,
+    props?: NamedDataSetProperties | DataSetProperties[],
+    style: NamedStyle | ChartStyle[] | Record<string, ChartStyle[]> | Record<string, NamedStyle>;
+}
+
+interface ChartStyle {
+    backgroundColor?: string,    
+    borderColor?: string,
+    hoverBackgroundColor?: string,
+    hoverBorderColor?: string
 }
 
 type StyleType = 'Array' | 'Named' | 'Nested' | 'Random' | 'Noop';

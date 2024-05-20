@@ -16,17 +16,17 @@ const BarNamedStyleConverterFactory: IStyleConverterFactory = (styleOptions: Sty
             let borderWidth: any;
             let barThickness: any;
 
+            const chartStyle = styleOptions.style;
+
             data.labels.map((label, index) => {
-                const style: ChartStyle = styleOptions[label];
+                const style: ChartStyle = chartStyle[label];
                 if (style) {
                     if (style.backgroundColor)
                         backgroundColor[index] = style.backgroundColor;
                     if (style.borderColor)
                         borderColor[index] = style.borderColor;
                     if (style.borderWidth)
-                        borderWidth = style.borderWidth;
-                    if (style.barThickness)
-                        barThickness = style.barThickness;
+                        borderWidth = style.borderWidth;                  
                 }
             })
 

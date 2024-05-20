@@ -4,7 +4,7 @@ import { ChartStoreFactoryContext } from "../ChartLayoutContext";
 
 
 const Dashboard = (props: IDashboardOptions) => {
-    const currentRef = props.chartRef || useRef<IDashBoard>();
+    const currentRef = props.dashboardRef || useRef<IDashBoard>();
     // TODO - get chartstorefactory from props  or  context
     const storeFactory = props.storeFactory;
 
@@ -18,7 +18,7 @@ const Dashboard = (props: IDashboardOptions) => {
 
     return (
         <ChartStoreFactoryContext.Provider value={storeFactory}>
-            <div>Dashboard</div>
+            {props.children}
         </ChartStoreFactoryContext.Provider>        
     )
 }
