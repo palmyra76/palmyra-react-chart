@@ -59,7 +59,8 @@ interface ChartStyle {
     borderWidth?: number,
     radius?: number,
     hoverRadius?: number,
-    hidden? : boolean
+    hidden? : boolean,
+    barThickness?: number
 }
 
 type StyleType = 'Array' | 'Named' | 'Nested' | 'Random' | 'Noop';

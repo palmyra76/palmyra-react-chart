@@ -85,7 +85,7 @@ const BarChart = () => {
                             }
                         }}
                         plugins={[ChartDataLabels]}
-                        storeOptions={{ endPoint: '/simple/barChartData.json' }}
+                        storeOptions={{ endPoint: '/simple/barchartData/barNamedChartData' }}
                         styleOptions={barArrayChart}
                         transformOptions={{
                             yKey: 'count',

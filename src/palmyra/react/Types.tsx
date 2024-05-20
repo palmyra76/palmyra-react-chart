@@ -1,5 +1,5 @@
-import { ChartStore, ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
-import { ChartType, StyleOptions } from "../chart/Types";
+import { ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
+import { ChartType, RawDataType, StyleOptions } from "../chart/Types";
 import { MutableRefObject } from "react";
 import { ChartOptions, ChartType as ChartJStype } from "chart.js";
 
@@ -12,8 +12,10 @@ type chartJsOptions = any;
 interface AccessorOptions {
     xKey?: String,
     yKey?: String,
+    group?: String,
     xLabel?: String,
-    yLabel?: String
+    yLabel?: String,
+    sourceType?: RawDataType
 }
 
 interface DataPipeLine {
@@ -39,8 +41,13 @@ interface IDashBoard {
 }
 
 interface DataPipeLineOptions {
-    styleOptions: StyleOptions,
-    accessorOptions: AccessorOptions
+    styleOptions?: StyleOptions,
+    accessorOptions?: AccessorOptions
+}
+
+interface IDataSetOptions {
+    labels: any,
+    datasets: any
 }
 
 interface IAbstractChartOptions<T extends ChartType> extends DataPipeLineOptions {
@@ -57,11 +64,11 @@ interface IAbstractChartOptions<T extends ChartType> extends DataPipeLineOptions
 
 interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions<T> {
     chartRef?: MutableRefObject<IStaticChart<T>>,
-    chartData: any
+    chartData: IDataSetOptions
 }
 
 interface RemoteQueryOptions {
-    store: ChartStore<any>,
+    storeFactory?: ChartStoreFactory<any>,
     endPoint: IEndPoint,
     endPointVars?: IEndPointOptions
     filter?: any
@@ -99,7 +106,7 @@ interface IDynamicChart<T extends ChartType> extends ISimpleChart<T> {
 }
 
 
-export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDynamicChartOptions, DataPipeLineOptions, IAbstractChartOptions }
+export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDynamicChartOptions, DataPipeLineOptions, IAbstractChartOptions, IDataSetOptions }
 
 export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart }
 

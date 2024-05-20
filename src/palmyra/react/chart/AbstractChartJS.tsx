@@ -63,9 +63,20 @@ ChartJ.register(
 );
 
 function AbstractChartJS<T,>(p: IChartJSOptions) {
-    const verbose = true;
-    const options = { ...defaultOptions };
+    const defaultPlugins = [];
+
+    const verbose = p.verbose || false;
+    const options = p.options || { ...defaultOptions };
+    const plugins = p.plugins || defaultPlugins;
     const chartJsRef = useRef<ChartRef>(null);
+   
+    const datasets = p?.chartData?.datasets || [];
+    const labels = p?.chartData?.labels || [];
+
+    const data = {
+        labels: labels,
+        datasets: datasets
+    }
 
     const currentRef: MutableRefObject<IChartJS> = p.chartRef || useRef<IChartJS>(null);
 
@@ -90,7 +101,6 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
                 if (!chartJsRef.current)
                     return;
                 const chart = chartJsRef.current;
-                console.log(d);
                 if (d) {
                     chart.data = d;
                     chart.update();
@@ -119,8 +129,8 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
         // }
         // const { onClick } = useListener("Bar", props, chartRef);
         return <Chart type={ChartJSTypeRegistry[props.type]} ref={chartJsRef}
-            options={options}
-            data={{ datasets: [] }} height={getHeight()} />
+            options={options} plugins={plugins}
+            data={data} height={getHeight()} />
     }, []);
 
     return (

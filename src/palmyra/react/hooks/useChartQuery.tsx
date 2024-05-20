@@ -12,7 +12,7 @@ const useChartQuery = (props: RemoteQueryOptions, callback: Callback) => {
     const filterRef = useRef<any>(props.filter || {});
 
     const defaultFilter = {};
-    const store = props.store;
+    const storeFactory = props.storeFactory;
 
     const getQueryRequest = (): QueryRequest => {
         const endPointVars = ev.current;
@@ -39,9 +39,9 @@ const useChartQuery = (props: RemoteQueryOptions, callback: Callback) => {
     const fetch = () => {
         const params: QueryRequest = getQueryRequest();
 
-        if (store) {
+        if (storeFactory) {
             try {
-                store.query(params).then((d: any) => {
+                storeFactory.getChartStore({}, props.endPoint).query(params).then((d: any) => {
                     setResult(d);
                 }).catch((e) => {
                     var r = e.response ? e.response : e;
@@ -76,4 +76,4 @@ const useChartQuery = (props: RemoteQueryOptions, callback: Callback) => {
 }
 
 export { useChartQuery }
-export type { AsyncRemoteQueryOptions }
+// export type { AsyncRemoteQueryOptions }

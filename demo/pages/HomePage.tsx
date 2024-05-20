@@ -1,4 +1,4 @@
-import SampleChart from "../components/simpleChart/sampleChart"
+import SampleChart from "../components/simpleChart/StaticBarCharts"
 
 function HomePage() {
 

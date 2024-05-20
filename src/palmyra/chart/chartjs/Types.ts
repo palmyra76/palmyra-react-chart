@@ -7,6 +7,7 @@ interface Colorable {
     borderColor?: any,
     backgroundColor?: any,
     borderWidth?: any,
+    barThickness?: number
 }
 
 type Point = {

@@ -7,6 +7,7 @@ const assignStyles = (d, style: ChartStyle) => {
     d.hoverRadius = style?.hoverRadius
     d.radius = style?.radius
     d.hidden = style?.hidden
+    d.barThickness = style?.barThickness
 
     if (!style)
         return;
@@ -15,6 +16,7 @@ const assignStyles = (d, style: ChartStyle) => {
     assign(style, d, 'borderWidth');
     assign(style, d, 'hoverRadius');
     assign(style, d, 'hidden');
+    assign(style, d, 'barThickness');
     
 }
 

@@ -12,10 +12,10 @@ const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
     const chartJsRef = useRef<IChartJS>(null);
 
     const onData = (d: any) => {
-        if(null != chartJsRef.current){
+        if (null != chartJsRef.current) {
             const chartData = pipeLine(d);
             chartJsRef.current.setData(chartData);
-        }        
+        }
     }
 
     const { fetch, setFilter, setEndPointVars } = useChartQuery(props, {
@@ -51,7 +51,9 @@ const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
 
     return (
         <div>
-           <AbstractChartJS type={props.type} chartRef={chartJsRef}></AbstractChartJS> 
+            <AbstractChartJS type={props.type} chartRef={chartJsRef} options={props.chartOptions} plugins={props.plugins}
+                onAreaSelect={props.onAreaSelect} onPointClick={props.onPointClick} verbose={props.verbose}
+            ></AbstractChartJS>
         </div>
     )
 

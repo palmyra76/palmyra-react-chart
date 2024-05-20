@@ -1,6 +1,7 @@
 import { ChartOptions, ChartType as ChartJsType } from "chart.js"
 import { MutableRefObject } from "react"
 import { ChartType } from "../../chart"
+import { IDataSetOptions } from "../Types"
 
 interface IChartJSOptions {
     type: ChartType
@@ -8,6 +9,9 @@ interface IChartJSOptions {
     options?: ChartOptions<ChartJsType>,
     onPointClick?: (data: any) => void
     onAreaSelect?: (data: any) => void
+    verbose?: boolean
+    plugins?: any
+    chartData?: IDataSetOptions
 }
 
 interface IChartJS {
@@ -17,4 +21,4 @@ interface IChartJS {
     setData: (d: any) => void;
 }
 
-export type {IChartJS, IChartJSOptions}
+export type { IChartJS, IChartJSOptions }

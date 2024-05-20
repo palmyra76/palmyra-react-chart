@@ -1,12 +1,10 @@
-import BarChart from "../components/simpleChart/BarChart";
-import SampleChart from "../components/simpleChart/sampleChart";
+import SimpleBarCharts from "../components/simpleChart/SimpleBarCharts";
 
 const SimpleChartPage = () => {
 
     return (
         <div>
-            <BarChart/>
-            <SampleChart/>
+            <SimpleBarCharts />
         </div>
     )
 

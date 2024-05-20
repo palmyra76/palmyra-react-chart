@@ -11,7 +11,7 @@ const barChart = {
         backgroundColor: 'rgba(0,123,255,0.5)',
         borderColor: 'rgba(0,123,255,0.7)',
         borderWidth: 2,
-        hidden: true
+        hidden: true,
     }, 'CRITICAL/VULNERABLE': {
         backgroundColor: 'rgba(255,193,7,0.5)',
         borderColor: 'rgba(255,193,7,0.7)',
