@@ -1,4 +1,4 @@
-import { ITransformOptions, StyleOptions, ChartStyle, IDatasetStyleOptions } from "../../../Types";
+import { ITransformOptions, StyleOptions, ChartStyle, IDatasetStyleOptions, DataSetProperties } from "../../../Types";
 import { DataSet, DataSetType, DataSets, IStyleConverterFactory } from "../../Types"
 import { generateColor } from "../GenerateColors";
 import { extractNamedOptions, extractOptions, getStyle } from "../util";
@@ -48,6 +48,12 @@ const StyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOption
         }
     }
 
+    function assignProps(ds: DataSet<DataSetType>, props: DataSetProperties) {
+        Object.keys(props).map((k) => {
+            ds[k] = props[k];
+        })
+    }
+
     return (data: DataSets<DataSetType>, options?: any): DataSets<DataSetType> => {
         if (null == styleOptions || null == data || undefined == data)
             return data;
@@ -64,6 +70,10 @@ const StyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOption
                     processArray(ds, data, dataStyle);
                 } else {
                     processNamed(ds, data, dataStyle);
+                }
+
+                if (dataSetStyle.props) {
+                    assignProps(ds, dataSetStyle.props);
                 }
             })
         }

@@ -163,4 +163,4 @@ interface IChart {
 
 export type { ChartRegistry, StyleOptions, ChartStyle, transformable, ITransformOptions, ChartType, RawDataType, SelectedArea }
 export type { IChartOptions, IChart, PostProcessor, DataTransformer, TypedTransformOptions, IPalmyraChartOptions }
-export type { GroupedScatterTransformOptions, StyleType, storeBacked, IDatasetStyleOptions }
+export type { GroupedScatterTransformOptions, StyleType, storeBacked, IDatasetStyleOptions, DataSetProperties }
