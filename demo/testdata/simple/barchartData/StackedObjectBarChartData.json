@@ -1,0 +1,27 @@
+{
+	"result": [
+		{
+			"boothCount": 79,
+			"criticality": "Critical",
+			"constituency": "Colonelganj"
+		},
+		{
+			"boothCount": 8,
+			"criticality": "Critical/Vulnerable",
+			"constituency": "Colonelganj"
+		},
+		{
+			"boothCount": 42,
+			"criticality": "Vulnerable",
+			"constituency": "Colonelganj"
+		},
+		{
+			"boothCount": 50,
+			"criticality": "Normal",
+			"constituency": "Colonelganj"
+		}
+	],
+	"limit": 12,
+	"offset": 0,
+	"total": 0
+}

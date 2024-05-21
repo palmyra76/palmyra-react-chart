@@ -1,5 +1,5 @@
-import SimpleBarCharts from "../components/simpleChart/SimpleBarCharts";
-import SimpleLineCharts from "../components/simpleChart/SimpleLineCharts";
+import SimpleBarCharts from "../components/simpleChart/Bar/SimpleBarCharts";
+import SimpleLineCharts from "../components/simpleChart/Line/SimpleLineCharts";
 
 const SimpleChartPage = () => {
 

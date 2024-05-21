@@ -1,10 +1,10 @@
 {
     "result": {
         "CRITICAL": {
-            "count": 5
+            "count": 7
         },
         "CRITICAL/VULNERABLE": {
-            "count": 10
+            "count": 5
         },
         "VULNERABLE": {
             "count": 8

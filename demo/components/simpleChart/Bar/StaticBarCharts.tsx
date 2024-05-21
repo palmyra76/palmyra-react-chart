@@ -1,4 +1,4 @@
-import { StaticChart } from "../../../src/palmyra/react";
+import { StaticChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 const StaticBarChart = () => {

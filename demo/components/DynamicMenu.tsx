@@ -6,7 +6,7 @@ const DynamicMenu = ({ sidebarWidth }) => {
 
 
 
-    const treeStore = new PalmyraTreeStore({ target: 'demo/testdata' }, "/flatMenu.json");
+    const treeStore = new PalmyraTreeStore({ target: '/demo/testdata' }, "/flatMenu.json");
 
     return (
         <div style={{ width: "100%" }}>

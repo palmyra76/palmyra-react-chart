@@ -1,6 +1,6 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { barArrayChart, barChart, groupedBarChart } from "./chartColors";
-import { Dashboard, SimpleChart } from "../../../src/palmyra/react";
+import { barArrayChart, barChart } from "../chartColors";
+import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 const chartOptions: any = {
@@ -21,11 +21,13 @@ const chartOptions: any = {
     },
     scales: {
         x: {
+            stacked: true,
             grid: {
                 display: false
             }
         },
         y: {
+            stacked: true,
             grid: {
                 display: false
             }
@@ -51,7 +53,7 @@ const SimpleBarCharts = () => {
                     type="Bar" styleOptions={barChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "KeyValue" }} />
+                    accessorOptions={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }} />
 
                 Keyed Object
                 <SimpleChart endPoint={'/simple/barchartData/barKeyedObjectData.json'}
@@ -65,18 +67,6 @@ const SimpleBarCharts = () => {
                     type="Bar" chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
-
-                Grouped
-                <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
-                    type="GroupedBar" styleOptions={groupedBarChart}
-                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
-                    accessorOptions={{
-                        xKey: 'constituency',
-                        group: 'criticality',
-                        yKey: 'boothCount',
-                        yLabel: 'Criticality',
-                        sourceType: "Array"
-                    }} />
             </div>
         </Dashboard>
     </>

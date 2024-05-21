@@ -6,9 +6,39 @@
             "code": "home"
         },
         {
-            "id": 16,
-            "name": "Charts",
-            "code": "simpleChart"
+            "id": 2,
+            "name": "Chart Types",
+            "code": "simpleChart",
+            "children": "4, 5, 6, 7"
+        },
+        {
+            "id": 3,
+            "name": "Chart Scale",
+            "code": "chartScale"
+        },
+        {
+            "id": 4,
+            "name": "Bar Chart",
+            "code": "simpleChart/barChart",
+            "parent": 2
+        },
+        {
+            "id": 5,
+            "name": "Grouped Bar Chart",
+            "code": "simpleChart/groupedBarChart",
+            "parent": 2
+        },
+        {
+            "id": 6,
+            "name": "Stacked Bar Chart",
+            "code": "simpleChart/stackedBarChart",
+            "parent": 2
+        },
+        {
+            "id": 7,
+            "name": "Line Chart",
+            "code": "simpleChart/lineChart",
+            "parent": 2
         }
     ],
     "status": 200
