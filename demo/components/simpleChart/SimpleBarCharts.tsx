@@ -1,5 +1,5 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { barArrayChart, barChart } from "./chartColors";
+import { barArrayChart, barChart, groupedBarChart } from "./chartColors";
 import { Dashboard, SimpleChart } from "../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -22,12 +22,12 @@ const chartOptions: any = {
     scales: {
         x: {
             grid: {
-                display: true
+                display: false
             }
         },
         y: {
             grid: {
-                display: true
+                display: false
             }
         }
     }
@@ -66,24 +66,17 @@ const SimpleBarCharts = () => {
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
 
-                {/* Key Object
-            <SimpleChart endPoint={'/simple/barchartData/barObjectChartData.json'}
-                type="Bar" storeFactory={storeFactory} styleOptions={barArrayChart}
-                plugins={[ChartDataLabels]}
-                accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Custom" }} /> */}
-
-
-                {/* Grouped
+                Grouped
                 <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
-                    type="GroupedBar" styleOptions={barArrayChart}
-                    plugins={[ChartDataLabels]}
+                    type="GroupedBar" styleOptions={groupedBarChart}
+                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
                         group: 'criticality',
                         yKey: 'boothCount',
                         yLabel: 'Criticality',
                         sourceType: "Array"
-                    }} /> */}
+                    }} />
             </div>
         </Dashboard>
     </>

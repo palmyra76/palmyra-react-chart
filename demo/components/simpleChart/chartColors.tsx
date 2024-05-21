@@ -19,7 +19,6 @@ const barChart: StyleOptions = [{
     }
 }]
 
-
 const barArrayChart: StyleOptions = [{
     props: {
         borderWidth: 7
@@ -42,4 +41,85 @@ const barArrayChart: StyleOptions = [{
     ]
 }]
 
-export { barChart, barArrayChart };
+
+const groupedBarChart: StyleOptions = [{
+    props: {
+        borderWidth: 7
+    },
+    style: [{
+        backgroundColor: 'rgba(220,53,69,0.5)',
+        borderColor: 'rgba(220,53,69,1)',
+        hoverBackgroundColor: 'rgba(20,53,69,0.5)',
+    }
+    ]
+},
+{
+    props: {
+        borderWidth: 7
+    },
+    style: [{
+        backgroundColor: 'rgba(20,53,69,0.5)',
+        borderColor: 'rgba(20,53,69,1)',
+        hoverBackgroundColor: 'rgba(20,53,69,0.5)',
+    }
+    ]
+},
+{
+    props: {
+        borderWidth: 7
+    },
+    style: [{
+        backgroundColor: 'rgba(40,167,69,0.5)',
+        borderColor: 'rgba(40,167,69,1)'
+    }
+    ]
+},
+{
+    props: {
+        borderWidth: 7
+    },
+    style: [ {
+        backgroundColor: 'rgba(0,123,255,0.5)',
+        borderColor: 'rgba(0,123,255,0.7)'
+    }
+    ]
+}]
+
+
+
+
+// const lineChart: StyleOptions = [{
+//     style: {
+//         'CRITICAL': {
+//             borderColor: 'rgba(220,53,69,1)'
+//         }, 'NORMAL': {
+//             borderColor: 'rgba(40,167,69,1)'
+//         }, 'VULNERABLE': {
+//             borderColor: 'rgba(0,123,255,0.7)',
+//         }, 'CRITICAL/VULNERABLE': {
+//             borderColor: 'rgba(255,193,7,0.7)'
+//         }
+//     }
+// }]
+
+const lineChart: StyleOptions = [{
+    style: [{
+        backgroundColor: 'rgba(220,53,69,0.5)',
+        borderColor: 'rgba(220,53,69,1)'
+    }]
+}]
+
+const MultiLineChart: StyleOptions = [{
+    style: [{
+        backgroundColor: 'rgba(220,53,69,0.5)',
+        borderColor: 'rgba(220,53,69,1)'
+    },
+    {
+        backgroundColor: 'rgba(255,193,7,0.5)',
+        borderColor: 'rgba(255,193,7,0.7)'
+    }]
+}]
+
+
+
+export { barChart, barArrayChart, groupedBarChart, lineChart, MultiLineChart };

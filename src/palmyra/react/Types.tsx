@@ -11,10 +11,10 @@ type chartJsOptions = any;
 
 interface AccessorOptions {
     xKey?: String,
-    yKey?: String,
+    yKey?: String[] | String,
     group?: String,
     xLabel?: String,
-    yLabel?: String,
+    yLabel?: String[] | String,
     sourceType?: RawDataType
 }
 

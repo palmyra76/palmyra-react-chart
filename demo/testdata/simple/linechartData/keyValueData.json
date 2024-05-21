@@ -1,0 +1,8 @@
+{
+    "result": {
+        "CRITICAL": 2,
+        "CRITICAL/VULNERABLE": 7,
+        "VULNERABLE": 6,
+        "NORMAL": 4
+    }
+}
