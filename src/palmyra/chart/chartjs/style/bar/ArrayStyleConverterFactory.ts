@@ -4,16 +4,22 @@ import { DataSetType, DataSets, IStyleConverterFactory } from "../../Types"
 
 const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOptions,
     transformOptions?: ITransformOptions) => {
+
     return (data: DataSets<DataSetType>, options?: any): DataSets<DataSetType> => {
         if (null == styleOptions || null == data || undefined == data)
             return data;
+
+        console.log(data)
 
         if (!data)
             return;
 
         const chartStyle: any = styleOptions.style;
-        const optionsProvided: any = extractOptions(chartStyle);        
-        // @ts-ignore
+        
+        const dataSetProperties: any = styleOptions.props;
+
+        const optionsProvided: any = extractOptions(chartStyle);
+
         const length: number = chartStyle.length;
 
         if (data.datasets) {
@@ -28,6 +34,7 @@ const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleO
                         optionsProvided.map((option) => {
                             ds[option].push(style?.[option]);
                         })
+                        // ds.borderWidth.push(dataSetProperties[0].borderWidth)
                     })
                 }
             })

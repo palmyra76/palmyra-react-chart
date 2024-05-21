@@ -43,12 +43,12 @@ const SimpleBarCharts = () => {
                 Array
                 <SimpleChart type="Bar"
                     endPoint={'/simple/barchartData/barChartData.json'}
-                    styleOptions={barChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    styleOptions={barArrayChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Array" }} />
 
                 KeyValue
                 <SimpleChart endPoint={'/simple/barchartData/barKeyValueData.json'}
-                    type="Bar" styleOptions={barArrayChart}
+                    type="Bar" styleOptions={barChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "KeyValue" }} />

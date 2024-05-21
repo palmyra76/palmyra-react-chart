@@ -24,9 +24,7 @@ const BarNamedStyleConverterFactory: IStyleConverterFactory = (styleOptions: Sty
                     if (style.backgroundColor)
                         backgroundColor[index] = style.backgroundColor;
                     if (style.borderColor)
-                        borderColor[index] = style.borderColor;
-                    if (style.borderWidth)
-                        borderWidth = style.borderWidth;                  
+                        borderColor[index] = style.borderColor;             
                 }
             })
 

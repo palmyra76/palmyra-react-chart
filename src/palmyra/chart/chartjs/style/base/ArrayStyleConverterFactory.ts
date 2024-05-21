@@ -27,7 +27,6 @@ const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleO
                         const style: ChartStyle = chartStyle[i];
                         ds.backgroundColor.push(style?.backgroundColor)
                         ds.borderColor.push(style?.borderColor);
-                        ds.borderWidth.push(style?.borderWidth);
                     })
                 }
             })

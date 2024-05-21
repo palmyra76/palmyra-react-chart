@@ -35,10 +35,10 @@ var dataMap: Record<ChartType, Partial<Record<StyleType, IStyleConverterFactory>
 
 const getStyleType = (styleOptions: StyleOptions): StyleType => {
     const type: StyleType = styleOptions?.type;
+
     if (type)
         return type;
 
-    //@ts-ignore
     const style = styleOptions?.style;
     if (!style)
         return 'Random';
