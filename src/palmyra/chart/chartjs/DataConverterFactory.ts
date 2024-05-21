@@ -31,7 +31,7 @@ var dataMap: Record<ChartType, Partial<Record<RawDataType, DataConverterGen>>> =
     "AreaChart": LineConverters,
 
     "Bar": BarConverters,
-    "StackedBar": BarConverters,
+    "StackedBar": GroupedBarConverters,
 
     "Scatter": ScatterConverters,
     "GroupedScatter": GroupedScatterConverters,

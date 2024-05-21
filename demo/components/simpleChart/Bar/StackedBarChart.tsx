@@ -42,11 +42,12 @@ const StackedBarChart = () => {
         <div>Stacked Bar Chart</div>
         <Dashboard storeFactory={storeFactory}>
             <div>
-                <SimpleChart endPoint={'/simple/barchartData/StackedBarChartData.json'}
+                <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
                     type="StackedBar" styleOptions={groupedBarChart}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
+                        group: 'criticality',
                         yKey: 'boothCount',
                         yLabel: 'Criticality',
                         sourceType: "Array"
