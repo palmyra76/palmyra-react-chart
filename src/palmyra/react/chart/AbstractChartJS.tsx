@@ -65,7 +65,6 @@ ChartJ.register(
 function AbstractChartJS<T,>(p: IChartJSOptions) {
     const defaultPlugins = [];
 
-    const verbose = p.verbose || false;
     const options = p.options || { ...defaultOptions };
     const plugins = p.plugins || defaultPlugins;
     const chartJsRef = useRef<ChartRef>(null);
@@ -111,11 +110,6 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
 
     function getProps() {
         return p;
-    }
-
-    function log(msg: string, d: any) {
-        if (verbose)
-            console.log(msg, { ...d });
     }
 
     function getHeight() {

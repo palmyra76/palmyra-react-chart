@@ -34,21 +34,17 @@ var dataMap: Record<ChartType, Partial<Record<StyleType, IStyleConverterFactory>
 
 
 const getStyleType = (styleOptions: StyleOptions): StyleType => {
-    const type: StyleType = styleOptions?.type;
-
-    if (type)
-        return type;
-
-    const style = styleOptions?.style;
-    if (!style)
+    if (!styleOptions)
         return 'Random';
 
-    if (style instanceof Array) {
-        return 'Array';
-    }
+    const dsArray: boolean = styleOptions instanceof Array;
 
-    if (typeof (style) == 'object') {
-        const keys = Object.keys(style);
+    if (dsArray) {
+        //@ts-ignore
+        if (styleOptions.length > 0)
+            return 'Array';
+    } else {
+        const keys = Object.keys(styleOptions);
         if (keys.length > 0)
             return 'Named';
     }

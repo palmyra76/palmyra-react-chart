@@ -9,7 +9,6 @@ interface IChartJSOptions {
     options?: ChartOptions<ChartJsType>,
     onPointClick?: (data: any) => void
     onAreaSelect?: (data: any) => void
-    verbose?: boolean
     plugins?: any
     chartData?: IDataSetOptions
 }

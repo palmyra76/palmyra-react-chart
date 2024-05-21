@@ -4,7 +4,7 @@ import { generateColor } from "../GenerateColors";
 import { extractNamedOptions, extractOptions, getStyle } from "../util";
 
 
-const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOptions,
+const StyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOptions,
     transformOptions?: ITransformOptions) => {
 
     function processArray(ds: DataSet<DataSetType>, data: DataSets<DataSetType>, dataStyle: ChartStyle[]) {
@@ -72,4 +72,4 @@ const ArrayStyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleO
 }
 
 
-export { ArrayStyleConverterFactory }
+export { StyleConverterFactory }

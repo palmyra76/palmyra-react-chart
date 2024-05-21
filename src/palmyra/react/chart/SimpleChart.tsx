@@ -52,7 +52,7 @@ const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
     return (
         <div>
             <AbstractChartJS type={props.type} chartRef={chartJsRef} options={props.chartOptions} plugins={props.plugins}
-                onAreaSelect={props.onAreaSelect} onPointClick={props.onPointClick} verbose={props.verbose}
+                onAreaSelect={props.onAreaSelect} onPointClick={props.onPointClick} 
             ></AbstractChartJS>
         </div>
     )

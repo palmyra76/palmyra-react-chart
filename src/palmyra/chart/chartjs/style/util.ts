@@ -1,4 +1,4 @@
-import { ChartStyle } from "../../Types";
+import { ChartStyle, IDatasetStyleOptions, StyleOptions } from "../../Types";
 import generateColors from "./GenerateColors";
 
 const assignStyles = (d, style: ChartStyle) => {
@@ -25,4 +25,45 @@ const assignStyles = (d, style: ChartStyle) => {
 //         tgt[key] = src[key];
 // }
 
+
+
+function extractOptions(chartStyle: ChartStyle[]) {
+    const cache: any = {};
+    const result: string[] = [];
+    chartStyle.map((s) => {
+        Object.keys(s).map((k) => {
+            if (!cache[k]) {
+                result.push(k);
+                cache[k] = true;
+            }
+        })
+    })
+    return result;
+}
+
+
+function extractNamedOptions(chartStyle: Record<string, ChartStyle>) {
+    const cache: any = {};
+    const result: string[] = [];
+    Object.values(chartStyle).map((s) => {
+        Object.keys(s).map((k) => {
+            if (!cache[k]) {
+                result.push(k);
+                cache[k] = true;
+            }
+        })
+    })
+    return result;
+}
+
+function getStyle(styleOptions: StyleOptions, index: number, named: string): IDatasetStyleOptions {
+    if (styleOptions instanceof Array) {
+        const i = index % styleOptions.length;
+        return styleOptions[i];
+    } else {
+        return styleOptions[named];
+    }
+}
+
+export {getStyle, extractNamedOptions, extractOptions}
 export { assignStyles };

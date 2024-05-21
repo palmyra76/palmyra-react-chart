@@ -1,7 +1,7 @@
 import { StyleOptions } from "../../../src/lib";
 
-const barChart: StyleOptions = {
-    type: "Named",
+
+const barChart: StyleOptions = [{
     style: {
         'CRITICAL': {
             backgroundColor: 'rgba(220,53,69,0.5)',
@@ -17,14 +17,13 @@ const barChart: StyleOptions = {
             borderColor: 'rgba(255,193,7,0.7)'
         }
     }
-}
+}]
 
 
-const barArrayChart: StyleOptions = {
-    type: "Array",
-    props: [{
+const barArrayChart: StyleOptions = [{
+    props: {
         borderWidth: 7
-    }],
+    },
     style: [{
         backgroundColor: 'rgba(220,53,69,0.5)',
         borderColor: 'rgba(220,53,69,1)',
@@ -41,6 +40,6 @@ const barArrayChart: StyleOptions = {
         borderColor: 'rgba(40,167,69,1)'
     }
     ]
-}
+}]
 
 export { barChart, barArrayChart };

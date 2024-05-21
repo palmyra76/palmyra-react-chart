@@ -44,7 +44,7 @@ interface Titleable {
     hideTitle?: boolean
 }
 
-type StyleOptions = IStyleOptions;
+type StyleOptions = IDatasetStyleOptions[] | Record<string, IDatasetStyleOptions>;
 
 interface DataSetProperties {
     borderWidth?: number,
@@ -54,23 +54,19 @@ interface DataSetProperties {
     barPercentage?: number
 }
 
-type NamedStyle = Record<string, ChartStyle>;
-type NamedDataSetProperties = Record<string, DataSetProperties>
-
-type IStyleOptions = {
-    type?: StyleType,
-    props?: NamedDataSetProperties | DataSetProperties[],
-    style: NamedStyle | ChartStyle[] | Record<string, ChartStyle[]> | Record<string, NamedStyle>;
+interface IDatasetStyleOptions {
+    props?: DataSetProperties,    
+    style: Record<string, ChartStyle> | ChartStyle[];
 }
 
 interface ChartStyle {
-    backgroundColor?: string,    
+    backgroundColor?: string,
     borderColor?: string,
     hoverBackgroundColor?: string,
     hoverBorderColor?: string
 }
 
-type StyleType = 'Array' | 'Named' | 'Nested' | 'Random' | 'Noop';
+type StyleType = 'Array' | 'Named' | 'Mixed' | 'Random' | 'Noop';
 
 interface transformable {
     transformOptions?: ITransformOptions;
@@ -167,4 +163,4 @@ interface IChart {
 
 export type { ChartRegistry, StyleOptions, ChartStyle, transformable, ITransformOptions, ChartType, RawDataType, SelectedArea }
 export type { IChartOptions, IChart, PostProcessor, DataTransformer, TypedTransformOptions, IPalmyraChartOptions }
-export type { GroupedScatterTransformOptions, StyleType, storeBacked }
+export type { GroupedScatterTransformOptions, StyleType, storeBacked, IDatasetStyleOptions }
