@@ -15,7 +15,7 @@ interface MainLayoutInput {
 const MainLayout = (props: MainLayoutInput) => {
   var sideWidth = props.sideBarWidth;
   if (!sideWidth) {
-    sideWidth = '250px';
+    sideWidth = '260px';
   }
 
 
@@ -44,7 +44,7 @@ const MainLayout = (props: MainLayoutInput) => {
         sx={{
           flexGrow: 1,
           padding: '10px',
-          width: `calc(100% - ${sideWidth})`,
+          width: `calc(100%)`,
           minHeight: "100vh"
         }}
       >

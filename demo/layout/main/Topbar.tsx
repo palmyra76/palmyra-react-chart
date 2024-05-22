@@ -62,9 +62,10 @@ const Topbar: React.FC<TopbarProps> = ({ mobileOpen, setMobileOpen, display }) =
         >
           <MenuIcon />
         </IconButton>
-        <div className='topbar-avathar' onClick={toggleDropdown}>
-          <AccountCircleIcon className='avatar' />
-          <p className='avathar-name'>{user.name}</p>
+        <div className='topbar-avathar'>
+          <div className='topbar-text'>Home</div>
+          <div className='topbar-text'>API</div>
+          <div className='topbar-text'>Samples</div>
         </div>
         {dropdownOpen && (
           <ClickAwayListener onClickAway={() => { setDropdownOpen(false) }}>

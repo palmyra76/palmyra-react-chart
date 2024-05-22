@@ -1,6 +1,8 @@
 .topbar {
-  background-color:var(--topbar-bgcolor) !important;
+  background-color: var(--topbar-bgcolor) !important;
   color: var(--topbar-color) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .topbar-avathar {
@@ -10,6 +12,11 @@
   gap: 10%;
   align-items: center;
   vertical-align: middle;
+  width: 20%;
+  font-weight: bold;
+}
+
+.topbar-text {
   cursor: pointer;
 }
 
@@ -27,7 +34,7 @@
   top: 85%;
   right: 0.5%;
   background-color: var(--dropdown-bgcolor);
-  color:var(--dropdown-color);
+  color: var(--dropdown-color);
   box-shadow: var(--dropdown-boxshadow);
   z-index: 1;
   padding: 8px;

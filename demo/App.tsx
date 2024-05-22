@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css'
+import './themes/colorDef.css';
+import './themes/blue/Colors.css';
 import HomePage from "./pages/HomePage";
 import { MainLayout } from "./layout/main/MainLayout";
 import SimpleChartPage from "./pages/SimpleChartPage";

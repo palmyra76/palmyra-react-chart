@@ -10,7 +10,7 @@ const DynamicMenu = ({ sidebarWidth }) => {
 
     return (
         <div style={{ width: "100%" }}>
-            <div className='sidebar-middle' style={{ display: 'block' }}>
+            <div>
                 <AsyncTreeMenu store={treeStore} />
             </div>
         </div>

@@ -1,13 +1,12 @@
-import { Drawer, IconButton, List, Stack, Toolbar, Typography } from "@mui/material";
-import {Menu} from '@mui/icons-material';
+import { Drawer, List, Stack, Toolbar, Typography } from "@mui/material";
 import { FC, useState } from "react";
-
-import './Sidebar.scss';
+import { FcBarChart } from "react-icons/fc";
+import './Sidebar.css';
 // import AsyncTreeMenu from "../tree/AsyncTreeMenu";
 // import ApplicationMenu from "../../../../src/components/ApplicationMenu";
 
-interface ISideMenuInput{
-  sidebarWidth:boolean
+interface ISideMenuInput {
+  sidebarWidth: boolean
 }
 
 interface SidebarInput {
@@ -16,7 +15,7 @@ interface SidebarInput {
   mobileOpen?: boolean,
   setMobileOpen?: any,
   responsive?: boolean,
-  SideMenu:FC<ISideMenuInput>
+  SideMenu: FC<ISideMenuInput>
 }
 
 const Sidebar = (props: SidebarInput) => {
@@ -27,22 +26,11 @@ const Sidebar = (props: SidebarInput) => {
   const responsive = props.responsive;
   const AppMenu = props.SideMenu;
 
-  const [isMinimized, setIsMinimized] = useState(false);
-  const [isRotated, setIsRotated] = useState(false);
-
-  const barMenu = () => {
-    setIsRotated(!isRotated);
-    setIsMinimized(!isMinimized);
-  }
+  const [isMinimized, _setIsMinimized] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   }
-
-  const iconStyles = {
-    transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
-    transition: 'transform 0.3s ease',
-  };
 
   let drawerList = <List disablePadding>
     <div className="sidebar">
@@ -56,23 +44,13 @@ const Sidebar = (props: SidebarInput) => {
           >
             <Typography variant="h6" className={`sidebar-title ${!isMinimized ? 'minimized' : ''}`}>
               <div>
-                {!responsive && (
-                  <IconButton
-                    color="default"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={barMenu}
-                    sx={{ mr: 0 }}
-                  >
-                    <Menu style={iconStyles} className='sidebar-title-menu-icon' />
-                  </IconButton>
-                )}
+                <FcBarChart size='24px' />
               </div>
               <div>
                 {!isMinimized && (
-                  <>
+                  <div className="sidebar-title-text">
                     {props.appTitle}
-                  </>
+                  </div>
                 )}
               </div>
             </Typography>
@@ -81,7 +59,6 @@ const Sidebar = (props: SidebarInput) => {
       </div>
       <div className='sidebar-middle' style={{ display: isMinimized ? 'block' : 'block' }}>
         <AppMenu sidebarWidth={isMinimized} />
-        {/* <AsyncTreeMenu store={}/> */}
       </div>
       <div className='sidebar-footer' style={{ display: isMinimized ? 'none' : 'block' }}>
         <p className='sidebar-footer-text'>Powered by Palmyra</p>

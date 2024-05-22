@@ -60,20 +60,22 @@
     }
 }
 
+.sidebar-title-text {
+    font-size: 20px;
+}
+
 .sidebar-middle {
-    background-color: rgb(23, 27, 80);
+    border-right: 01px solid rgb(238, 238, 238);
+    height: calc(100vh - 120px);
+    font-family: rubik;
 
     .async-tree-menu-list:hover {
         background-color: rgb(198, 198, 198, 0.1);
-        color: white;
+        color: rgb(0, 0, 0);
     }
 
     .async-tree-menu-selected-list {
-        background-color: rgb(198, 198, 198, 0.3);
-        color: white;
+        background-color: rgba(var(--secondary-bgcolor-rgb), 0.1);
+        color: var(--secondary-bgcolor);
     }
-}
-
-.menu-name {
-    color: white;
 }
