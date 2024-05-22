@@ -52,6 +52,28 @@ const StackedBarChart = () => {
                         yLabel: 'Criticality',
                         sourceType: "Array"
                     }} />
+
+                <SimpleChart endPoint={'/simple/barchartData/GroupBarKeyObjectChartData.json'}
+                    type="StackedBar" styleOptions={groupedBarChart}
+                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
+                    accessorOptions={{
+                        xKey: 'constituency',
+                        group: 'criticality',
+                        yKey: 'boothCount',
+                        yLabel: 'Criticality',
+                        sourceType: "Object"
+                    }} />
+
+                <SimpleChart endPoint={'/simple/barchartData/GroupedBarObjectChartData.json'}
+                    type="StackedBar" styleOptions={groupedBarChart}
+                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
+                    accessorOptions={{
+                        xKey: 'constituency',
+                        group: 'criticality',
+                        yKey: 'boothCount',
+                        yLabel: 'Criticality',
+                        sourceType: "Object"
+                    }} />
             </div>
         </Dashboard>
     </>

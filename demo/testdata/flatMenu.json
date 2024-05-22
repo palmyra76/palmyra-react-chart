@@ -9,7 +9,7 @@
             "id": 2,
             "name": "Chart Types",
             "code": "simpleChart",
-            "children": "4, 5, 6, 7"
+            "children": "4, 5, 6, 7, 8"
         },
         {
             "id": 3,
@@ -38,6 +38,12 @@
             "id": 7,
             "name": "Line Chart",
             "code": "simpleChart/lineChart",
+            "parent": 2
+        },
+        {
+            "id": 8,
+            "name": "Multi Line Chart",
+            "code": "simpleChart/multiLineChart",
             "parent": 2
         }
     ],

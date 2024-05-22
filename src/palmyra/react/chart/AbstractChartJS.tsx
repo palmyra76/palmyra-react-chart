@@ -3,19 +3,19 @@ import { Chart as ChartRef, ChartType as ChartJSType, ChartOptions, registerable
 import { MutableRefObject, useImperativeHandle, useMemo, useRef } from 'react';
 import { Chart } from 'react-chartjs-2';
 
-import {
-    Chart as ChartJ,
-    CategoryScale,
-    LinearScale,
-    RadialLinearScale,
-    BarElement,
-    PointElement,
-    ArcElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
+// import {
+//     Chart as ChartJ,
+//     CategoryScale,
+//     LinearScale,
+//     RadialLinearScale,
+//     BarElement,
+//     PointElement,
+//     ArcElement,
+//     LineElement,
+//     Title,
+//     Tooltip,
+//     Legend,
+// } from 'chart.js';
 
 import { ChartType } from '../../chart';
 import { IChartJS, IChartJSOptions } from './Types';
@@ -49,18 +49,19 @@ const defaultOptions: ChartOptions = {
     },
 };
 
-ChartJ.register(
-    CategoryScale,
-    LinearScale,
-    RadialLinearScale,
-    BarElement,
-    PointElement,
-    ArcElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-);
+// ChartJ.register(
+//     CategoryScale,
+//     LinearScale,
+//     RadialLinearScale,
+//     BarElement,
+//     PointElement,
+//     ArcElement,
+//     LineElement,
+//     Title,
+//     Tooltip,
+//     Legend,
+//     TimeScale
+// );
 
 function AbstractChartJS<T,>(p: IChartJSOptions) {
     const defaultPlugins = [];
@@ -68,7 +69,7 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
     const options = p.options || { ...defaultOptions };
     const plugins = p.plugins || defaultPlugins;
     const chartJsRef = useRef<ChartRef>(null);
-   
+
     const datasets = p?.chartData?.datasets || [];
     const labels = p?.chartData?.labels || [];
 

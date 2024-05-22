@@ -22,7 +22,8 @@ interface DataPipeLine {
     preProcess?: converter,
     convertData?: converter,
     applyStyle?: converter,
-    postProcess?: converter
+    postProcess?: converter,
+    xScaleConverter?: converter
 }
 
 interface refreshOptions {

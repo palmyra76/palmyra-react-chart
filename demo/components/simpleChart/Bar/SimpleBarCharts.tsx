@@ -11,6 +11,7 @@ import { Api as KeyLessObjApi, Setup as KeyLessObjSetup, StyleOptions as KeyLess
 const chartOptions: any = {
     maintainAspectRatio: false,
     responsive: true,
+    indexAxis: 'y',
     plugins: {
         title: {
             text: "Bar Chart",

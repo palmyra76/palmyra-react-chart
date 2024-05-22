@@ -50,6 +50,28 @@ const GroupedBarChart = () => {
                         yLabel: 'Criticality',
                         sourceType: "Array"
                     }} />
+
+                <SimpleChart endPoint={'/simple/barchartData/GroupBarKeyObjectChartData.json'}
+                    type="GroupedBar" styleOptions={groupedBarChart}
+                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
+                    accessorOptions={{
+                        xKey: 'constituency',
+                        group: 'criticality',
+                        yKey: 'boothCount',
+                        yLabel: 'Criticality',
+                        sourceType: "Object"
+                    }} />
+
+                <SimpleChart endPoint={'/simple/barchartData/GroupedBarObjectChartData.json'}
+                    type="GroupedBar" styleOptions={groupedBarChart}
+                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
+                    accessorOptions={{
+                        xKey: 'constituency',
+                        group: 'criticality',
+                        yKey: 'boothCount',
+                        yLabel: 'Criticality',
+                        sourceType: "Object"
+                    }} />
             </div>
         </Dashboard>
     </>

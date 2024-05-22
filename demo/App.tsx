@@ -6,10 +6,11 @@ import './themes/blue/Colors.css';
 import HomePage from "./pages/HomePage";
 import { MainLayout } from "./layout/main/MainLayout";
 import SimpleChartPage from "./pages/SimpleChartPage";
-import SimpleLineCharts from "./components/simpleChart/Line/SimpleLineCharts";
-import GroupedBarChart from "./components/simpleChart/Bar/GroupedBarChart";
-import StackedBarChart from "./components/simpleChart/Bar/StackedBarChart";
 import BarChartPage from "./pages/barCharts/BarChartPage";
+import GroupedBarChartPage from "./pages/groupedBarCharts/GroupedBarChartPage";
+import StackedBarChartPage from "./pages/StackedBarCharts/StackedBarChartPage";
+import LineChartPage from "./pages/lineCharts/LineBarChartPage";
+import MultiLineBarChartPage from "./pages/lineCharts/MultiLineBarChartPage";
 
 function App() {
 
@@ -21,9 +22,10 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/simpleChart" element={<SimpleChartPage />} />
             <Route path="/simpleChart/barChart" element={<BarChartPage />} />
-            <Route path="/simpleChart/groupedBarChart" element={<GroupedBarChart />} />
-            <Route path="/simpleChart/stackedBarChart" element={<StackedBarChart />} />
-            <Route path="/simpleChart/lineChart" element={<SimpleLineCharts />} />
+            <Route path="/simpleChart/groupedBarChart" element={<GroupedBarChartPage />} />
+            <Route path="/simpleChart/stackedBarChart" element={<StackedBarChartPage />} />
+            <Route path="/simpleChart/lineChart" element={<LineChartPage />} />
+            <Route path="/simpleChart/multiLineChart" element={<MultiLineBarChartPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

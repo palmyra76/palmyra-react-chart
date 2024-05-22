@@ -125,6 +125,24 @@ const MultiLineChart: StyleOptions = [{
     }]
 }]
 
+const MultiLineNamedChart: StyleOptions = [{
+    style: {
+        'CRITICAL': {
+            backgroundColor: 'rgba(220,53,69,0.5)',
+            // borderColor: 'rgba(220,53,69,1)'
+        }, 'NORMAL': {
+            backgroundColor: 'rgba(40,167,69,0.5)',
+            // borderColor: 'rgba(40,167,69,1)'
+        }, 'VULNERABLE': {
+            backgroundColor: 'rgba(0,123,255,0.5)',
+            // borderColor: 'rgba(0,123,255,0.7)',
+        }, 'CRITICAL/VULNERABLE': {
+            backgroundColor: 'rgba(255,193,7,0.5)',
+            // borderColor: 'rgba(255,193,7,0.7)'
+        }
+    }
+}]
 
 
-export { barChart, barArrayChart, groupedBarChart, lineChart, MultiLineChart };
+
+export { barChart, barArrayChart, groupedBarChart, lineChart, MultiLineChart, MultiLineNamedChart };

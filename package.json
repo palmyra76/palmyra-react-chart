@@ -72,6 +72,7 @@
     "**/*.css"
   ],
   "dependencies": {
+    "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",

@@ -1,0 +1,24 @@
+{
+    "result": {
+        "one": {
+            "count": 5,
+            "min": 4,
+            "name": "CRITICAL"
+        },
+        "two": {
+            "count": 10,
+            "min": 8,
+            "name": "CRITICAL/VULNERABLE"
+        },
+        "three": {
+            "count": 8,
+            "min": 6,
+            "name": "VULNERABLE"
+        },
+        "four": {
+            "count": 4,
+            "min": 5,
+            "name": "NORMAL"
+        }
+    }
+}

@@ -2,23 +2,19 @@
     "result": [
         {
             "count": 8,
-            "min": 4,
-            "name": "CRITICAL"
+            "name": "2024-03-01T19:49:50"
         },
         {
             "count": 4,
-            "min": 6,
-            "name": "CRITICAL/VULNERABLE"
+            "name": "2024-03-02T19:49:50"
         },
         {
             "count": 6,
-            "min": 9,
-            "name": "VULNERABLE"
+            "name": "2024-03-03T19:49:50"
         },
         {
             "count": 3,
-            "min": 9,
-            "name": "NORMAL"
+            "name": "2024-03-04T19:49:50"
         }
     ]
 }
