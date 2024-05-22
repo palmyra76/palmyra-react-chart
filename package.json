@@ -78,6 +78,7 @@
     "d3-scale-chromatic": "^3.1.0",
     "palmyra-wire": "github:palmyra76/palmyra-wire",
     "react-draggable": "^4.4.6",
+    "react-syntax-highlighter": "^15.5.0",
     "usehooks-ts": "^2.16.0"
   }
 }
