@@ -1,6 +1,6 @@
 import { ArrayScaleConverter } from "../../../src/palmyra/chart/chartjs/converters/base/ArrayScaleConverter";
 
-test('sdf', () => {
+test('Array Data Converter', () => {
   const c = ArrayScaleConverter({});
   const o = c([
     { name: 'n23', value: 23 },
