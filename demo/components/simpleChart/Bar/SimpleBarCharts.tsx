@@ -1,5 +1,5 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { arrayChartStyle, chartStyle } from "../chartColors";
+import { arrayBarChartStyle, arrayChartStyle, chartStyle } from "../chartColors";
 import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import TabX from "../../tab/TabX";
@@ -7,6 +7,8 @@ import { Api as ArrayApi, Setup as ArraySetup, StyleOptions as ArrayStyle } from
 import { Api as KeyValueApi, Setup as KeyValueSetup, StyleOptions as KeyValueStyle } from "../../../pages/barCharts/config/BarKeyValueConfig";
 import { Api as KeyObjApi, Setup as KeyObjSetup, StyleOptions as KeyObjStyle } from "../../../pages/barCharts/config/BarKeyedObjConfig";
 import { Api as KeyLessObjApi, Setup as KeyLessObjSetup, StyleOptions as KeyLessObjStyle } from "../../../pages/barCharts/config/BarKeyLessObjConfig";
+import { BarChart } from "../../../../src/palmyra/react/chart/BarChart";
+
 
 const chartOptions: any = {
     maintainAspectRatio: false,
@@ -52,10 +54,14 @@ const SimpleBarCharts = () => {
             <div>
 
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="Bar"
+                {/* <SimpleChart type="Bar"
                     endPoint={'/simple/barchartData/barChartData.json'}
                     styleOptions={arrayChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
+                    accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} /> */}
+                <BarChart
+                    endPoint={'/simple/barchartData/barChartData.json'}
+                    style={arrayBarChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    accessor={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
                 <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>

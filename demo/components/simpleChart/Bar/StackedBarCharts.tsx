@@ -2,6 +2,7 @@ import { PalmyraStoreFactory } from "palmyra-wire";
 import { groupedChartStyle } from "../chartColors";
 import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { StackedBarChart } from "../../../../src/palmyra/react/chart/StackedBarChart";
 
 const chartOptions: any = {
     maintainAspectRatio: false,
@@ -21,11 +22,13 @@ const chartOptions: any = {
     },
     scales: {
         x: {
+            stacked: true,
             grid: {
                 display: false
             }
         },
         y: {
+            stacked: true,
             grid: {
                 display: false
             }
@@ -33,15 +36,15 @@ const chartOptions: any = {
     }
 };
 
-const GroupedBarChart = () => {
+const StackedBarCharts = () => {
     const storeFactory = new PalmyraStoreFactory({ baseUrl: '/demo/testdata' })
 
     return (<>
-        <div>Grouped Bar Chart</div>
+        <div>Stacked Bar Chart</div>
         <Dashboard storeFactory={storeFactory}>
             <div>
-                <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
-                    type="GroupedBar" styleOptions={groupedChartStyle}
+                {/* <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
+                    type="StackedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
@@ -49,12 +52,22 @@ const GroupedBarChart = () => {
                         yKey: 'boothCount',
                         yLabel: 'Criticality',
                         sourceType: "Array"
+                    }} /> */}
+                <StackedBarChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
+                    type="StackedBar" style={groupedChartStyle}
+                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
+                    accessor={{
+                        xKey: 'constituency',
+                        group: 'criticality',
+                        yKey: 'boothCount',
+                        yLabel: 'Criticality',
+                        sourceType: "Array"
                     }} />
-
                 <SimpleChart endPoint={'/simple/barchartData/GroupBarKeyObjectChartData.json'}
-                    type="GroupedBar" styleOptions={groupedChartStyle}
+                    type="StackedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
+                        xKey: 'constituency',
                         group: 'criticality',
                         yKey: 'boothCount',
                         yLabel: 'Criticality',
@@ -62,7 +75,7 @@ const GroupedBarChart = () => {
                     }} />
 
                 <SimpleChart endPoint={'/simple/barchartData/GroupedBarObjectChartData.json'}
-                    type="GroupedBar" styleOptions={groupedChartStyle}
+                    type="StackedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
@@ -77,4 +90,4 @@ const GroupedBarChart = () => {
     )
 }
 
-export default GroupedBarChart;
+export default StackedBarCharts;

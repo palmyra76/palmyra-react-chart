@@ -1,9 +1,9 @@
-import StackedBarChart from "../../components/simpleChart/Bar/StackedBarChart";
+import StackedBarCharts from "../../components/simpleChart/Bar/StackedBarCharts";
 
 const StackedBarChartPage = () => {
     return (
         <div>
-            <StackedBarChart />
+            <StackedBarCharts />
         </div>
     )
 }

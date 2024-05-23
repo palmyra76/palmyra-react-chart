@@ -1,9 +1,9 @@
-import GroupedBarChart from "../../components/simpleChart/Bar/GroupedBarChart";
+import GroupedBarCharts from "../../components/simpleChart/Bar/GroupedBarCharts";
 
 const GroupedBarChartPage = () => {
     return (
         <div>
-            <GroupedBarChart />
+            <GroupedBarCharts />
         </div>
     )
 }
