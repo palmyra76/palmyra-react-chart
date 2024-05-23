@@ -1,28 +1,28 @@
 import { StyleOptions } from "../../../src/lib";
 
 
-const barChart: StyleOptions = [{
+const chartStyle: StyleOptions = [{
     props: {
-        borderWidth: 3
+        borderWidth: 2
     },
     style: {
-        'CRITICAL': {
+        'January': {
             backgroundColor: 'rgba(220,53,69,0.5)',
             borderColor: 'rgba(220,53,69,1)'
-        }, 'NORMAL': {
+        }, 'February': {
             backgroundColor: 'rgba(40,167,69,0.5)',
             borderColor: 'rgba(40,167,69,1)'
-        }, 'VULNERABLE': {
+        }, 'March': {
             backgroundColor: 'rgba(0,123,255,0.5)',
             borderColor: 'rgba(0,123,255,0.7)',
-        }, 'CRITICAL/VULNERABLE': {
+        }, 'April': {
             backgroundColor: 'rgba(255,193,7,0.5)',
             borderColor: 'rgba(255,193,7,0.7)'
         }
     }
 }]
 
-const barArrayChart: StyleOptions = [{
+const arrayChartStyle: StyleOptions = [{
     props: {
         borderWidth: 2
     },
@@ -47,7 +47,7 @@ const barArrayChart: StyleOptions = [{
 }]
 
 
-const groupedBarChart: StyleOptions = [{
+const groupedChartStyle: StyleOptions = [{
     props: {
         borderWidth: 2
     },
@@ -128,21 +128,21 @@ const MultiLineChart: StyleOptions = [{
 const MultiLineNamedChart: StyleOptions = [{
     style: {
         'CRITICAL': {
-            backgroundColor: 'rgba(220,53,69,0.5)',
-            // borderColor: 'rgba(220,53,69,1)'
+            // backgroundColor: 'rgba(220,53,69,0.5)',
+            borderColor: 'rgba(220,53,69,1)'
         }, 'NORMAL': {
-            backgroundColor: 'rgba(40,167,69,0.5)',
-            // borderColor: 'rgba(40,167,69,1)'
+            // backgroundColor: 'rgba(40,167,69,0.5)',
+            borderColor: 'rgba(40,167,69,1)'
         }, 'VULNERABLE': {
-            backgroundColor: 'rgba(0,123,255,0.5)',
-            // borderColor: 'rgba(0,123,255,0.7)',
+            // backgroundColor: 'rgba(0,123,255,0.5)',
+            borderColor: 'rgba(0,123,255,0.7)',
         }, 'CRITICAL/VULNERABLE': {
-            backgroundColor: 'rgba(255,193,7,0.5)',
-            // borderColor: 'rgba(255,193,7,0.7)'
+            // backgroundColor: 'rgba(255,193,7,0.5)',
+            borderColor: 'rgba(255,193,7,0.7)'
         }
     }
 }]
 
 
 
-export { barChart, barArrayChart, groupedBarChart, lineChart, MultiLineChart, MultiLineNamedChart };
+export { chartStyle, arrayChartStyle, groupedChartStyle, lineChart, MultiLineChart, MultiLineNamedChart };

@@ -1,5 +1,5 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { groupedBarChart } from "../chartColors";
+import { groupedChartStyle } from "../chartColors";
 import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -41,7 +41,7 @@ const GroupedBarChart = () => {
         <Dashboard storeFactory={storeFactory}>
             <div>
                 <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
-                    type="GroupedBar" styleOptions={groupedBarChart}
+                    type="GroupedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
@@ -52,10 +52,9 @@ const GroupedBarChart = () => {
                     }} />
 
                 <SimpleChart endPoint={'/simple/barchartData/GroupBarKeyObjectChartData.json'}
-                    type="GroupedBar" styleOptions={groupedBarChart}
+                    type="GroupedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
-                        xKey: 'constituency',
                         group: 'criticality',
                         yKey: 'boothCount',
                         yLabel: 'Criticality',
@@ -63,7 +62,7 @@ const GroupedBarChart = () => {
                     }} />
 
                 <SimpleChart endPoint={'/simple/barchartData/GroupedBarObjectChartData.json'}
-                    type="GroupedBar" styleOptions={groupedBarChart}
+                    type="GroupedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',

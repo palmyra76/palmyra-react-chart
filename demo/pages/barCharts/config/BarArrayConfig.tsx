@@ -1,35 +1,34 @@
 const Component = `<SimpleChart 
-     type="Bar" 
-     endPoint={'/simple/barchartData/barObjectChartData.json'}
-     chartOptions={chartOptions}
-     plugins={[ChartDataLabels]} 
-     styleOptions={barArrayChart}
-     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} 
+    type="Bar"
+    endPoint={'/simple/barchartData/barChartData.json'}
+    styleOptions={arrayChartStyle} 
+    chartOptions={chartOptions} 
+    plugins={[ChartDataLabels]}
+    accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} 
 />
 `;
 const apiResponse = `{
-    "result": {
-        "one": {
+    "result": [
+        {
             "count": 5,
-            "name": "CRITICAL"
+            "name": "January"
         },
-        "two": {
+        {
             "count": 10,
-            "name": "CRITICAL/VULNERABLE"
+            "name": "February"
         },
-        "three": {
+        {
             "count": 8,
-            "name": "VULNERABLE"
+            "name": "March"
         },
-        "four": {
+        {
             "count": 4,
-            "name": "NORMAL"
+            "name": "April"
         }
-    }
-}
-`
+    ]
+}`
 
-const styles = `const barArrayChart: StyleOptions = [{
+const styles = `const arrayChartStyle: StyleOptions = [{
     props: {
         borderWidth: 2
     },
@@ -53,7 +52,7 @@ const styles = `const barArrayChart: StyleOptions = [{
     ]
 }]
 `
-import CodeHighlighter from '../../components/syntextHighlighter/CodeHighlighter';
+import CodeHighlighter from '../../../components/syntextHighlighter/CodeHighlighter';
 
 const Setup = () => {
     return (

@@ -1,7 +1,7 @@
 import SimpleChart from "../../../src/palmyra/chart/chartjs/rtu/SimpleChart";
 import { PalmyraStoreFactory } from "palmyra-wire";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { barChart, barArrayChart } from "./chartColors";
+import { chartStyle, arrayChartStyle } from "./chartColors";
 
 const BarChart = () => {
 
@@ -45,7 +45,7 @@ const BarChart = () => {
                         }}
                         plugins={[ChartDataLabels]}
                         storeOptions={{ endPoint: '/simple/barChartData.json' }}
-                        styleOptions={barChart}
+                        styleOptions={chartStyle}
                         transformOptions={{
                             yKey: 'count',
                             yLabel: 'Criticality'
@@ -86,7 +86,7 @@ const BarChart = () => {
                         }}
                         plugins={[ChartDataLabels]}
                         storeOptions={{ endPoint: '/simple/barchartData/barNamedChartData' }}
-                        styleOptions={barArrayChart}
+                        styleOptions={arrayChartStyle}
                         transformOptions={{
                             yKey: 'count',
                             yLabel: 'Criticality'
@@ -132,7 +132,7 @@ const BarChart = () => {
                         }}
                         plugins={[ChartDataLabels]}
                         storeOptions={{ endPoint: '/simple/HBarChartData.json' }}
-                        styleOptions={barChart}
+                        styleOptions={chartStyle}
                         transformOptions={{
                             xKey: 'constituency',
                             group: 'criticality',

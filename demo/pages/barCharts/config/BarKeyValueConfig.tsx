@@ -1,7 +1,7 @@
 const Component = `<SimpleChart 
      type="Bar"
      endPoint={'/simple/barchartData/barKeyValueData.json'} 
-     styleOptions={barChart}
+     styleOptions={chartStyle}
      chartOptions={chartOptions}
      plugins={[ChartDataLabels]}
      accessorOptions={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }} 
@@ -9,36 +9,37 @@ const Component = `<SimpleChart
 `;
 const apiResponse = `{
     "result": {
-        "CRITICAL": 2,
-        "CRITICAL/VULNERABLE": 7,
-        "VULNERABLE": 6,
-        "NORMAL": 4
+        "January": 2,
+        "February": 7,
+        "March": 6,
+        "April": 4
     }
 }
 `
 
-const styles = `const barChart: StyleOptions = [{
+const styles = `const chartStyle: StyleOptions = [{
     props: {
-        borderWidth: 3
+        borderWidth: 2,
+        borderThickness: 20
     },
     style: {
-        'CRITICAL': {
+        'January': {
             backgroundColor: 'rgba(220,53,69,0.5)',
             borderColor: 'rgba(220,53,69,1)'
-        }, 'NORMAL': {
+        }, 'February': {
             backgroundColor: 'rgba(40,167,69,0.5)',
             borderColor: 'rgba(40,167,69,1)'
-        }, 'VULNERABLE': {
+        }, 'March': {
             backgroundColor: 'rgba(0,123,255,0.5)',
             borderColor: 'rgba(0,123,255,0.7)',
-        }, 'CRITICAL/VULNERABLE': {
+        }, 'April': {
             backgroundColor: 'rgba(255,193,7,0.5)',
             borderColor: 'rgba(255,193,7,0.7)'
         }
     }
 }]
 `
-import CodeHighlighter from '../../components/syntextHighlighter/CodeHighlighter';
+import CodeHighlighter from '../../../components/syntextHighlighter/CodeHighlighter';
 
 const Setup = () => {
     return (

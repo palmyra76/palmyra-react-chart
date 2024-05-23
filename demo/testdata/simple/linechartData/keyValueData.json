@@ -1,8 +1,8 @@
 {
     "result": {
-        "CRITICAL": 10,
-        "CRITICAL/VULNERABLE": 6,
-        "VULNERABLE": 5,
-        "NORMAL": 9
+        "January": 10,
+        "February": 6,
+        "March": 5,
+        "April": 9
     }
 }

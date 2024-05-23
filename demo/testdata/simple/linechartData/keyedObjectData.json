@@ -1,15 +1,15 @@
 {
     "result": {
-        "CRITICAL": {
+        "January": {
             "count": 7
         },
-        "CRITICAL/VULNERABLE": {
+        "February": {
             "count": 5
         },
-        "VULNERABLE": {
+        "March": {
             "count": 8
         },
-        "NORMAL": {
+        "April": {
             "count": 4
         }
     }

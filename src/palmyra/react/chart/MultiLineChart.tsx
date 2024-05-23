@@ -20,7 +20,7 @@ interface IMultiLineChartOptions extends IRemoteDataChartOptions<'MultiLine'> {
 }
 
 
-const LineChart = (props: IMultiLineChartOptions) => {
+const MultiLineChart = (props: IMultiLineChartOptions) => {
     const derivedOptions: any = {};
     if (props.style)
         derivedOptions.styleOptions = props.style;
@@ -32,5 +32,5 @@ const LineChart = (props: IMultiLineChartOptions) => {
     )
 }
 
-export { LineChart };
+export { MultiLineChart };
 export type { IMultiLineChartOptions }

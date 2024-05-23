@@ -1,5 +1,5 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { groupedBarChart } from "../chartColors";
+import { groupedChartStyle } from "../chartColors";
 import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -43,7 +43,7 @@ const StackedBarChart = () => {
         <Dashboard storeFactory={storeFactory}>
             <div>
                 <SimpleChart endPoint={'/simple/barchartData/GroupBarChartData.json'}
-                    type="StackedBar" styleOptions={groupedBarChart}
+                    type="StackedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
@@ -54,7 +54,7 @@ const StackedBarChart = () => {
                     }} />
 
                 <SimpleChart endPoint={'/simple/barchartData/GroupBarKeyObjectChartData.json'}
-                    type="StackedBar" styleOptions={groupedBarChart}
+                    type="StackedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',
@@ -65,7 +65,7 @@ const StackedBarChart = () => {
                     }} />
 
                 <SimpleChart endPoint={'/simple/barchartData/GroupedBarObjectChartData.json'}
-                    type="StackedBar" styleOptions={groupedBarChart}
+                    type="StackedBar" styleOptions={groupedChartStyle}
                     plugins={[ChartDataLabels]} chartOptions={chartOptions}
                     accessorOptions={{
                         xKey: 'constituency',

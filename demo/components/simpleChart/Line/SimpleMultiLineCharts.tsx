@@ -35,9 +35,9 @@ const SimpleMultiLineCharts = () => {
                     styleOptions={MultiLineChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                    accessorOptions={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
 
-                KeylessObject
+                Keyless Object
                 <SimpleChart type="Line" endPoint={'/simple/multiLineChartData/objectChartData.json'}
                     chartOptions={chartOptions}
                     styleOptions={MultiLineNamedChart}

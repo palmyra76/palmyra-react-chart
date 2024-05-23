@@ -2,19 +2,19 @@
     "result": [
         {
             "count": 8,
-            "name": "2024-03-01T19:49:50"
+            "name": "January"
         },
         {
             "count": 4,
-            "name": "2024-03-02T19:49:50"
+            "name": "February"
         },
         {
             "count": 6,
-            "name": "2024-03-03T19:49:50"
+            "name": "March"
         },
         {
-            "count": 3,
-            "name": "2024-03-04T19:49:50"
+            "count": 2,
+            "name": "April"
         }
     ]
 }

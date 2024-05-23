@@ -2,19 +2,19 @@
     "result": [
         {
             "count": 5,
-            "name": "CRITICAL"
+            "name": "January"
         },
         {
             "count": 10,
-            "name": "CRITICAL/VULNERABLE"
+            "name": "February"
         },
         {
             "count": 8,
-            "name": "VULNERABLE"
+            "name": "March"
         },
         {
             "count": 4,
-            "name": "NORMAL"
+            "name": "April"
         }
     ]
 }
