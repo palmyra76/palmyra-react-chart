@@ -5,7 +5,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './Topbar.css';
 
 interface TopbarProps {
@@ -16,7 +15,7 @@ interface TopbarProps {
 
 const Topbar: React.FC<TopbarProps> = ({ mobileOpen, setMobileOpen, display }) => {
 
-  const [user] = useState<any>({});
+  //const [user] = useState<any>({});
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleLogOut = (event: any) => {

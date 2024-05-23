@@ -15,9 +15,6 @@ function getConverter(props: IAbstractChartOptions<any>): (d: any) => any {
     const accessorOptions: any = props.accessorOptions || {};
     return getDataConverter(props.type, props?.accessorOptions?.sourceType, accessorOptions);
 }
-function getScaleConverter(props: IAbstractChartOptions<any>): (d: any) => any {
-    return;
-}
 
 const generateDataPipeLine = (props: IAbstractChartOptions<any>) => {
     const pipeLine: DataPipeLine = props.dataPipeLine || {};
@@ -25,8 +22,6 @@ const generateDataPipeLine = (props: IAbstractChartOptions<any>) => {
     const postProcess = pipeLine.postProcess || noop;
     const applyStyle = pipeLine.applyStyle || getApplyStyleConverter(props);
     const convertData = pipeLine.convertData || getConverter(props);
-    const xScaleConverter = pipeLine.xScaleConverter;
-
 
     return (d: any) => {
         const pp = preProcess(d);

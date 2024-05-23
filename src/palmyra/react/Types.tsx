@@ -53,9 +53,8 @@ interface IDataSetOptions {
 }
 
 interface IAbstractChartOptions<T extends ChartType> extends DataPipeLineOptions {
-    type: ChartType
-    dataPipeLine?: DataPipeLine,
-    verbose?: boolean,
+    type?: ChartType
+    dataPipeLine?: DataPipeLine,    
     guideLine?: any,   // TODO guideline type to be defined
     plugins?: any,
     chartRef?: MutableRefObject<IAbstractChart<T>>
@@ -65,6 +64,7 @@ interface IAbstractChartOptions<T extends ChartType> extends DataPipeLineOptions
 }
 
 interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions<T> {
+    type: ChartType
     chartRef?: MutableRefObject<IStaticChart<T>>,
     chartData: IDataSetOptions
 }
@@ -76,7 +76,12 @@ interface RemoteQueryOptions {
     filter?: any
 }
 
-interface ISimpleChartOptions<T extends ChartType> extends IAbstractChartOptions<T>, RemoteQueryOptions {
+interface IRemoteDataChartOptions<T extends ChartType> extends IAbstractChartOptions<T>, RemoteQueryOptions{
+
+}
+
+interface ISimpleChartOptions<T extends ChartType> extends IRemoteDataChartOptions<T> {
+    type: ChartType,
     chartRef?: MutableRefObject<ISimpleChart<T>>
 }
 
@@ -112,4 +117,4 @@ export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDyna
 
 export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart }
 
-export type { RemoteQueryOptions, DataPipeLine }
+export type { RemoteQueryOptions, DataPipeLine, IRemoteDataChartOptions }

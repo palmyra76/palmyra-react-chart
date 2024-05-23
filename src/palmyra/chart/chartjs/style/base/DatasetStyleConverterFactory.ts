@@ -10,7 +10,8 @@ const DatasetStyleConverterFactory: IStyleConverterFactory = (styleOptions: Styl
         if (null == data || undefined == data)
             return data;
 
-        const chartStyle = styleOptions.style;
+        // TODO  this may not work
+        const chartStyle = styleOptions[0].style;
         
         if (data.labels) {
             const backgroundColor: any[] = generateColors(data.labels.length);

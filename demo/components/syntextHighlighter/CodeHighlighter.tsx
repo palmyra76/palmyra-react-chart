@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { _dark, _twilight, _tomorrow, dracula, _allyDark, _duotoneDark, _zTouch, _nightOwl, _okaidia, _hopscotch } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 interface codeHighlightInput {
     code: any,
     style?: any,
