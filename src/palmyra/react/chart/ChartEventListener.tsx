@@ -1,5 +1,5 @@
-import { InteractionItem, Plugin, ChartType as ChartJsType } from "chart.js";
-import { MouseEventHandler, MutableRefObject } from "react";
+import { InteractionItem, Plugin, ChartType as ChartJsType, Chart } from "chart.js";
+import { MouseEventHandler, MutableRefObject, useRef } from "react";
 import { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } from "react-chartjs-2";
 import { getPointConverter } from "../../chart/chartjs/DataConverterFactory";
 import { AreaSelectDrag, ChartType, IChartOptions } from "../../chart";
@@ -11,6 +11,7 @@ function isPointClicked(dataset: InteractionItem[]): boolean {
 
 interface ListenerResult {
     onClick?: MouseEventHandler<any>;
+    setData?: Function
 }
 
 const useAreaSelectListener = (chartType: ChartType, chartOptions: any, plugins: Plugin<ChartJsType>[], callback: any) => {
@@ -26,19 +27,20 @@ const useAreaSelectListener = (chartType: ChartType, chartOptions: any, plugins:
     }
 }
 
-const useClickListener = (chartType: string, props: IChartOptions<any>, chartRef: MutableRefObject<any>): ListenerResult => {
+const useClickListener = (chartType: string, props: IChartOptions<any>, chartRef: MutableRefObject<Chart>): ListenerResult => {
     if (!props.onPointClick)
         return {};
 
-    const { data, transformOptions, onPointClick } = props;
+    const { transformOptions, onPointClick } = props;
+    const dataRef = useRef<any>(props.data);
 
     const getData = (dataset: InteractionItem[], element: InteractionItem[], elements: InteractionItem[]) => {
         if (!dataset.length) return;
         var convert = getPointConverter(chartType);
-        return convert(data, transformOptions, element, elements)
+        return convert(dataRef.current, transformOptions, element, elements)
     };
 
-    const onClick = (event) => {
+    const onClick = (event: any) => {
         const { current: chart } = chartRef;
         if (!chart) {
             return;
@@ -53,7 +55,11 @@ const useClickListener = (chartType: string, props: IChartOptions<any>, chartRef
         }
     };
 
-    return { onClick };
+    const setData = (d) => {
+        dataRef.current = d;
+    }
+
+    return { onClick, setData };
 }
 
 export { useClickListener, useAreaSelectListener };

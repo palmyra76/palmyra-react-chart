@@ -17,7 +17,7 @@ import { Chart } from 'react-chartjs-2';
 //     Legend,
 // } from 'chart.js';
 
-import { ChartType } from '../../chart';
+import { ChartType, useClickListener } from '../../chart';
 import { IChartJS, IChartJSOptions } from './Types';
 
 
@@ -102,6 +102,9 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
                     return;
                 const chart = chartJsRef.current;
                 if (d) {
+                    if(setData){
+                        setData(d);
+                    }
                     chart.data = d;
                     chart.update();
                 }
@@ -117,14 +120,18 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
         return '350px';
     }
 
+
+    const { onClick, setData } = useClickListener(p.type, p, chartJsRef);
+
     const chart = useMemo(() => {
         const props = getProps();
+
         // if (props.onAreaSelect) {
         //     useAreaSelectListener(props.type, options, plugins, props.onAreaSelect);
         // }
         // const { onClick } = useListener("Bar", props, chartRef);
         return <Chart type={ChartJSTypeRegistry[props.type]} ref={chartJsRef}
-            options={options} plugins={plugins}
+            options={options} plugins={plugins} onClick={onClick}
             data={data} height={getHeight()} />
     }, []);
 
