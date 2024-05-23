@@ -114,6 +114,13 @@ const lineChart: StyleOptions = [{
     }]
 }]
 
+const lineChartStyle = {
+    style: [{
+        backgroundColor: 'rgba(220,53,69,0.5)',
+        borderColor: 'rgba(220,53,69,1)'
+    }]
+}
+
 const MultiLineChart: StyleOptions = [{
     style: [{
         backgroundColor: 'rgba(220,53,69,0.5)',
@@ -145,4 +152,4 @@ const MultiLineNamedChart: StyleOptions = [{
 
 
 
-export { chartStyle, arrayChartStyle, groupedChartStyle, lineChart, MultiLineChart, MultiLineNamedChart };
+export { chartStyle, arrayChartStyle, groupedChartStyle, lineChart, MultiLineChart, MultiLineNamedChart, lineChartStyle };

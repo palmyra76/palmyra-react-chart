@@ -1,5 +1,5 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { lineChart } from "../chartColors";
+import { lineChart, lineChartStyle } from "../chartColors";
 import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import 'chartjs-adapter-date-fns';
@@ -8,6 +8,7 @@ import { Api as ArrayApi, Setup as ArraySetup, StyleOptions as ArrayStyle } from
 import { Api as KeyValueApi, Setup as KeyValueSetup, StyleOptions as KeyValueStyle } from "../../../pages/lineCharts/config/LineKeyValueConfig";
 import { Api as KeyObjApi, Setup as KeyObjSetup, StyleOptions as KeyObjStyle } from "../../../pages/lineCharts/config/LineKeyedObjConfig";
 import { Api as KeyLessObjApi, Setup as KeyLessObjSetup, StyleOptions as KeyLessObjStyle } from "../../../pages/lineCharts/config/LineKeyLessObjConfig";
+import { LineChart } from "../../../../src/palmyra/react/chart/LineChart";
 
 
 const chartOptions: any = {
@@ -86,10 +87,15 @@ const SimpleLineCharts = () => {
         <Dashboard storeFactory={storeFactory}>
             <div>
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="Line"
+                {/* <SimpleChart type="Line"
                     endPoint={'/simple/linechartData/arrayData.json'}
                     styleOptions={lineChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }} />
+                    accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }} /> */}
+
+                <LineChart
+                    endPoint={'/simple/linechartData/arrayData.json'}
+                    style={lineChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }} />
                 <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
