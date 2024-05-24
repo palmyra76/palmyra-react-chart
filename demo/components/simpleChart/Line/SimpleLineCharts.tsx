@@ -96,8 +96,9 @@ const SimpleLineCharts = () => {
                     endPoint={'/simple/linechartData/arrayData.json'}
                     onPointClick={(d) => console.log(d)}
                     style={lineChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
+                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }}
+                    />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart type="Line" endPoint={'/simple/linechartData/keyValueData.json'}
@@ -106,7 +107,7 @@ const SimpleLineCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: "Count", sourceType: "KeyValue" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[KeyValueSetup, KeyValueApi, KeyValueStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueSetup, KeyValueApi, KeyValueStyle]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart type="Line" endPoint={'/simple/linechartData/keyedObjectData.json'}
@@ -115,7 +116,7 @@ const SimpleLineCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[KeyObjSetup, KeyObjApi, KeyObjStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyObjSetup, KeyObjApi, KeyObjStyle]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <SimpleChart type="Line" endPoint={'/simple/linechartData/objectChartData.json'}
@@ -124,7 +125,7 @@ const SimpleLineCharts = () => {
                     styleOptions={lineChart}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[KeyLessObjSetup, KeyLessObjApi, KeyLessObjStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyLessObjSetup, KeyLessObjApi, KeyLessObjStyle]} />
             </div>
         </Dashboard>
     </div>

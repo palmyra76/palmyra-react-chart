@@ -63,7 +63,7 @@ const SimpleBarCharts = () => {
                     onPointClick={(d) => console.log(d)}
                     style={arrayBarChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart endPoint={'/simple/barchartData/barKeyValueData.json'}
@@ -72,7 +72,7 @@ const SimpleBarCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[KeyValueSetup, KeyValueApi, KeyValueStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueSetup, KeyValueApi, KeyValueStyle]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart endPoint={'/simple/barchartData/barKeyedObjectData.json'}
@@ -81,7 +81,7 @@ const SimpleBarCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[KeyObjSetup, KeyObjApi, KeyObjStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyObjSetup, KeyObjApi, KeyObjStyle]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <SimpleChart endPoint={'/simple/barchartData/barObjectChartData.json'}
@@ -89,7 +89,7 @@ const SimpleBarCharts = () => {
                     type="Bar" chartOptions={chartOptions}
                     plugins={[ChartDataLabels]} styleOptions={arrayChartStyle}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[KeyLessObjSetup, KeyLessObjApi, KeyLessObjStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyLessObjSetup, KeyLessObjApi, KeyLessObjStyle]} />
             </div>
         </Dashboard>
     </div>

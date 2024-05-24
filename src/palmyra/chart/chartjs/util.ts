@@ -1,7 +1,7 @@
-import { ITransformOptions } from "../Types";
+import { AccessorOptions } from "../../react";
 
 
-function getKeys(options: ITransformOptions) {    
+function getKeys(options: AccessorOptions) {
     const xKey: any = options?.xKey || 'name';
     const yKe = options?.yKey || 'value';
 
@@ -13,7 +13,7 @@ function getKeys(options: ITransformOptions) {
     }
 }
 
-function getLabels(options: ITransformOptions) {
+function getLabels(options: AccessorOptions) {
     const xLabel: any = options?.xLabel || options?.xKey || 'name';
     const yLabs = options?.yLabel || options?.yKey || 'value';
 

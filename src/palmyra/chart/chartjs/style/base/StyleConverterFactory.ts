@@ -1,11 +1,12 @@
-import { ITransformOptions, StyleOptions, ChartStyle, IDatasetStyleOptions, DataSetProperties } from "../../../Types";
+import { AccessorOptions } from "../../../../react";
+import { StyleOptions, ChartStyle, IDatasetStyleOptions, DataSetProperties } from "../../../Types";
 import { DataSet, DataSetType, DataSets, IStyleConverterFactory } from "../../Types"
 import { generateColor } from "../GenerateColors";
 import { extractNamedOptions, extractOptions, getStyle } from "../util";
 
 
 const StyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOptions,
-    transformOptions?: ITransformOptions) => {
+    options?: AccessorOptions) => {
 
     function processArray(ds: DataSet<DataSetType>, data: DataSets<DataSetType>, dataStyle: ChartStyle[]) {
         const length: number = dataStyle.length;
@@ -38,9 +39,9 @@ const StyleConverterFactory: IStyleConverterFactory = (styleOptions: StyleOption
                 const style: ChartStyle = dataStyle[key];
                 optionsProvided.map((option) => {
                     const v = (style?.[option]);
-                    if(undefined != v )
+                    if (undefined != v)
                         ds[option][index] = (style?.[option]);
-                    else if(option.includes('Color')){
+                    else if (option.includes('Color')) {
                         ds[option][index] = generateColor();
                     }
                 })

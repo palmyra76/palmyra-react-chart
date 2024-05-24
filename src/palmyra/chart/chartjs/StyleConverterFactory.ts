@@ -19,7 +19,7 @@ var dataMap: Record<ChartType, Partial<Record<StyleType, IStyleConverterFactory>
     "AreaChart": LineConverters,
 
     "Bar": BarConverters,
-    "StackedBar": BarConverters,
+    "StackedBar": GroupedBarConverters,
 
     "Scatter": ScatterConverters,
     "GroupedScatter": GroupedScatterConverters,

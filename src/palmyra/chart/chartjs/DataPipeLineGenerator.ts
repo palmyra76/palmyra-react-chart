@@ -20,11 +20,11 @@ const generateDataPipeLine = (props: IAbstractChartOptions<any>) => {
     const pipeLine: DataPipeLine = props.dataPipeLine || {};
     const preProcess = pipeLine.preProcess || noop;
     const postProcess = pipeLine.postProcess || noop;
-    const applyStyle = pipeLine.applyStyle || getApplyStyleConverter(props);
-    const convertData = pipeLine.convertData || getConverter(props);
+    const applyStyle = pipeLine.applyStyle || getApplyStyleConverter(props) || noop;
+    const convertData = pipeLine.convertData || getConverter(props) || noop;
 
     return (d: any) => {
-        const pp = preProcess(d);
+        const pp = preProcess(d);        
         const cd = convertData(pp);
         const as = applyStyle(cd);
         return postProcess(as);

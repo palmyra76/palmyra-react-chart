@@ -32,7 +32,7 @@ const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
             <AbstractChartJS type={props.type} chartJsRef={chartJsRef}
                 guideLine={props.guideLine} chartOptions={props.chartOptions}
                 plugins={props.plugins} onAreaSelect={props.onAreaSelect}
-                onPointClick={props.onPointClick}
+                onPointClick={props.onPointClick} data={props.chartData}
             ></AbstractChartJS>
         </div>
     )

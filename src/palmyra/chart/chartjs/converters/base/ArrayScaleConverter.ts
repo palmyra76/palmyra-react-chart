@@ -1,8 +1,8 @@
 import { ChartDataConverter, ScaleDataInput, ScaleDataSet } from "../../Types";
-import { ITransformOptions } from "../../../Types";
 import { getKeys, getLabel, getLabels } from "../../util";
+import { AccessorOptions } from "../../../../react";
 
-const ArrayScaleConverter = (options: ITransformOptions): ChartDataConverter<any> => {
+const ArrayScaleConverter = (options: AccessorOptions): ChartDataConverter<any> => {
     const { xKey, yKeys } = getKeys(options);
     const { yLabels } = getLabels(options);
 
