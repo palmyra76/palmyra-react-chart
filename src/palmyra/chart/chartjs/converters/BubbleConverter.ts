@@ -4,6 +4,7 @@ import { DataConverterGen, IgetPointData } from "../DataConverterFactory";
 import { Bubble, BubbleDataInput, BubbleDataSet, ChartDataConverter } from "../Types";
 import generateColors, { getRandomNumber } from "../style/GenerateColors";
 import { ITransformOptions, RawDataType } from "../../Types";
+import { AccessorOptions, DataPipeLine } from "../../../react";
 
 
 
@@ -34,14 +35,14 @@ function getData(dataMap: Record<string, BubbleDataSet>, key: string, ITransform
     return r;
 }
 
-function getKeys(ITransformOptions: ITransformOptions): { x: string, y: string, r: string, label: string } {
-    const xLabel: string = ITransformOptions?.xLabel || 'name';
-    const xKey: any = ITransformOptions?.xKey || 'x';
-    const yKey: any = ITransformOptions?.yKey || 'y';
-    const rKey: string = ITransformOptions?.rKey || 'r';
+function getKeys(accessorOptions: AccessorOptions): { x: string, y: string, r: string, label: string } {
+    const xLabel: any = accessorOptions?.xLabel || 'name';
+    const xKey: any = accessorOptions?.xKey || 'x';
+    const yKey: any = accessorOptions?.yKey || 'y';
+    const rKey: any = accessorOptions?.rKey || 'r';
 
     if (yKey instanceof Array) {
-        console.error("BubbleChart: yKey should be string only, not an array " + ITransformOptions.yKey);
+        console.error("BubbleChart: yKey should be string only, not an array " + accessorOptions.yKey);
     }
 
     return {
@@ -107,8 +108,8 @@ const ObjectConverter = (options: ITransformOptions): ChartDataConverter<Bubble>
     }
 }
 
-const getPointData: IgetPointData = (data: any, ITransformOptions: ITransformOptions, element: InteractionItem[], elements: InteractionItem[]) => {
-    const { x, y, r } = getKeys(ITransformOptions);
+const getPointData: IgetPointData = (data: any, accessorOptions: AccessorOptions, dataPipeLine: DataPipeLine, element: InteractionItem[], elements: InteractionItem[]) => {
+    const { x, y, r } = getKeys(accessorOptions);
     var result = {};
 
     element.map((e) => {

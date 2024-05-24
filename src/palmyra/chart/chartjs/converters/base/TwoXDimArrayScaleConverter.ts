@@ -18,7 +18,7 @@ const TwoXDimArrayScaleConverter = (options: ITransformOptions): ChartDataConver
         const xKeys: string[] = xKey;
         const primaryKey = xKeys[0];
         const secondaryKey = xKeys[1];
-        const yKey = yKeys[0] || 'count';
+        const yKey: any = yKeys[0] || 'count';
 
         const tempLabels = {};
         const tempSecLabels = {};
@@ -56,4 +56,4 @@ const TwoXDimArrayScaleConverter = (options: ITransformOptions): ChartDataConver
     }
 }
 
-export {TwoXDimArrayScaleConverter};
+export { TwoXDimArrayScaleConverter };

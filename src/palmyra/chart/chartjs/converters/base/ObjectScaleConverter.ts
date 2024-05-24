@@ -18,7 +18,7 @@ const ObjectScaleConverter = (options: ITransformOptions): ChartDataConverter<nu
         }
 
         // Initialize the dataset array based on the number of yKeys
-        yKeys.map((key, index) => {
+        yKeys.map((key: any, index) => {
             const label = getLabel(yLabels, key, index);
             var data: ScaleDataSet = { key, label: label, data: [] };
             result.datasets[index] = data;
@@ -34,7 +34,7 @@ const ObjectScaleConverter = (options: ITransformOptions): ChartDataConverter<nu
             result.labels.push(xKeyAccessor(data, key));
             // Populate the data for each yKey
 
-            yKeys.map((key, index) => {
+            yKeys.map((key: any, index) => {
                 result.datasets[index].data.push(data[key]);
             })
         }

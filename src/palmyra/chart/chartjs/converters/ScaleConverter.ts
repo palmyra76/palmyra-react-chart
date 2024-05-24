@@ -1,19 +1,19 @@
 import { InteractionItem } from "chart.js";
 import { IgetPointData } from "../DataConverterFactory";
 import { ChartDataConverter } from "../Types";
-import { ITransformOptions } from "../../Types";
 import { getKeys } from "../util";
+import { DataPipeLine, AccessorOptions } from "../../../react";
 
-const NoopConverter = (options: ITransformOptions): ChartDataConverter<any> => {
+const NoopConverter = (options: AccessorOptions): ChartDataConverter<any> => {
     return (data) => { return data };
 }
 
-const getScalePointData: IgetPointData = (data: any, ITransformOptions: ITransformOptions, element: InteractionItem[], elements: InteractionItem[]) => {
+const getScalePointData: IgetPointData = (data: any, options: AccessorOptions, dataPipeLine: DataPipeLine, element: InteractionItem[], elements: InteractionItem[]) => {
 
-    var { xKey } = getKeys(ITransformOptions);
+    var { xKey } = getKeys(options);
     const xValue = data.labels[element[0].index]
 
-    if (ITransformOptions.sourceType == 'KeyValue') {
+    if (options?.sourceType == 'KeyValue') {
         var { index, datasetIndex } = element[0];
         var dataSet = data.datasets[datasetIndex];
         var value = dataSet.data[index];
@@ -23,7 +23,7 @@ const getScalePointData: IgetPointData = (data: any, ITransformOptions: ITransfo
     var result = { [xKey]: xValue };
     element.map((e) => {
         var dataSet = data.datasets[e.datasetIndex];
-        var label = dataSet.label;
+        var label = dataSet.key;
         result[label] = dataSet.data[e.index];
     });
 

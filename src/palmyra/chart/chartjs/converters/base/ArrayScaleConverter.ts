@@ -17,7 +17,7 @@ const ArrayScaleConverter = (options: ITransformOptions): ChartDataConverter<any
 
         var dataMap: Record<string, ScaleDataSet> = {};
 
-        yKeys.map((key, index) => {
+        yKeys.map((key: any, index) => {
             const label = getLabel(yLabels, key, index);
             var data: ScaleDataSet = { key, label: label, data: [] };
             dataMap[key] = data;
@@ -28,7 +28,7 @@ const ArrayScaleConverter = (options: ITransformOptions): ChartDataConverter<any
             var label = record[xKey];
             result.labels.push(label);
 
-            yKeys.map((key) => {
+            yKeys.map((key: any) => {
                 var dataset = dataMap[key];
                 dataset.data[index] = record[key];
             })
@@ -37,4 +37,4 @@ const ArrayScaleConverter = (options: ITransformOptions): ChartDataConverter<any
     }
 }
 
-export {ArrayScaleConverter}
+export { ArrayScaleConverter }

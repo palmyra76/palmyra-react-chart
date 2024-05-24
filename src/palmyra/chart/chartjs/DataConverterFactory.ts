@@ -13,9 +13,10 @@ import { getScalePointData } from './converters/ScaleConverter';
 import { InteractionItem } from 'chart.js';
 import { ChartType, ITransformOptions, RawDataType } from '../Types';
 import { ChartDataConverter, DataSetType } from '..';
+import { AccessorOptions, DataPipeLine } from '../../react';
 
 
-type IgetPointData = (data: any, options: ITransformOptions, element: InteractionItem[], elements: InteractionItem[]) => Record<string, any>;
+type IgetPointData = (data: any, options: AccessorOptions, dataPipeLine: DataPipeLine, element: InteractionItem[], elements: InteractionItem[]) => Record<string, any>;
 
 interface DataConverterGen {
     (options: ITransformOptions): ChartDataConverter<DataSetType>

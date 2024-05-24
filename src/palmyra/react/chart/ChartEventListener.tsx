@@ -2,7 +2,8 @@ import { InteractionItem, Plugin, ChartType as ChartJsType, Chart } from "chart.
 import { MouseEventHandler, MutableRefObject, useRef } from "react";
 import { getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } from "react-chartjs-2";
 import { getPointConverter } from "../../chart/chartjs/DataConverterFactory";
-import { AreaSelectDrag, ChartType, IChartOptions } from "../../chart";
+import { AreaSelectDrag, ChartType } from "../../chart";
+import { DataPipeLine, IAbstractChartOptions } from "../Types";
 
 
 function isPointClicked(dataset: InteractionItem[]): boolean {
@@ -27,17 +28,17 @@ const useAreaSelectListener = (chartType: ChartType, chartOptions: any, plugins:
     }
 }
 
-const useClickListener = (chartType: string, props: IChartOptions<any>, chartRef: MutableRefObject<Chart>): ListenerResult => {
+const useClickListener = (chartType: string, props: IAbstractChartOptions<any>, dataPipeLine: DataPipeLine, chartRef: MutableRefObject<Chart>): ListenerResult => {
     if (!props.onPointClick)
         return {};
 
-    const { transformOptions, onPointClick } = props;
-    const dataRef = useRef<any>(props.data);
+    const { accessorOptions, onPointClick } = props;
+    const dataRef = useRef<any>(null);
 
     const getData = (dataset: InteractionItem[], element: InteractionItem[], elements: InteractionItem[]) => {
         if (!dataset.length) return;
         var convert = getPointConverter(chartType);
-        return convert(dataRef.current, transformOptions, element, elements)
+        return convert(dataRef.current, accessorOptions, dataPipeLine, element, elements)
     };
 
     const onClick = (event: any) => {

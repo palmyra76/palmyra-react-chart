@@ -16,7 +16,7 @@ const KeyValueScaleConverter = (options: ITransformOptions): ChartDataConverter<
             return result;
         }
 
-        const label = yLabels[0] || 'value';
+        const label: any = yLabels[0] || 'value';
         const key = xKey || xLabel || 'name';
         var dataset: ScaleDataSet = { key, label: label, data: [] };
         result.datasets[0] = dataset;
@@ -29,4 +29,4 @@ const KeyValueScaleConverter = (options: ITransformOptions): ChartDataConverter<
     }
 }
 
-export {KeyValueScaleConverter}
+export { KeyValueScaleConverter }

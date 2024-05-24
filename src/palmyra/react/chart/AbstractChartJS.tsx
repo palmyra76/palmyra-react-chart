@@ -88,7 +88,7 @@ function AbstractChartJS<T,>(props: IAbstractChartJSOptions) {
     }
 
 
-    const { onClick, setData } = useClickListener(props.type, props, chartRef);
+    const { onClick, setData } = useClickListener(props.type, props, props.dataPipeLine, chartRef);
 
     const chart = useMemo(() => {
         const props = getProps();

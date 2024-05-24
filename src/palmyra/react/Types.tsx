@@ -13,6 +13,7 @@ type chartJsOptions = any;
 interface AccessorOptions {
     xKey?: String,
     yKey?: String[] | String,
+    rKey?: String,
     group?: String,
     xLabel?: String,
     yLabel?: String[] | String,
@@ -131,4 +132,4 @@ export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDyna
 
 export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart, IAbstractChartJSOptions }
 
-export type { RemoteQueryOptions, DataPipeLine, IRemoteDataChartOptions, IChartJS }
+export type { RemoteQueryOptions, DataPipeLine, IRemoteDataChartOptions, IChartJS, AccessorOptions }

@@ -26,12 +26,14 @@ const SimpleMultiLineCharts = () => {
             <div>
                 Array
                 <SimpleChart type="Line"
+                    onPointClick={(d) => console.log(d)}
                     endPoint={'/simple/multiLineChartData/arrayData.json'}
                     styleOptions={MultiLineChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }} />
 
                 Keyed Object
                 <SimpleChart type="Line" endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
+                    onPointClick={(d) => console.log(d)}
                     styleOptions={MultiLineChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -39,6 +41,7 @@ const SimpleMultiLineCharts = () => {
 
                 Keyless Object
                 <SimpleChart type="Line" endPoint={'/simple/multiLineChartData/objectChartData.json'}
+                    onPointClick={(d) => console.log(d)}
                     chartOptions={chartOptions}
                     styleOptions={MultiLineNamedChart}
                     plugins={[ChartDataLabels]}

@@ -94,12 +94,14 @@ const SimpleLineCharts = () => {
 
                 <LineChart
                     endPoint={'/simple/linechartData/arrayData.json'}
+                    onPointClick={(d) => console.log(d)}
                     style={lineChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }} />
                 <TabX labels={['Setup', 'API Response', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart type="Line" endPoint={'/simple/linechartData/keyValueData.json'}
+                    onPointClick={(d) => console.log(d)}
                     styleOptions={lineChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -108,6 +110,7 @@ const SimpleLineCharts = () => {
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart type="Line" endPoint={'/simple/linechartData/keyedObjectData.json'}
+                    onPointClick={(d) => console.log(d)}
                     styleOptions={lineChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -116,6 +119,7 @@ const SimpleLineCharts = () => {
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <SimpleChart type="Line" endPoint={'/simple/linechartData/objectChartData.json'}
+                    onPointClick={(d) => console.log(d)}
                     chartOptions={chartOptions}
                     styleOptions={lineChart}
                     plugins={[ChartDataLabels]}

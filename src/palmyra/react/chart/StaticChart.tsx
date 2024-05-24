@@ -1,8 +1,7 @@
 import { useImperativeHandle, useRef } from "react";
-import { IStaticChart, IStaticChartOptions } from "../Types";
+import { IChartJS, IStaticChart, IStaticChartOptions } from "../Types";
 import { ChartType } from "../../chart";
 import { AbstractChartJS } from "./AbstractChartJS";
-import { IChartJS } from "./Types";
 
 
 const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
@@ -30,8 +29,10 @@ const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
 
     return (
         <div>
-            <AbstractChartJS type={props.type} chartRef={chartJsRef} options={props.chartOptions} plugins={props.plugins}
-                onAreaSelect={props.onAreaSelect} onPointClick={props.onPointClick} chartData={props.chartData}
+            <AbstractChartJS type={props.type} chartJsRef={chartJsRef}
+                guideLine={props.guideLine} chartOptions={props.chartOptions}
+                plugins={props.plugins} onAreaSelect={props.onAreaSelect}
+                onPointClick={props.onPointClick}
             ></AbstractChartJS>
         </div>
     )
