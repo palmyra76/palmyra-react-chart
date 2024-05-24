@@ -8,5 +8,5 @@
     "strict": true,
     "strictPropertyInitialization": false
   },
-  "include": ["build.vite.config.ts"]
+  "include": ["demo.vite.config.ts"]
 }
