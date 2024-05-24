@@ -8,6 +8,7 @@ import { Api as KeyValueApi, Setup as KeyValueSetup, StyleOptions as KeyValueSty
 import { Api as KeyObjApi, Setup as KeyObjSetup, StyleOptions as KeyObjStyle } from "../../../pages/barCharts/config/BarKeyedObjConfig";
 import { Api as KeyLessObjApi, Setup as KeyLessObjSetup, StyleOptions as KeyLessObjStyle } from "../../../pages/barCharts/config/BarKeyLessObjConfig";
 import { BarChart } from "../../../../src/palmyra/react/chart/BarChart";
+import { toast } from 'react-toastify';
 
 
 const chartOptions: any = {
@@ -60,14 +61,14 @@ const SimpleBarCharts = () => {
                     accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} /> */}
                 <BarChart
                     endPoint={'/simple/barchartData/barChartData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => toast.info(d.name + " : " + d.count)}
                     style={arrayBarChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart endPoint={'/simple/barchartData/barKeyValueData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    // onPointClick={(d) => toast.info(`${d}`)}
                     type="Bar" styleOptions={chartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -76,7 +77,7 @@ const SimpleBarCharts = () => {
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart endPoint={'/simple/barchartData/barKeyedObjectData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => toast.info(d.name + " : " + d.count)}
                     type="Bar" styleOptions={arrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -85,7 +86,7 @@ const SimpleBarCharts = () => {
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <SimpleChart endPoint={'/simple/barchartData/barObjectChartData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => toast.info(d.name + " : " + d.count)}
                     type="Bar" chartOptions={chartOptions}
                     plugins={[ChartDataLabels]} styleOptions={arrayChartStyle}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
