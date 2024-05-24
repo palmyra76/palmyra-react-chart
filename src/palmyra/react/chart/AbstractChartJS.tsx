@@ -2,23 +2,9 @@
 import { Chart as ChartRef, ChartType as ChartJSType, ChartOptions, registerables, TimeScale } from 'chart.js';
 import { MutableRefObject, useImperativeHandle, useMemo, useRef } from 'react';
 import { Chart } from 'react-chartjs-2';
-
-// import {
-//     Chart as ChartJ,
-//     CategoryScale,
-//     LinearScale,
-//     RadialLinearScale,
-//     BarElement,
-//     PointElement,
-//     ArcElement,
-//     LineElement,
-//     Title,
-//     Tooltip,
-//     Legend,
-// } from 'chart.js';
-
 import { ChartType, useClickListener } from '../../chart';
-import { IChartJS, IChartJSOptions } from './Types';
+import { IAbstractChartJSOptions, IChartJS } from '../Types';
+import { generateDataPipeLine } from '../../chart/chartjs/DataPipeLineGenerator';
 
 
 ChartRef.register(...registerables, TimeScale);
@@ -49,71 +35,52 @@ const defaultOptions: ChartOptions = {
     },
 };
 
-// ChartJ.register(
-//     CategoryScale,
-//     LinearScale,
-//     RadialLinearScale,
-//     BarElement,
-//     PointElement,
-//     ArcElement,
-//     LineElement,
-//     Title,
-//     Tooltip,
-//     Legend,
-//     TimeScale
-// );
-
-function AbstractChartJS<T,>(p: IChartJSOptions) {
+function AbstractChartJS<T,>(props: IAbstractChartJSOptions) {
     const defaultPlugins = [];
+    const pipeLine = generateDataPipeLine(props);
+    const options = props.chartOptions || { ...defaultOptions };
+    const plugins = props.plugins || defaultPlugins;
+    const chartRef = useRef<ChartRef>(null);
 
-    const options = p.options || { ...defaultOptions };
-    const plugins = p.plugins || defaultPlugins;
-    const chartJsRef = useRef<ChartRef>(null);
+    const data = pipeLine(props.data);
 
-    const datasets = p?.chartData?.datasets || [];
-    const labels = p?.chartData?.labels || [];
-
-    const data = {
-        labels: labels,
-        datasets: datasets
-    }
-
-    const currentRef: MutableRefObject<IChartJS> = p.chartRef || useRef<IChartJS>(null);
+    const currentRef: MutableRefObject<IChartJS> = props.chartJsRef || useRef<IChartJS>(null);
 
     useImperativeHandle(currentRef, () => {
         return {
             clear: () => {
-                if (!chartJsRef.current)
+                if (!chartRef.current)
                     return;
-                chartJsRef.current.clear();
+                chartRef.current.clear();
             },
             resize: (width?: number, height?: number) => {
-                if (!chartJsRef.current)
+                if (!chartRef.current)
                     return;
-                chartJsRef.current.resize(width, height);
+                chartRef.current.resize(width, height);
             },
             reset: () => {
-                if (!chartJsRef.current)
+                if (!chartRef.current)
                     return;
-                chartJsRef.current.reset();
+                chartRef.current.reset();
             },
             setData: (d: any) => {
-                if (!chartJsRef.current)
+                if (!chartRef.current)
                     return;
-                const chart = chartJsRef.current;
+                const chart = chartRef.current;
                 if (d) {
-                    if(setData){
-                        setData(d);
+                    const chartData = pipeLine(d);
+                    if (setData) {
+                        setData(chartData);
                     }
-                    chart.data = d;
+                    chart.data = chartData;
                     chart.update();
                 }
             }
         }
-    }, [chartJsRef]);
+    }, [chartRef]);
 
     function getProps() {
-        return p;
+        return props;
     }
 
     function getHeight() {
@@ -121,16 +88,11 @@ function AbstractChartJS<T,>(p: IChartJSOptions) {
     }
 
 
-    const { onClick, setData } = useClickListener(p.type, p, chartJsRef);
+    const { onClick, setData } = useClickListener(props.type, props, chartRef);
 
     const chart = useMemo(() => {
         const props = getProps();
-
-        // if (props.onAreaSelect) {
-        //     useAreaSelectListener(props.type, options, plugins, props.onAreaSelect);
-        // }
-        // const { onClick } = useListener("Bar", props, chartRef);
-        return <Chart type={ChartJSTypeRegistry[props.type]} ref={chartJsRef}
+        return <Chart type={ChartJSTypeRegistry[props.type]} ref={chartRef}
             options={options} plugins={plugins} onClick={onClick}
             data={data} height={getHeight()} />
     }, []);

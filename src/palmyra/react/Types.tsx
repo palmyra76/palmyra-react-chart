@@ -3,6 +3,7 @@ import { ChartType, RawDataType, StyleOptions } from "../chart/Types";
 import { MutableRefObject } from "react";
 import { ChartOptions, ChartType as ChartJStype } from "chart.js";
 
+
 type converter = (d: any) => any;
 
 
@@ -54,13 +55,26 @@ interface IDataSetOptions {
 
 interface IAbstractChartOptions<T extends ChartType> extends DataPipeLineOptions {
     type?: ChartType
-    dataPipeLine?: DataPipeLine,    
+    dataPipeLine?: DataPipeLine,
     guideLine?: any,   // TODO guideline type to be defined
     plugins?: any,
     chartRef?: MutableRefObject<IAbstractChart<T>>
     chartOptions?: ChartOptions<ChartJStype>,
     onPointClick?: (data: any) => void, //TODO  argument definitions to be updated
     onAreaSelect?: (data: any) => void //TODO  argument definitions to be updated    
+}
+
+interface IAbstractChartJSOptions extends IAbstractChartOptions<any> {
+    chartRef?: never,
+    data?: any
+    chartJsRef: MutableRefObject<IChartJS>
+}
+
+interface IChartJS {
+    clear: () => void;
+    resize: (width?: number, height?: number) => void;
+    reset: () => void;
+    setData: (d: any) => void;
 }
 
 interface IStaticChartOptions<T extends ChartType> extends IAbstractChartOptions<T> {
@@ -76,7 +90,7 @@ interface RemoteQueryOptions {
     filter?: any
 }
 
-interface IRemoteDataChartOptions<T extends ChartType> extends IAbstractChartOptions<T>, RemoteQueryOptions{
+interface IRemoteDataChartOptions<T extends ChartType> extends IAbstractChartOptions<T>, RemoteQueryOptions {
 
 }
 
@@ -115,6 +129,6 @@ interface IDynamicChart<T extends ChartType> extends ISimpleChart<T> {
 
 export type { IDashboardOptions, IStaticChartOptions, ISimpleChartOptions, IDynamicChartOptions, DataPipeLineOptions, IAbstractChartOptions, IDataSetOptions }
 
-export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart }
+export type { IDashBoard, IStaticChart, ISimpleChart, IDynamicChart, IAbstractChartJSOptions }
 
-export type { RemoteQueryOptions, DataPipeLine, IRemoteDataChartOptions }
+export type { RemoteQueryOptions, DataPipeLine, IRemoteDataChartOptions, IChartJS }
