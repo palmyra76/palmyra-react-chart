@@ -1,24 +1,13 @@
 import { ChartStoreFactory, IEndPoint, IEndPointOptions } from "palmyra-wire";
-import { ChartType, RawDataType, StyleOptions } from "../chart/Types";
+import { ChartType, StyleOptions } from "../chart/Types";
 import { MutableRefObject } from "react";
 import { ChartOptions, ChartType as ChartJStype } from "chart.js";
+import { ConverterOptions } from "../chart/chartjs/converters";
 
 
 type converter = (d: any) => any;
 
-
 type chartJsOptions = any;
-
-
-interface AccessorOptions {
-    xKey?: String,
-    yKey?: String[] | String,
-    rKey?: String,
-    group?: String,
-    xLabel?: String,
-    yLabel?: String[] | String,
-    sourceType?: RawDataType
-}
 
 interface DataPipeLine {
     preProcess?: converter,
@@ -119,6 +108,10 @@ interface ISimpleChart<T extends ChartType> extends IAbstractChart<T> {
     setFilter: (filter: any) => void,
     resetFilter: () => void,
     onDataRefresh?: (rawData: any) => void
+}
+
+interface AccessorOptions extends ConverterOptions {
+
 }
 
 interface IDynamicChart<T extends ChartType> extends ISimpleChart<T> {

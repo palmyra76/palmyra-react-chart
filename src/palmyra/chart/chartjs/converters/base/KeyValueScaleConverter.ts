@@ -17,7 +17,7 @@ const KeyValueScaleConverter = (options: AccessorOptions): ChartDataConverter<nu
         }
 
         const label: any = yLabels[0] || 'value';
-        const key = xKey || xLabel || 'name';
+        const key = xKey.ref || xLabel || 'name';
         var dataset: ScaleDataSet = { key, label: label, data: [] };
         result.datasets[0] = dataset;
 

@@ -8,7 +8,6 @@ import { ObjectScaleConverter } from "./base/ObjectScaleConverter";
 
 const converters: Partial<Record<RawDataType, DataConverterGen>> = {
     "Array": ArrayScaleConverter,
-    // "twoXKey": TwoXDimArrayScaleConverter,
     "Object": ObjectScaleConverter,
     "KeyValue": KeyValueScaleConverter,
     "noop": NoopConverter

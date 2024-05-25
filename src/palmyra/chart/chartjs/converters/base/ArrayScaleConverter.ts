@@ -1,10 +1,14 @@
 import { ChartDataConverter, ScaleDataInput, ScaleDataSet } from "../../Types";
 import { getKeys, getLabel, getLabels } from "../../util";
-import { AccessorOptions } from "../../../../react";
+import { ConverterOptions, keyedAccessor } from "../Types";
 
-const ArrayScaleConverter = (options: AccessorOptions): ChartDataConverter<any> => {
-    const { xKey, yKeys } = getKeys(options);
+
+const ArrayScaleConverter = (options: ConverterOptions): ChartDataConverter<any> => {
+    const p = getKeys(options);
+    const xKey: keyedAccessor<string> = p.xKey;
+    const yKeys: keyedAccessor<any>[] = p.yKeys;
     const { yLabels } = getLabels(options);
+
 
     return (records: any[]): ScaleDataInput => {
         var result: ScaleDataInput = {
@@ -17,22 +21,24 @@ const ArrayScaleConverter = (options: AccessorOptions): ChartDataConverter<any> 
 
         var dataMap: Record<string, ScaleDataSet> = {};
 
-        yKeys.map((key: any, index) => {
+        yKeys.map((yKey: any, index) => {
+            const key = yKey.ref;
             const label = getLabel(yLabels, key, index);
-            var data: ScaleDataSet = { key, label: label, data: [] };
-            dataMap[key] = data;
+            var data: ScaleDataSet = { key, label: label, data: [] };            
+            dataMap[index] = data;
             result.datasets[index] = data;
         })
 
         records.map((record, index) => {
-            var label = record[xKey];
+            var label:string = xKey.accessor(record);
             result.labels.push(label);
 
-            yKeys.map((key: any) => {
-                var dataset = dataMap[key];
-                dataset.data[index] = record[key];
+            yKeys.map((yKey: any, yIndex) => {
+                var dataset = dataMap[yIndex];
+                dataset.data[index] = yKey.accessor(record);
             })
         });
+        console.log(result.datasets[0]);
         return result;
     }
 }

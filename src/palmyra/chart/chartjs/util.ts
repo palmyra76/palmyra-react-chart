@@ -1,16 +1,45 @@
 import { AccessorOptions } from "../../react";
+import { attributeAccessor, keyedAccessor } from "./converters";
 
 
-function getKeys(options: AccessorOptions) {
+interface keys {
+    xKey: keyedAccessor<any>,
+    yKeys: keyedAccessor<any>[]
+}
+
+function getKeys(options: AccessorOptions): keys {
     const xKey: any = options?.xKey || 'name';
     const yKe = options?.yKey || 'value';
 
     const yKeys = yKe instanceof Array ? yKe : [yKe];
 
     return {
-        xKey: xKey,
-        yKeys: yKeys
+        xKey: getAccessor(xKey),
+        yKeys: getAccessors(yKeys)
     }
+}
+
+function getAccessors(vs: attributeAccessor[]): keyedAccessor<any>[] {
+    return vs.map(getAccessor);
+}
+
+function getAccessor(v: attributeAccessor): keyedAccessor<any> {
+    if (v instanceof Function || typeof v == 'function') {
+        return { accessor: v }
+    }
+    if (v instanceof Object && v.accessor) {
+        return v;
+    }
+    else if (typeof v == 'string') {
+        // @ts-ignore
+        const key: string = v;
+        return {
+            ref: key,
+            accessor: (r: any) => { return r[key] }
+        };
+    }
+    console.error('Invalid attribute accessor', v);
+    throw Error('Invalid Attribute Accessor  ');
 }
 
 function getLabels(options: AccessorOptions) {
@@ -54,4 +83,4 @@ export function mergeDeep(target, ...sources) {
     return mergeDeep(target, ...sources);
 }
 
-export {getLabel, getLabels, getKeys}
+export { getLabel, getLabels, getKeys }

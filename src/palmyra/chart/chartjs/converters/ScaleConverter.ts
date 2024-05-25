@@ -20,7 +20,7 @@ const getScalePointData: IgetPointData = (data: any, options: AccessorOptions, d
         return { [xValue]: value };
     }
 
-    var result = { [xKey]: xValue };
+    var result = { [xKey.ref]: xValue };
     element.map((e) => {
         var dataSet = data.datasets[e.datasetIndex];
         var label = dataSet.key;

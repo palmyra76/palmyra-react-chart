@@ -3,6 +3,7 @@ import { MutableRefObject } from "react";
 import { IDatasetStyleOptions, RawDataType } from "../../chart";
 import { IRemoteDataChartOptions, ISimpleChart } from "../Types";
 import { SimpleChart } from "./SimpleChart";
+import { attributeAccessor } from "../../chart/chartjs/converters";
 
 
 interface IBarChartOptions extends IRemoteDataChartOptions<'Bar'> {
@@ -11,7 +12,7 @@ interface IBarChartOptions extends IRemoteDataChartOptions<'Bar'> {
     accessorOptions?: never,
     style?: IDatasetStyleOptions,
     accessor?: {
-        xKey?: String,
+        xKey?: attributeAccessor,
         yKey?: String,
         xLabel?: String,
         yLabel?: String,
