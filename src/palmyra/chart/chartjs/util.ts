@@ -83,4 +83,4 @@ export function mergeDeep(target, ...sources) {
     return mergeDeep(target, ...sources);
 }
 
-export { getLabel, getLabels, getKeys }
+export { getLabel, getLabels, getKeys, getAccessor }

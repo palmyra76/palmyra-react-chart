@@ -1,16 +1,18 @@
 import { ChartDataConverter, ScatterDataInput, ScatterDataSet } from "../../..";
 import { AccessorOptions } from "../../../../react";
+import { getAccessor } from "../../util";
+import { keyedAccessor } from "../Types";
 
-function getKeys(options: AccessorOptions): { x: string, y: string, group: string, label: string } {
+function getKeys(options: AccessorOptions): { x: keyedAccessor<any>, y: keyedAccessor<any>, group: keyedAccessor<any>, label: string } {
     const xLabel: any = options?.xLabel || 'name';
     const xKey: any = options?.xKey || 'x';
     const yKey: any = options?.yKey || 'y';
     const group: any = options?.group;
 
     return {
-        x: xKey,
-        y: yKey,
-        group,
+        x: getAccessor(xKey),
+        y: getAccessor(yKey),
+        group: getAccessor(group),
         label: xLabel
     }
 }
@@ -45,14 +47,14 @@ const GroupArrayScaleConverter = (options: AccessorOptions): ChartDataConverter<
         }
 
         var dataMap: Record<string, ScatterDataSet> = {};
-        const getLabel = group ? (r) => { return r[group] } : () => label;
+        const getLabel = group ? (r) => { return group.accessor(r) } : () => label;
 
         records.map((record, index) => {
             const l = getLabel(record);
             var dataSet: ScatterDataSet = getData(dataMap, l, options);
             dataSet.data.push({
-                x: record[x],
-                y: record[y]
+                x: x.accessor(record),
+                y: y.accessor(record)
             });
         });
 
@@ -77,14 +79,14 @@ const GroupObjectScaleConverter = (options: AccessorOptions): ChartDataConverter
         }
 
         var dataMap: Record<string, ScatterDataSet> = {};
-        const getLabel = group ? (r) => { return r[group] } : () => label;
+        const getLabel = group ? (r) => { return group.accessor(r) } : () => label;
 
         Object.values(records).map((record, index) => {
             const l = getLabel(record);
             var dataSet: ScatterDataSet = getData(dataMap, l, options);
             dataSet.data.push({
-                x: record[x],
-                y: record[y]
+                x: x.accessor(record),
+                y: y.accessor(record)
             });
         });
 
