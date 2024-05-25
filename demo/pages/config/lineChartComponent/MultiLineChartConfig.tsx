@@ -1,16 +1,12 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
-const ArrayComponent = `<LineChart
-    endPoint={'/simple/chartData/arrayData.json'}
-    onPointClick={(d) => console.log(d)}
-    style={lineArrayChartStyle}
+const ArrayComponent = `<MultiLineChart
+    endPoint={'/simple/multiLineChartData/arrayData.json'}
+    style={MultiLineArrayChartStyles}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{
-        xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array",
-        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
-    }}
-/>
+    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }}
+    />
 `;
 
 const KeyValueComponent = `<LineChart
@@ -22,22 +18,21 @@ const KeyValueComponent = `<LineChart
     />
 `;
 
-const KeyedObjectComponent = `<LineChart
-    endPoint={'/simple/chartData/keyedObjectData.json'}
-    style={lineArrayChartStyle}
+const KeyedObjectComponent = ` <MultiLineChart
+    endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
+    style={MultiLineArrayChartStyles}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ yKey: 'count', yLabel: 'Data Set', sourceType: "Object" }}
+    accessor={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }}
 />
 `;
 
-const KeylessObjectComponent = `<LineChart
-    endPoint={'/simple/chartData/objectChartData.json'}
+const KeylessObjectComponent = `<MultiLineChart
+    endPoint={'/simple/multiLineChartData/objectChartData.json'}
     chartOptions={chartOptions}
-    style={lineArrayChartStyle}
+    style={MultiLineArrayChartStyles}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} 
-/>
+    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
 `;
 
 const ArrayComponentSetup = () => {

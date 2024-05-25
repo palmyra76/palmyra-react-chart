@@ -1,7 +1,13 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { MultiLineChart, MultiLineNamedChart } from "../chartColors";
-import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
+import { MultiLineArrayChartStyles } from "../chartColors";
+import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import TabX from "../../../components/tab/TabX";
+import { ArrayComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/lineChartComponent/MultiLineChartConfig";
+import { MultiLineChart } from "../../../../src/palmyra/react/chart/MultiLineChart";
+import { KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, arrayDataConfig } from "../../../pages/config/lineChartComponent/MultiLineChartDataConfig";
+import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/MultiLineChartStyleConfig";
+
 
 const chartOptions: any = {
     maintainAspectRatio: false,
@@ -26,27 +32,30 @@ const SimpleMultiLineCharts = () => {
         <Dashboard storeFactory={storeFactory}>
             <div>
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="MultiLine"
+                <MultiLineChart
                     onPointClick={(d) => console.log(d)}
                     endPoint={'/simple/multiLineChartData/arrayData.json'}
-                    styleOptions={MultiLineChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }} />
+                    style={MultiLineArrayChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
-                <SimpleChart type="MultiLine" endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
+                <MultiLineChart endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
                     onPointClick={(d) => console.log(d)}
-                    styleOptions={MultiLineChart}
+                    style={MultiLineArrayChartStyles}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                    accessor={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyedObjectComponentSetup, KeyedObjectChartDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
-                <SimpleChart type="MultiLine" endPoint={'/simple/multiLineChartData/objectChartData.json'}
+                <MultiLineChart endPoint={'/simple/multiLineChartData/objectChartData.json'}
                     onPointClick={(d) => console.log(d)}
                     chartOptions={chartOptions}
-                    styleOptions={MultiLineNamedChart}
+                    style={MultiLineArrayChartStyles}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeylessObjectComponentSetup, KeylessObjectChartDataConfig, ArrayStyleConfig]} />
 
             </div>
         </Dashboard>

@@ -240,7 +240,7 @@ const lineArrayChartStyle: IDatasetStyleOptions = {
     }]
 }
 
-const MultiLineChart: StyleOptions = [{
+const MultiLineArrayChartStyles: StyleOptions = [{
     style: [{
         backgroundColor: 'rgba(220,53,69,0.5)',
         borderColor: 'rgba(220,53,69,1)'
@@ -251,7 +251,7 @@ const MultiLineChart: StyleOptions = [{
     }]
 }]
 
-const MultiLineNamedChart: StyleOptions = [{
+const MultiLineNamedChartStyles: StyleOptions = [{
     style: {
         'CRITICAL': {
             // backgroundColor: 'rgba(220,53,69,0.5)',
@@ -281,6 +281,6 @@ export {
     namedChartStyles, arrayChartStyles, namedChartStyle, arrayChartStyle,
     lineArrayChartStyle, lineNamedChartStyle,
 
-    groupedArrayStyle, MultiLineChart, MultiLineNamedChart,
+    groupedArrayStyle, MultiLineArrayChartStyles, MultiLineNamedChartStyles,
     groupedBarChartStyle, groupedNamedStyle, lineArrayChartStyles
 };
