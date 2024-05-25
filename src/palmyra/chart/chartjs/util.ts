@@ -1,12 +1,14 @@
 import { AccessorOptions } from "../../react";
-import { attributeAccessor, keyedAccessor } from "./converters";
+import { accessor, attributeAccessor, keyedAccessor } from "./converters";
 
 
 interface keys {
     xKey: keyedAccessor<any>,
-    yKeys: keyedAccessor<any>[]
+    yKeys: keyedAccessor<any>[],
+    xLabelAccessor?: accessor<string>
 }
 
+//Deprecated
 function getKeys(options: AccessorOptions): keys {
     const xKey: any = options?.xKey || 'name';
     const yKe = options?.yKey || 'value';
@@ -15,6 +17,20 @@ function getKeys(options: AccessorOptions): keys {
 
     return {
         xKey: getAccessor(xKey),
+        yKeys: getAccessors(yKeys)
+    }
+}
+
+function generateAccessors(options: AccessorOptions): keys {
+    const xKey: any = options?.xKey || 'name';
+    const yKe = options?.yKey || 'value';
+
+    const yKeys = yKe instanceof Array ? yKe : [yKe];
+    const xLabelAccessor = options.xKeyLabelMap ? (key: string) => { return options.xKeyLabelMap[key] || key } : (key: string) => key;
+
+    return {
+        xKey: getAccessor(xKey),
+        xLabelAccessor,
         yKeys: getAccessors(yKeys)
     }
 }
@@ -33,11 +49,13 @@ function getAccessor(v: attributeAccessor): keyedAccessor<any> {
     else if (typeof v == 'string') {
         // @ts-ignore
         const key: string = v;
+        const accessor = hasDot(key) ? (data: any) => (getValueByKey(key, data)) : (data: any) => (data[key]);
         return {
             ref: key,
-            accessor: (r: any) => { return r[key] }
+            accessor
         };
     }
+
     console.error('Invalid attribute accessor', v);
     throw Error('Invalid Attribute Accessor  ');
 }
@@ -79,8 +97,29 @@ export function mergeDeep(target, ...sources) {
             }
         }
     }
-
     return mergeDeep(target, ...sources);
 }
 
-export { getLabel, getLabels, getKeys, getAccessor }
+
+export { getLabel, getLabels, getKeys, getAccessor, generateAccessors }
+
+
+const getValueByKey = (fieldName: string, data: any): any => {
+    if (data === undefined || data == null) {
+        return undefined;
+    }
+
+    var index = fieldName.indexOf('.')
+    if (index < 0) {
+        return data[fieldName];
+    }
+
+    var objKey = fieldName.substring(0, index);
+    var fieldKey = fieldName.substring(index + 1);
+
+    return getValueByKey(fieldKey, data[objKey]);
+}
+
+const hasDot = (val: string): boolean => {
+    return val.indexOf('.') >= 1
+};

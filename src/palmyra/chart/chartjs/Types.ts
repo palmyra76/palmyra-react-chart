@@ -38,7 +38,8 @@ interface DataSets<DataSetType> {
 }
 
 interface ScaleDataInput extends DataSets<number> {
-    labels: string[]
+    labels: string[],
+    keys?: string[]
 }
 
 interface BubbleDataInput extends DataSets<Bubble> {

@@ -12,6 +12,7 @@ interface ILineChartOptions extends IRemoteDataChartOptions<'Line'> {
     style?: IDatasetStyleOptions,
     accessor?: {
         xKey?: String,
+        xKeyLabelMap?: Record<string, string>,
         yKey?: String,
         xLabel?: String,
         yLabel?: String,

@@ -58,7 +58,10 @@ const SimpleBarCharts = () => {
                     style={arrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
+                    accessor={{
+                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+                        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+                    }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>

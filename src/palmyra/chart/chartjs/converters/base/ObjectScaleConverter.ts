@@ -1,16 +1,17 @@
 import { ChartDataConverter, ScaleDataInput, ScaleDataSet } from "../../Types";
-import { getKeys, getLabel, getLabels } from "../../util";
+import { generateAccessors, getLabel, getLabels } from "../../util";
 import { AccessorOptions } from "../../../../react";
 import { keyedAccessor } from "../Types";
 
 
-const ObjectScaleConverter = (options: AccessorOptions): ChartDataConverter<number> => {
-    const { xKey, yKeys } = getKeys(options);
+const ObjectScaleConverter = (options: AccessorOptions): ChartDataConverter<number> => {    
+    const { xKey, yKeys, xLabelAccessor } = generateAccessors(options);
     const { yLabels } = getLabels(options);
 
     return (record: any): ScaleDataInput => {
         var result: ScaleDataInput = {
             labels: [],
+            keys:[],
             datasets: []
         };
 
@@ -31,14 +32,18 @@ const ObjectScaleConverter = (options: AccessorOptions): ChartDataConverter<numb
         // Populate the record for each entry in the object
         for (var key in record) {
             var data = record[key];
-            result.labels.push(xKeyAccessor(data, key));
+
+            var xValue: string = xKeyAccessor(data, key);
+            const label = xLabelAccessor(xValue);
+            result.labels.push(label);
+            result.keys.push(xValue);
             // Populate the data for each yKey
 
             yKeys.map((yKey: keyedAccessor<any>, index) => {
                 result.datasets[index].data.push(yKey.accessor(data));
             })
         }
-
+        
         return result;
     }
 }

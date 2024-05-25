@@ -11,6 +11,7 @@ type attributeAccessor = string | keyedAccessor<resultType> | accessor<resultTyp
 
 interface ConverterOptions {
     xKey?: attributeAccessor,
+    xKeyLabelMap?: Record<string, string>,
     yKey?: attributeAccessor[] | attributeAccessor,
     rKey?: attributeAccessor,
     group?: attributeAccessor,

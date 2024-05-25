@@ -13,7 +13,8 @@ interface IBarChartOptions extends IRemoteDataChartOptions<'Bar'> {
     style?: IDatasetStyleOptions,
     accessor?: {
         xKey?: attributeAccessor,
-        yKey?: String,
+        xKeyLabelMap?: Record<string, string>,
+        yKey?: attributeAccessor,
         xLabel?: String,
         yLabel?: String,
         sourceType?: RawDataType

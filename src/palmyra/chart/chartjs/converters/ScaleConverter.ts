@@ -11,7 +11,8 @@ const NoopConverter = (options: AccessorOptions): ChartDataConverter<any> => {
 const getScalePointData: IgetPointData = (data: any, options: AccessorOptions, dataPipeLine: DataPipeLine, element: InteractionItem[], elements: InteractionItem[]) => {
 
     var { xKey } = getKeys(options);
-    const xValue = data.labels[element[0].index]
+    const xKeyIndex = element[0].index;
+    const xValue = data.keys?.[xKeyIndex] || data.labels[xKeyIndex];
 
     if (options?.sourceType == 'KeyValue') {
         var { index, datasetIndex } = element[0];
