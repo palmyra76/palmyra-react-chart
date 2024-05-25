@@ -8,6 +8,7 @@ const StaticBarChart = () => {
             Static Bar Chart
             <StaticChart
                 type="Bar"
+                onPointClick={(d) => console.log(d)}
                 chartOptions={{
                     maintainAspectRatio: false,
                     responsive: true,
@@ -41,7 +42,7 @@ const StaticBarChart = () => {
                 plugins={[ChartDataLabels]}
 
                 chartData={{
-                    labels: ['cri', 'das', 'ads', 'da'], datasets: [{
+                    labels: ['January', 'February', 'March', 'April'], datasets: [{
                         data: [65, 59, 80, 81], label: 'Count',
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',

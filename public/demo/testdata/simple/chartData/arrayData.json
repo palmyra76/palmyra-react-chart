@@ -1,20 +1,20 @@
 {
-    "result": {
-        "one": {
+    "result": [
+        {
             "count": 5,
             "name": "January"
         },
-        "two": {
-            "count": 10,
+        {
+            "count": 8,
             "name": "February"
         },
-        "three": {
-            "count": 8,
+        {
+            "count": 2,
             "name": "March"
         },
-        "four": {
+        {
             "count": 4,
             "name": "April"
         }
-    }
+    ]
 }

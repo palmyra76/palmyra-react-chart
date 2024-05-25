@@ -1,7 +1,7 @@
-import { StyleOptions } from "../../../src/lib";
+import { IDatasetStyleOptions, StyleOptions } from "../../../src/lib";
 
 
-const chartStyle: StyleOptions = [{
+const namedChartStyles: StyleOptions = [{
     props: {
         borderWidth: 2
     },
@@ -22,7 +22,7 @@ const chartStyle: StyleOptions = [{
     }
 }]
 
-const arrayChartStyle: StyleOptions = [{
+const arrayChartStyles: StyleOptions = [{
     props: {
         borderWidth: 2
     },
@@ -46,7 +46,28 @@ const arrayChartStyle: StyleOptions = [{
     ]
 }]
 
-const arrayBarChartStyle = {
+const namedChartStyle: IDatasetStyleOptions = {
+    props: {
+        borderWidth: 2
+    },
+    style: {
+        'January': {
+            backgroundColor: 'rgba(220,53,69,0.5)',
+            borderColor: 'rgba(220,53,69,1)'
+        }, 'February': {
+            backgroundColor: 'rgba(40,167,69,0.5)',
+            borderColor: 'rgba(40,167,69,1)'
+        }, 'March': {
+            backgroundColor: 'rgba(0,123,255,0.5)',
+            borderColor: 'rgba(0,123,255,0.7)',
+        }, 'April': {
+            backgroundColor: 'rgba(255,193,7,0.5)',
+            borderColor: 'rgba(255,193,7,0.7)'
+        }
+    }
+}
+
+const arrayChartStyle: IDatasetStyleOptions = {
     props: {
         borderWidth: 2
     },
@@ -112,7 +133,7 @@ const groupedBarChartStyle = [{
     ]
 }]
 
-const groupedChartStyle: StyleOptions = [{
+const groupedArrayStyle: StyleOptions = [{
     props: {
         borderWidth: 2
     },
@@ -156,6 +177,27 @@ const groupedChartStyle: StyleOptions = [{
 }]
 
 
+const groupedNamedStyle: StyleOptions = [{
+    props: {
+        borderWidth: 2
+    },
+    style: {
+        'January': {
+            backgroundColor: 'rgba(220,53,69,0.5)',
+            borderColor: 'rgba(220,53,69,1)'
+        }, 'February': {
+            backgroundColor: 'rgba(40,167,69,0.5)',
+            borderColor: 'rgba(40,167,69,1)'
+        }, 'March': {
+            backgroundColor: 'rgba(0,123,255,0.5)',
+            borderColor: 'rgba(0,123,255,0.7)',
+        }, 'April': {
+            backgroundColor: 'rgba(255,193,7,0.5)',
+            borderColor: 'rgba(255,193,7,0.7)'
+        }
+    }
+}]
+
 
 
 // const lineChart: StyleOptions = [{
@@ -179,7 +221,7 @@ const lineChart: StyleOptions = [{
     }]
 }]
 
-const lineChartStyle = {
+const lineChartStyle: IDatasetStyleOptions = {
     style: [{
         backgroundColor: 'rgba(220,53,69,0.5)',
         borderColor: 'rgba(220,53,69,1)'
@@ -199,18 +241,24 @@ const MultiLineChart: StyleOptions = [{
 
 const MultiLineNamedChart: StyleOptions = [{
     style: {
-        'CRITICAL': {
-            // backgroundColor: 'rgba(220,53,69,0.5)',
+        // 'CRITICAL': {
+        //     // backgroundColor: 'rgba(220,53,69,0.5)',
+        //     borderColor: 'rgba(220,53,69,1)'
+        // }, 'NORMAL': {
+        //     // backgroundColor: 'rgba(40,167,69,0.5)',
+        //     borderColor: 'rgba(40,167,69,1)'
+        // }, 'VULNERABLE': {
+        //     // backgroundColor: 'rgba(0,123,255,0.5)',
+        //     borderColor: 'rgba(0,123,255,0.7)',
+        // }, 'CRITICAL/VULNERABLE': {
+        //     // backgroundColor: 'rgba(255,193,7,0.5)',
+        //     borderColor: 'rgba(255,193,7,0.7)'
+        // }
+        "count": {
             borderColor: 'rgba(220,53,69,1)'
-        }, 'NORMAL': {
-            // backgroundColor: 'rgba(40,167,69,0.5)',
+        },
+        "min": {
             borderColor: 'rgba(40,167,69,1)'
-        }, 'VULNERABLE': {
-            // backgroundColor: 'rgba(0,123,255,0.5)',
-            borderColor: 'rgba(0,123,255,0.7)',
-        }, 'CRITICAL/VULNERABLE': {
-            // backgroundColor: 'rgba(255,193,7,0.5)',
-            borderColor: 'rgba(255,193,7,0.7)'
         }
     }
 }]
@@ -218,6 +266,7 @@ const MultiLineNamedChart: StyleOptions = [{
 
 
 export {
-    chartStyle, arrayChartStyle, groupedChartStyle, lineChart, MultiLineChart, MultiLineNamedChart,
-    lineChartStyle, arrayBarChartStyle, groupedBarChartStyle
+    namedChartStyles, arrayChartStyles, namedChartStyle, arrayChartStyle,
+    groupedArrayStyle, lineChart, MultiLineChart, MultiLineNamedChart,
+    lineChartStyle, groupedBarChartStyle, groupedNamedStyle
 };

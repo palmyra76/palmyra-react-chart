@@ -7,8 +7,7 @@ const Component = `<SimpleChart
     accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} 
 />
 `;
-const apiResponse = `{
-    "result": [
+const apiResponse = `[
         {
             "count": 5,
             "name": "January"
@@ -25,8 +24,7 @@ const apiResponse = `{
             "count": 4,
             "name": "April"
         }
-    ]
-}`
+    ]`
 
 const styles = `const arrayChartStyle: StyleOptions = [{
     props: {

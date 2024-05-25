@@ -9,8 +9,11 @@ import SimpleChartPage from "./pages/SimpleChartPage";
 import BarChartPage from "./pages/barCharts/BarChartPage";
 import GroupedBarChartPage from "./pages/groupedBarCharts/GroupedBarChartPage";
 import StackedBarChartPage from "./pages/StackedBarCharts/StackedBarChartPage";
-import LineChartPage from "./pages/lineCharts/LineBarChartPage";
+import LineChartPage from "./pages/lineCharts/LineChartPage";
 import MultiLineBarChartPage from "./pages/lineCharts/MultiLineBarChartPage";
+import DoughnutChartPage from "./pages/doughnutCharts/DoughnutChartPage";
+import PieChartPage from "./pages/pieCharts/PieChartPage";
+import PolarAreaChartPage from "./pages/polarAreaCharts/PolarAreaChartPage";
 
 function App() {
 
@@ -26,6 +29,12 @@ function App() {
             <Route path="/simpleChart/stackedBarChart" element={<StackedBarChartPage />} />
             <Route path="/simpleChart/lineChart" element={<LineChartPage />} />
             <Route path="/simpleChart/multiLineChart" element={<MultiLineBarChartPage />} />
+            <Route path="/simpleChart/doughnutChart" element={<DoughnutChartPage />} />
+            <Route path="/simpleChart/pieChart" element={<PieChartPage />} />
+            <Route path="/simpleChart/polarAreaChart" element={<PolarAreaChartPage />} />
+            {/* <Route path="/simpleChart/radarChart" element={<DoughnutChartPage />} />
+            <Route path="/simpleChart/scatterChart" element={<DoughnutChartPage />} />
+            <Route path="/simpleChart/bubbleChart" element={<DoughnutChartPage />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>

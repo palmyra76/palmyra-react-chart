@@ -1,6 +1,6 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { lineChart, lineChartStyle } from "../chartColors";
-import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
+import { lineChartStyle } from "../chartColors";
+import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import 'chartjs-adapter-date-fns';
 import TabX from "../../tab/TabX";
@@ -87,44 +87,39 @@ const SimpleLineCharts = () => {
         <Dashboard storeFactory={storeFactory}>
             <div>
                 <div className="h2-container"><span className="h2">Array</span></div>
-                {/* <SimpleChart type="Line"
-                    endPoint={'/simple/linechartData/arrayData.json'}
-                    styleOptions={lineChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }} /> */}
-
                 <LineChart
-                    endPoint={'/simple/linechartData/arrayData.json'}
+                    endPoint={'/simple/chartData/arrayData.json'}
                     onPointClick={(d) => console.log(d)}
                     style={lineChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }}
-                    />
+                />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
-                <SimpleChart type="Line" endPoint={'/simple/linechartData/keyValueData.json'}
+                <LineChart type="Line" endPoint={'/simple/chartData/keyValueData.json'}
                     onPointClick={(d) => console.log(d)}
-                    styleOptions={lineChart}
+                    style={lineChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: "Count", sourceType: "KeyValue" }} />
+                    accessor={{ xKey: 'name', yKey: 'count', yLabel: "Data Set", sourceType: "KeyValue" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueSetup, KeyValueApi, KeyValueStyle]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
-                <SimpleChart type="Line" endPoint={'/simple/linechartData/keyedObjectData.json'}
+                <LineChart type="Line" endPoint={'/simple/chartData/keyedObjectData.json'}
                     onPointClick={(d) => console.log(d)}
-                    styleOptions={lineChart}
+                    style={lineChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ yKey: 'count', sourceType: "Object" }} />
+                    accessor={{ yKey: 'count', yLabel: 'Data Set', sourceType: "Object" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyObjSetup, KeyObjApi, KeyObjStyle]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
-                <SimpleChart type="Line" endPoint={'/simple/linechartData/objectChartData.json'}
+                <LineChart type="Line" endPoint={'/simple/chartData/objectChartData.json'}
                     onPointClick={(d) => console.log(d)}
                     chartOptions={chartOptions}
-                    styleOptions={lineChart}
+                    style={lineChartStyle}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
+                    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyLessObjSetup, KeyLessObjApi, KeyLessObjStyle]} />
             </div>
         </Dashboard>

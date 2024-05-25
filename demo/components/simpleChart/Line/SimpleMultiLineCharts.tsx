@@ -21,26 +21,27 @@ const chartOptions: any = {
 const SimpleMultiLineCharts = () => {
     const storeFactory = new PalmyraStoreFactory({ baseUrl: '/demo/testdata' })
 
-    return (<>
+    return (<div className="chart-container">
+        <div className="h1-container"><span className="h1"># Simple Multi Line Chart</span></div>
         <Dashboard storeFactory={storeFactory}>
             <div>
-                Array
-                <SimpleChart type="Line"
+                <div className="h2-container"><span className="h2">Array</span></div>
+                <SimpleChart type="MultiLine"
                     onPointClick={(d) => console.log(d)}
                     endPoint={'/simple/multiLineChartData/arrayData.json'}
                     styleOptions={MultiLineChart} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }} />
 
-                Keyed Object
-                <SimpleChart type="Line" endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
+                <div className="h2-container"><span className="h2">Keyed Object</span></div>
+                <SimpleChart type="MultiLine" endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
                     onPointClick={(d) => console.log(d)}
                     styleOptions={MultiLineChart}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
 
-                Keyless Object
-                <SimpleChart type="Line" endPoint={'/simple/multiLineChartData/objectChartData.json'}
+                <div className="h2-container"><span className="h2">Keyless Object</span></div>
+                <SimpleChart type="MultiLine" endPoint={'/simple/multiLineChartData/objectChartData.json'}
                     onPointClick={(d) => console.log(d)}
                     chartOptions={chartOptions}
                     styleOptions={MultiLineNamedChart}
@@ -49,7 +50,7 @@ const SimpleMultiLineCharts = () => {
 
             </div>
         </Dashboard>
-    </>
+    </div>
     )
 }
 

@@ -9,7 +9,7 @@
             "id": 2,
             "name": "Chart Types",
             "code": "simpleChart",
-            "children": "4, 5, 6, 7, 8"
+            "children": "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14"
         },
         {
             "id": 3,
@@ -44,6 +44,42 @@
             "id": 8,
             "name": "Multi Line Chart",
             "code": "simpleChart/multiLineChart",
+            "parent": 2
+        },
+        {
+            "id": 9,
+            "name": "Doughnut Chart",
+            "code": "simpleChart/doughnutChart",
+            "parent": 2
+        },
+        {
+            "id": 10,
+            "name": "Pie Chart",
+            "code": "simpleChart/pieChart",
+            "parent": 2
+        },
+        {
+            "id": 11,
+            "name": "Polar Area Chart",
+            "code": "simpleChart/polarAreaChart",
+            "parent": 2
+        },
+        {
+            "id": 12,
+            "name": "Radar Chart",
+            "code": "simpleChart/radarChart",
+            "parent": 2
+        },
+        {
+            "id": 13,
+            "name": "Scatter Chart",
+            "code": "simpleChart/scatterChart",
+            "parent": 2
+        },
+        {
+            "id": 14,
+            "name": "Bubble Chart",
+            "code": "simpleChart/bubbleChart",
             "parent": 2
         }
     ],

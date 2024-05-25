@@ -9,4 +9,3 @@ const LineChartPage = () => {
 }
 
 export default LineChartPage;
-
