@@ -2,6 +2,7 @@ import { useImperativeHandle, useRef } from "react";
 import { IChartJS, IStaticChart, IStaticChartOptions } from "../Types";
 import { ChartType } from "../../chart";
 import { AbstractChartJS } from "./AbstractChartJS";
+import ErrorBoundary from "../ErrorBoundary";
 
 
 const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
@@ -28,6 +29,7 @@ const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
     }, [])
 
     return (
+        <ErrorBoundary errorMessage={"Error while rendering " + props.type + " chart"}>
         <div>
             <AbstractChartJS type={props.type} chartJsRef={chartJsRef}
                 guideLine={props.guideLine} chartOptions={props.chartOptions}
@@ -35,6 +37,7 @@ const StaticChart = <T extends ChartType>(props: IStaticChartOptions<T>) => {
                 onPointClick={props.onPointClick} data={props.chartData}
             ></AbstractChartJS>
         </div>
+        </ErrorBoundary>
     )
 
 }
