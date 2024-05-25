@@ -1,14 +1,13 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { lineChartStyle } from "../chartColors";
+import { lineArrayChartStyle } from "../chartColors";
 import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import 'chartjs-adapter-date-fns';
 import TabX from "../../tab/TabX";
-import { Api as ArrayApi, Setup as ArraySetup, StyleOptions as ArrayStyle } from "../../../pages/lineCharts/config/LineArrayConfig";
-import { Api as KeyValueApi, Setup as KeyValueSetup, StyleOptions as KeyValueStyle } from "../../../pages/lineCharts/config/LineKeyValueConfig";
-import { Api as KeyObjApi, Setup as KeyObjSetup, StyleOptions as KeyObjStyle } from "../../../pages/lineCharts/config/LineKeyedObjConfig";
-import { Api as KeyLessObjApi, Setup as KeyLessObjSetup, StyleOptions as KeyLessObjStyle } from "../../../pages/lineCharts/config/LineKeyLessObjConfig";
 import { LineChart } from "../../../../src/palmyra/react/chart/LineChart";
+import { ArrayComponentSetup, KeyValueComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/lineChartComponent/LineChartConfig";
+import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/LineChartStyleConfig";
+import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, arrayDataConfig } from "../../../pages/config/ChartDataConfig";
 
 
 const chartOptions: any = {
@@ -23,7 +22,7 @@ const chartOptions: any = {
         legend: {
             position: 'top'
         },
-        datalabels: { // datalabels style
+        datalabels: {
             anchor: 'end',
             align: 'end',
             offset: -4
@@ -65,22 +64,6 @@ const chartOptions: any = {
 const SimpleLineCharts = () => {
     const storeFactory = new PalmyraStoreFactory({ baseUrl: '/demo/testdata' })
 
-    // function toDate(epoch: any) {
-    //     const date = new Date(parseInt(epoch));
-    //     const formatDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    //     return formatDate.toLocaleString();
-    // }
-
-    // function toEpoch(date: any) {
-    //     const epoch = new Date(date).getTime();
-    //     return epoch;
-    // }
-
-
-    // console.log("date", toDate(1709302790000))
-    // console.log("epoch", toEpoch("2024-03-01T19:49:50"))
-    // console.log("epoch", toEpoch("Mar 1, 2024 19:49:50"))
-
 
     return (<div className="chart-container">
         <div className="h1-container"><span className="h1"># Simple Line Chart</span></div>
@@ -90,37 +73,39 @@ const SimpleLineCharts = () => {
                 <LineChart
                     endPoint={'/simple/chartData/arrayData.json'}
                     onPointClick={(d) => console.log(d)}
-                    style={lineChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    style={lineArrayChartStyle}
+                    chartOptions={chartOptions}
+                    plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }}
                 />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArraySetup, ArrayApi, ArrayStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
-                <LineChart type="Line" endPoint={'/simple/chartData/keyValueData.json'}
+                <LineChart endPoint={'/simple/chartData/keyValueData.json'}
                     onPointClick={(d) => console.log(d)}
-                    style={lineChartStyle}
+                    style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', yKey: 'count', yLabel: "Data Set", sourceType: "KeyValue" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueSetup, KeyValueApi, KeyValueStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueComponentSetup, KeyValueChartDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
-                <LineChart type="Line" endPoint={'/simple/chartData/keyedObjectData.json'}
+                <LineChart endPoint={'/simple/chartData/keyedObjectData.json'}
                     onPointClick={(d) => console.log(d)}
-                    style={lineChartStyle}
+                    style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{ yKey: 'count', yLabel: 'Data Set', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyObjSetup, KeyObjApi, KeyObjStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyedObjectComponentSetup, KeyedObjectChartDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
-                <LineChart type="Line" endPoint={'/simple/chartData/objectChartData.json'}
+                <LineChart endPoint={'/simple/chartData/objectChartData.json'}
                     onPointClick={(d) => console.log(d)}
                     chartOptions={chartOptions}
-                    style={lineChartStyle}
+                    style={lineArrayChartStyle}
                     plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyLessObjSetup, KeyLessObjApi, KeyLessObjStyle]} />
+                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeylessObjectComponentSetup, KeylessObjectChartDataConfig, ArrayStyleConfig]} />
             </div>
         </Dashboard>
     </div>

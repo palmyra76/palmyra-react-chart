@@ -6,68 +6,64 @@ const arrayChartData = `[
         "name": "January"
     },
     {
-        "count": 10,
+        "count": 8,
         "name": "February"
     },
     {
-        "count": 8,
+        "count": 2,
         "name": "March"
     },
     {
         "count": 4,
         "name": "April"
     }
-]`
+]
+`;
 
 const keyValueChartData = `{
-    "result": {
-        "January": 2,
-        "February": 7,
-        "March": 6,
-        "April": 4
-    }
+    "January": 2,
+    "February": 7,
+    "March": 1,
+    "April": 4
 }
-`
+`;
 
 const keyedObjectChartData = `{
-    "result": {
-        "CRITICAL": {
-            "count": 5
-        },
-        "CRITICAL/VULNERABLE": {
-            "count": 10
-        },
-        "VULNERABLE": {
-            "count": 8
-        },
-        "NORMAL": {
-            "count": 4
-        }
+    "January": {
+        "count": 5
+    },
+    "February": {
+        "count": 10
+    },
+    "March": {
+        "count": 3
+    },
+    "April": {
+        "count": 4
     }
 }
-`
+`;
 
 const keylessObjectData = `{
-    "result": {
-        "one": {
-            "count": 5,
-            "name": "January"
-        },
-        "two": {
-            "count": 10,
-            "name": "February"
-        },
-        "three": {
-            "count": 8,
-            "name": "March"
-        },
-        "four": {
-            "count": 4,
-            "name": "April"
-        }
+    "one": {
+        "count": 5,
+        "name": "January"
+    },
+    "two": {
+        "count": 10,
+        "name": "February"
+    },
+    "three": {
+        "count": 4,
+        "name": "March"
+    },
+    "four": {
+        "count": 4,
+        "name": "April"
     }
 }
-`
+`;
+
 const arrayDataConfig = () => {
     return (
         <div className="config-container">
