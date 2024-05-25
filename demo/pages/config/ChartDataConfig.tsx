@@ -3,11 +3,11 @@ import CodeHighlighter from '../../components/syntextHighlighter/CodeHighlighter
 const arrayChartData = `[
     {
         "count": 5,
-        "name": "January"
+        "name": "jan"
     },
     {
         "count": 8,
-        "name": "February"
+        "name": "feb"
     },
     {
         "count": 2,

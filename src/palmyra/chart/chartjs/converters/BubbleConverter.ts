@@ -61,6 +61,10 @@ const ArrayConverter = (options: ITransformOptions): ChartDataConverter<Bubble> 
             datasets: []
         };
 
+        if (null == records) {
+            return result;
+        }
+
         var dataMap: Record<string, BubbleDataSet> = {};
 
         records.map((record, index) => {

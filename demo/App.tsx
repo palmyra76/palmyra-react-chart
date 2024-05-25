@@ -14,6 +14,9 @@ import MultiLineBarChartPage from "./pages/lineCharts/MultiLineBarChartPage";
 import DoughnutChartPage from "./pages/doughnutCharts/DoughnutChartPage";
 import PieChartPage from "./pages/pieCharts/PieChartPage";
 import PolarAreaChartPage from "./pages/polarAreaCharts/PolarAreaChartPage";
+import RadarChartPage from "./pages/radarCharts/RadarChartPage";
+import ScatterChartPage from "./pages/scatterCharts/ScatterChartPage";
+import BubbleChartPage from "./pages/bubbleCharts/BubbleChartPage";
 
 function App() {
 
@@ -32,9 +35,10 @@ function App() {
             <Route path="/simpleChart/doughnutChart" element={<DoughnutChartPage />} />
             <Route path="/simpleChart/pieChart" element={<PieChartPage />} />
             <Route path="/simpleChart/polarAreaChart" element={<PolarAreaChartPage />} />
-            {/* <Route path="/simpleChart/radarChart" element={<DoughnutChartPage />} />
-            <Route path="/simpleChart/scatterChart" element={<DoughnutChartPage />} />
-            <Route path="/simpleChart/bubbleChart" element={<DoughnutChartPage />} /> */}
+            <Route path="/simpleChart/radarChart" element={<RadarChartPage />} />
+            <Route path="/simpleChart/scatterChart" element={<ScatterChartPage />} />
+            <Route path="/simpleChart/bubbleChart" element={<BubbleChartPage />} />
+            <Route path="*" element={<h1>Under Construction</h1>} />
           </Route>
         </Routes>
       </BrowserRouter>

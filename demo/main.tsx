@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   // <React.StrictMode>
   <>
     <App />
-    <ToastContainer limit={1} />
-    </>
+    <ToastContainer />
+  </>
   // </React.StrictMode>,
 )

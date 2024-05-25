@@ -11,7 +11,7 @@ const chartOptions: any = {
     // indexAxis: 'y',
     plugins: {
         title: {
-            text: "Pie Chart",
+            text: "Radar Chart",
             display: true
         },
         legend: {
@@ -20,16 +20,16 @@ const chartOptions: any = {
     }
 };
 
-const SimplePieCharts = () => {
+const SimpleRadarCharts = () => {
     const storeFactory = new PalmyraStoreFactory({ baseUrl: '/demo/testdata' })
 
     return (<div className="chart-container">
-        <div className="h1-container"><span className="h1"># Simple Pie Chart</span></div>
+        <div className="h1-container"><span className="h1"># Simple Radar Chart</span></div>
         <Dashboard storeFactory={storeFactory}>
             <div>
 
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="Pie"
+                <SimpleChart type="Radar"
                     onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/chartData/arrayData.json'}
                     styleOptions={namedChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
@@ -41,21 +41,21 @@ const SimplePieCharts = () => {
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart endPoint={'/simple/chartData/keyValueData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Pie" styleOptions={namedChartStyles}
+                    type="Radar" styleOptions={namedChartStyles}
                     chartOptions={chartOptions}
-                    accessorOptions={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }} />
+                    accessorOptions={{ xKey: 'Name', yKey: 'count', yLabel: 'Data Set', sourceType: "KeyValue" }} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart endPoint={'/simple/chartData/keyedObjectData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Pie" styleOptions={arrayChartStyles}
+                    type="Radar" styleOptions={arrayChartStyles}
                     chartOptions={chartOptions}
-                    accessorOptions={{ yKey: 'count', sourceType: "Object" }} />
+                    accessorOptions={{ yKey: 'count', yLabel: 'Data Set', sourceType: "Object" }} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <SimpleChart endPoint={'/simple/chartData/objectChartData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Pie" chartOptions={chartOptions}
+                    type="Radar" chartOptions={chartOptions}
                     // styleOptions={arrayChartStyles}
                     accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
 
@@ -65,4 +65,4 @@ const SimplePieCharts = () => {
     )
 }
 
-export default SimplePieCharts;
+export default SimpleRadarCharts;

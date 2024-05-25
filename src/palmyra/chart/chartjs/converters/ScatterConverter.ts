@@ -24,10 +24,15 @@ function getKeys(options: ITransformOptions): { x: string, y: string, label: str
 
 const ArrayConverter = (options: ITransformOptions): ChartDataConverter<Point> => {
     const { x, y, label } = getKeys(options);
+    
     return (records: any[]): ScatterDataInput => {
         var result: ScatterDataInput = {
             datasets: []
         };
+
+        if (null == records) {
+            return result;
+        }
 
         var dataMap: Record<string, ScatterDataSet> = {};
 

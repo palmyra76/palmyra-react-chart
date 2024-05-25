@@ -6,7 +6,10 @@ const ArrayComponent = ` <BarChart
     style={arrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
+    accessor={{
+        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+     }} />
 `;
 
 const KeyValueComponent = `<BarChart

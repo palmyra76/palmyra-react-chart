@@ -8,6 +8,7 @@ import { LineChart } from "../../../../src/palmyra/react/chart/LineChart";
 import { ArrayComponentSetup, KeyValueComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/lineChartComponent/LineChartConfig";
 import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/LineChartStyleConfig";
 import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, arrayDataConfig } from "../../../pages/config/ChartDataConfig";
+import ChartToastify from "../ChartToastify";
 
 
 const chartOptions: any = {
@@ -72,17 +73,20 @@ const SimpleLineCharts = () => {
                 <div className="h2-container"><span className="h2">Array</span></div>
                 <LineChart
                     endPoint={'/simple/chartData/arrayData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array" }}
+                    accessor={{
+                        xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array",
+                        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+                    }}
                 />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <LineChart endPoint={'/simple/chartData/keyValueData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -91,7 +95,7 @@ const SimpleLineCharts = () => {
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <LineChart endPoint={'/simple/chartData/keyedObjectData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
@@ -100,7 +104,7 @@ const SimpleLineCharts = () => {
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <LineChart endPoint={'/simple/chartData/objectChartData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     chartOptions={chartOptions}
                     style={lineArrayChartStyle}
                     plugins={[ChartDataLabels]}

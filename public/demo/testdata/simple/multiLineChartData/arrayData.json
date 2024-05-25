@@ -3,22 +3,22 @@
         {
             "count": 8,
             "min": 4,
-            "name": "CRITICAL"
+            "name": "January"
         },
         {
             "count": 4,
             "min": 6,
-            "name": "CRITICAL/VULNERABLE"
+            "name": "February"
         },
         {
             "count": 6,
             "min": 9,
-            "name": "VULNERABLE"
+            "name": "March"
         },
         {
             "count": 3,
             "min": 9,
-            "name": "NORMAL"
+            "name": "April"
         }
     ]
 }

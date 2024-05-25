@@ -1,0 +1,28 @@
+{
+    "result": [
+        {
+            "name": "January",
+            "count": 10,
+            "average": 43,
+            "top": 10
+        },
+        {
+            "name": "February",
+            "count": 15,
+            "average": 45,
+            "top": 4
+        },
+        {
+            "name": "March",
+            "count": 20,
+            "average": 20,
+            "top": 20
+        },
+        {
+            "name": "April",
+            "count": 17,
+            "average": 54,
+            "top": 10
+        }
+    ]
+}

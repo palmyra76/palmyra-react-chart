@@ -33,7 +33,10 @@ const SimpleDoughnutCharts = () => {
                     styleOptions={namedChartStyles}
                     // chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
+                    accessorOptions={{
+                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+                        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+                    }} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart endPoint={'/simple/chartData/keyValueData.json'}

@@ -32,8 +32,13 @@ const SimplePolarAreaCharts = () => {
                 <SimpleChart type="PolarArea"
                     onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/chartData/arrayData.json'}
-                    styleOptions={namedChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array" }} />
+                    styleOptions={namedChartStyles}
+                    chartOptions={chartOptions}
+                    plugins={[ChartDataLabels]}
+                    accessorOptions={{
+                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+                        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+                    }} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart endPoint={'/simple/chartData/keyValueData.json'}

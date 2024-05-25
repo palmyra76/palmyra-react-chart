@@ -24,50 +24,50 @@
         },
         {
             "id": 5,
-            "name": "Grouped Bar Chart",
-            "code": "simpleChart/groupedBarChart",
-            "parent": 2
-        },
-        {
-            "id": 6,
-            "name": "Stacked Bar Chart",
-            "code": "simpleChart/stackedBarChart",
-            "parent": 2
-        },
-        {
-            "id": 7,
             "name": "Line Chart",
             "code": "simpleChart/lineChart",
             "parent": 2
         },
         {
-            "id": 8,
+            "id": 6,
             "name": "Multi Line Chart",
             "code": "simpleChart/multiLineChart",
             "parent": 2
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "Doughnut Chart",
             "code": "simpleChart/doughnutChart",
             "parent": 2
         },
         {
-            "id": 10,
+            "id": 8,
             "name": "Pie Chart",
             "code": "simpleChart/pieChart",
             "parent": 2
         },
         {
-            "id": 11,
+            "id": 9,
             "name": "Polar Area Chart",
             "code": "simpleChart/polarAreaChart",
             "parent": 2
         },
         {
-            "id": 12,
+            "id": 10,
             "name": "Radar Chart",
             "code": "simpleChart/radarChart",
+            "parent": 2
+        },
+        {
+            "id": 11,
+            "name": "Grouped Bar Chart",
+            "code": "simpleChart/groupedBarChart",
+            "parent": 2
+        },
+        {
+            "id": 12,
+            "name": "Stacked Bar Chart",
+            "code": "simpleChart/stackedBarChart",
             "parent": 2
         },
         {
@@ -75,7 +75,7 @@
             "name": "Scatter Chart",
             "code": "simpleChart/scatterChart",
             "parent": 2
-        },
+        },  
         {
             "id": 14,
             "name": "Bubble Chart",

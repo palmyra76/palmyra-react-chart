@@ -215,12 +215,14 @@ const groupedNamedStyle: StyleOptions = [{
 //     }
 // }]
 
-// const lineArrayChartStyles: StyleOptions = [{
-//     style: [{
-//         backgroundColor: 'rgba(220,53,69,0.5)',
-//         borderColor: 'rgba(220,53,69,1)'
-//     }]
-// }]
+const lineArrayChartStyles: StyleOptions = [{
+    props: { radius: 7, hoverRadius: 10 },
+    style: [{
+        backgroundColor: 'rgba(220,53,69,0.5)',
+        borderColor: 'rgba(220,53,69,1)',
+        hoverBackgroundColor: 'rgba(220,53,69,0.8)'
+    }]
+}]
 
 const lineNamedChartStyle: IDatasetStyleOptions = {
     style: {
@@ -280,5 +282,5 @@ export {
     lineArrayChartStyle, lineNamedChartStyle,
 
     groupedArrayStyle, MultiLineChart, MultiLineNamedChart,
-    groupedBarChartStyle, groupedNamedStyle
+    groupedBarChartStyle, groupedNamedStyle, lineArrayChartStyles
 };
