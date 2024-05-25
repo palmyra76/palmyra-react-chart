@@ -90,6 +90,7 @@ const arrayChartStyle: IDatasetStyleOptions = {
     }
     ]
 }
+
 const groupedBarChartStyle = [{
     props: {
         borderWidth: 2
