@@ -33,6 +33,7 @@ var dataMap: Record<ChartType, Partial<Record<RawDataType, DataConverterGen>>> =
 
     "Bar": BarConverters,
     "StackedBar": GroupedBarConverters,
+    "GroupedBar": GroupedBarConverters,
 
     "Scatter": ScatterConverters,
     "GroupedScatter": GroupedScatterConverters,
@@ -41,8 +42,7 @@ var dataMap: Record<ChartType, Partial<Record<RawDataType, DataConverterGen>>> =
     "Radar": RadarConverters,
     "PolarArea": PolarAreaConverters,
     "Pie": PieConverters,
-    "Doughnut": DoughnutConverters,
-    "GroupedBar": GroupedBarConverters
+    "Doughnut": DoughnutConverters
 }
 
 var PointConverterMap: Record<string, IgetPointData> = {
