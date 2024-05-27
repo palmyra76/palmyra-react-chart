@@ -1,8 +1,9 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { arrayChartStyles, namedChartStyles } from "../chartColors";
+import { arrayChartStyles, namedChartStyles, namedDataChartStyles } from "../chartColors";
 import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
+import { RadarChart } from "../../../../src/palmyra/react/chart/RadarChart";
 
 
 const chartOptions: any = {
@@ -29,15 +30,22 @@ const SimpleRadarCharts = () => {
             <div>
 
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="Radar"
+                {/* <SimpleChart type="Radar"
                     onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/chartData/arrayData.json'}
                     styleOptions={namedChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessorOptions={{
                         xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+                    }} /> */}
+                <RadarChart
+                    onPointClick={(d) => ChartToastify(d)}
+                    endPoint={'/simple/chartData/arrayData.json'}
+                    style={namedDataChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    accessor={{
+                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+                        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }} />
-
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <SimpleChart endPoint={'/simple/chartData/keyValueData.json'}
                     onPointClick={(d) => ChartToastify(d)}

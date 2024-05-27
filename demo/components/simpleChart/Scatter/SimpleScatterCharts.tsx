@@ -1,8 +1,9 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { lineArrayChartStyles } from "../chartColors";
-import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
+import { lineArrayChartStyles, scatterChartStyle } from "../chartColors";
+import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
+import { ScatterChart } from "../../../../src/palmyra/react/chart/ScatterChart";
 
 
 const chartOptions: any = {
@@ -33,15 +34,22 @@ const SimpleScatterCharts = () => {
         <Dashboard storeFactory={storeFactory}>
             <div>
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="Scatter"
+                {/* <SimpleChart type="Scatter"
                     onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/multiLineChartData/arrayData.json'}
                     styleOptions={lineArrayChartStyles}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessorOptions={{ xKey: 'count', yKey: 'min', yLabel: 'Data Set', sourceType: "Array" }}
+                /> */}
+                <ScatterChart
+                    onPointClick={(d) => ChartToastify(d)}
+                    endPoint={'/simple/multiLineChartData/arrayData.json'}
+                    style={scatterChartStyle}
+                    chartOptions={chartOptions}
+                    plugins={[ChartDataLabels]}
+                    accessor={{ xKey: 'count', yKey: 'min', yLabel: 'Data Set', sourceType: "Array" }}
                 />
-
                 {/* <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
                     onPointClick={(d) => ChartToastify(d)}

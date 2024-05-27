@@ -21,7 +21,26 @@ const namedChartStyles: StyleOptions = [{
         }
     }
 }]
-
+const namedDataChartStyles: IDatasetStyleOptions = {
+    props: {
+        borderWidth: 2
+    },
+    style: {
+        'January': {
+            backgroundColor: 'rgba(220,53,69,0.5)',
+            borderColor: 'rgba(220,53,69,1)'
+        }, 'February': {
+            backgroundColor: 'rgba(40,167,69,0.5)',
+            borderColor: 'rgba(40,167,69,1)'
+        }, 'March': {
+            backgroundColor: 'rgba(0,123,255,0.5)',
+            borderColor: 'rgba(0,123,255,0.7)',
+        }, 'April': {
+            backgroundColor: 'rgba(255,193,7,0.5)',
+            borderColor: 'rgba(255,193,7,0.7)'
+        }
+    }
+}
 const arrayChartStyles: StyleOptions = [{
     props: {
         borderWidth: 2
@@ -223,7 +242,14 @@ const lineArrayChartStyles: StyleOptions = [{
         hoverBackgroundColor: 'rgba(220,53,69,0.8)'
     }]
 }]
-
+const scatterChartStyle: IDatasetStyleOptions = {
+    props: { radius: 7, hoverRadius: 10 },
+    style: [{
+        backgroundColor: 'rgba(220,53,69,0.5)',
+        borderColor: 'rgba(220,53,69,1)',
+        hoverBackgroundColor: 'rgba(220,53,69,0.8)'
+    }]
+}
 const lineNamedChartStyle: IDatasetStyleOptions = {
     style: {
         'Janurary': {
@@ -278,9 +304,9 @@ const MultiLineNamedChartStyles: StyleOptions = [{
 
 
 export {
-    namedChartStyles, arrayChartStyles, namedChartStyle, arrayChartStyle,
+    namedChartStyles, namedDataChartStyles, arrayChartStyles, namedChartStyle, arrayChartStyle,
     lineArrayChartStyle, lineNamedChartStyle,
 
     groupedArrayStyle, MultiLineArrayChartStyles, MultiLineNamedChartStyles,
-    groupedBarChartStyle, groupedNamedStyle, lineArrayChartStyles
+    groupedBarChartStyle, groupedNamedStyle, lineArrayChartStyles, scatterChartStyle
 };
