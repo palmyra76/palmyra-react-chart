@@ -14,15 +14,10 @@
             "id": 3,
             "name": "Chart Examples",
             "code": "simpleChart",
-            "children": "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14"
+            "children": "4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15"
         },
         {
             "id": 4,
-            "name": "Chart Scale",
-            "code": "chartScale"
-        },
-        {
-            "id": 5,
             "name": "Bar Chart",
             "code": "simpleChart/barChart",
             "parent": 2
@@ -90,7 +85,55 @@
         {
             "id": 16,
             "name": "Chart Types",
-            "code": "chartTypes"
+            "code": "chartTypes",
+            "children": "18, 19, 20, 21, 22, 23, 24"
+        },
+        {
+            "id": 17,
+            "name": "Chart Scale",
+            "code": "chartScale"
+        },
+        {
+            "id": 18,
+            "name": "Bar Chart",
+            "code": "chartTypes/props/barChart",
+            "parent": 16
+        },
+        {
+            "id": 19,
+            "name": "Line Chart",
+            "code": "chartTypes/props/lineChart",
+            "parent": 16
+        },
+        {
+            "id": 20,
+            "name": "Multi Line Chart",
+            "code": "chartTypes/props/multiLineChart",
+            "parent": 16
+        },
+        {
+            "id": 21,
+            "name": "Doughnut Chart",
+            "code": "chartTypes/props/doughnutChart",
+            "parent": 16
+        },
+        {
+            "id": 22,
+            "name": "Pie Chart",
+            "code": "chartTypes/props/pieChart",
+            "parent": 16
+        },
+        {
+            "id": 23,
+            "name": "Polar Area Chart",
+            "code": "chartTypes/props/polarAreaChart",
+            "parent": 16
+        },
+        {
+            "id": 24,
+            "name": "Radar Chart",
+            "code": "chartTypes/props/radarChart",
+            "parent": 16
         }
     ],
     "status": 200

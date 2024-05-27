@@ -17,6 +17,9 @@ import PolarAreaChartPage from "./pages/polarAreaCharts/PolarAreaChartPage";
 import RadarChartPage from "./pages/radarCharts/RadarChartPage";
 import ScatterChartPage from "./pages/scatterCharts/ScatterChartPage";
 import BubbleChartPage from "./pages/bubbleCharts/BubbleChartPage";
+import LineChartDefnPage from "./pages/Definition/LineChartDefnPage";
+import BarChartDefnPage from "./pages/Definition/BarChartDefnPage";
+
 
 function App() {
 
@@ -38,6 +41,9 @@ function App() {
             <Route path="/simpleChart/radarChart" element={<RadarChartPage />} />
             <Route path="/simpleChart/scatterChart" element={<ScatterChartPage />} />
             <Route path="/simpleChart/bubbleChart" element={<BubbleChartPage />} />
+
+            <Route path="/chartTypes/props/lineChart" element={<LineChartDefnPage />} />
+            <Route path="/chartTypes/props/barChart" element={<BarChartDefnPage />} />
             <Route path="*" element={<h1>Under Construction</h1>} />
           </Route>
         </Routes>

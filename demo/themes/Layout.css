@@ -30,6 +30,19 @@
     margin-bottom: 30px;
 }
 
+.copy-btn {
+    display: none !important;
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+    height: fit-content !important;
+    margin-top: 10px !important;
+    text-transform: none !important;
+}
+
+.container-hover:hover .copy-btn {
+    display: block !important;
+}
+
 .user-tabs {
     gap: 50px !important;
 }
@@ -74,4 +87,20 @@ pre {
 .config-container {
     color: var(--secondary-text-color);
     padding: 0px 20px;
+}
+
+
+/* definition table head */
+
+.defn-table-head {
+    font-size: 20px !important;
+}
+
+
+.defn-import .user-form-container {
+    height: auto;
+}
+
+.defn-table-column:hover {
+    background-color: rgb(252, 252, 252);
 }
