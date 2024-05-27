@@ -30,7 +30,8 @@ const useChartQuery = (props: RemoteQueryOptions, callback: Callback) => {
     }
 
     const setEmptyData = () => {
-        callback.onError();
+        if (callback.onError)
+            callback.onError();
     }
 
     const setNoData = () => {

@@ -19,6 +19,7 @@ import ScatterChartPage from "./pages/scatterCharts/ScatterChartPage";
 import BubbleChartPage from "./pages/bubbleCharts/BubbleChartPage";
 import LineChartDefnPage from "./pages/Definition/LineChartDefnPage";
 import BarChartDefnPage from "./pages/Definition/BarChartDefnPage";
+import { InitialSetup } from "./pages/InitialSetup";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout appTitle='Chart Demo' />} >
             <Route path="/home" element={<HomePage />} />
+            <Route path="/initialSetup" element={<InitialSetup />} />
             <Route path="/simpleChart" element={<SimpleChartPage />} />
             <Route path="/simpleChart/barChart" element={<BarChartPage />} />
             <Route path="/simpleChart/groupedBarChart" element={<GroupedBarChartPage />} />
