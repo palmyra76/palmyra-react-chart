@@ -59,10 +59,10 @@ const SimpleBarCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{
-                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+                        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[arrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <BarChart endPoint={'/simple/chartData/keyValueData.json'}
@@ -70,8 +70,8 @@ const SimpleBarCharts = () => {
                     style={namedChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Data Set', sourceType: "KeyValue" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueComponentSetup, KeyValueChartDataConfig, NamedStyleConfig]} />
+                    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'Data Set', sourceType: "KeyValue" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyValueChartDataConfig, KeyValueComponentSetup, NamedStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <BarChart endPoint={'/simple/chartData/keyedObjectData.json'}
@@ -79,8 +79,8 @@ const SimpleBarCharts = () => {
                     style={namedChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyedObjectComponentSetup, KeyedObjectChartDataConfig, NamedStyleConfig]} />
+                    accessor={{ yKey: 'value', sourceType: "Object" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyedObjectChartDataConfig, KeyedObjectComponentSetup, NamedStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <BarChart endPoint={'/simple/chartData/objectChartData.json'}
@@ -88,8 +88,8 @@ const SimpleBarCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     style={arrayChartStyle}
-                    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeylessObjectComponentSetup, KeylessObjectChartDataConfig, ArrayStyleConfig]} />
+                    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeylessObjectChartDataConfig, KeylessObjectComponentSetup, ArrayStyleConfig]} />
             </div>
         </Dashboard>
     </div>

@@ -1,24 +1,24 @@
 {
     "result": [
         {
-            "count": 8,
+            "value": 8,
             "min": 4,
-            "name": "January"
+            "month": "January"
         },
         {
-            "count": 4,
+            "value": 4,
             "min": 6,
-            "name": "February"
+            "month": "February"
         },
         {
-            "count": 6,
+            "value": 6,
             "min": 9,
-            "name": "March"
+            "month": "March"
         },
         {
-            "count": 3,
+            "value": 3,
             "min": 9,
-            "name": "April"
+            "month": "April"
         }
     ]
 }

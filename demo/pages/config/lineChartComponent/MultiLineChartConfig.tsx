@@ -5,7 +5,7 @@ const ArrayComponent = `<MultiLineChart
     style={MultiLineArrayChartStyles}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }}
+    accessor={{ xKey: 'month', xLabel: 'month', yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Array" }}
     />
 `;
 
@@ -14,7 +14,7 @@ const KeyValueComponent = `<LineChart
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', yKey: 'count', yLabel: "Data Set", sourceType: "KeyValue" }}
+    accessor={{ xKey: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "KeyValue" }}
     />
 `;
 
@@ -23,7 +23,7 @@ const KeyedObjectComponent = ` <MultiLineChart
     style={MultiLineArrayChartStyles}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }}
+    accessor={{ yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Object" }}
 />
 `;
 
@@ -32,7 +32,7 @@ const KeylessObjectComponent = `<MultiLineChart
     chartOptions={chartOptions}
     style={MultiLineArrayChartStyles}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+    accessor={{ xKey: 'month', xLabel: 'month', yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Object" }} />
 `;
 
 const ArrayComponentSetup = () => {

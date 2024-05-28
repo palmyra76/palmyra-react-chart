@@ -1,16 +1,16 @@
 {
     "result": {
         "January": {
-            "count": 5
+            "value": 8
         },
         "February": {
-            "count": 10
+            "value": 4
         },
         "March": {
-            "count": 3
+            "value": 3
         },
         "April": {
-            "count": 4
+            "value": 7
         }
     }
 }

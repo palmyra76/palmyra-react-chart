@@ -1,64 +1,64 @@
 {
     "result": {
        "one": {
-			"boothCount": 79,
-			"criticality": "Critical",
-			"constituency": "Colonelganj"
+			"value": 79,
+			"month": "January",
+			"location": "Tenkasi"
 		},
 		"two": {
-			"boothCount": 44,
-			"criticality": "Critical/Vulnerable",
-			"constituency": "Colonelganj"
+			"value": 44,
+			"month": "February",
+			"location": "Tenkasi"
 		},
 		"three":{
-			"boothCount": 30,
-			"criticality": "Vulnerable",
-			"constituency": "Colonelganj"
+			"value": 30,
+			"month": "March",
+			"location": "Tenkasi"
 		},
 		"four":{
-			"boothCount": 100,
-			"criticality": "Normal",
-			"constituency": "Colonelganj"
+			"value": 20,
+			"month": "April",
+			"location": "Tenkasi"
 		},
 		"five":{
-			"boothCount": 67,
-			"criticality": "Critical",
-			"constituency": "Katra Bazar"
+			"value": 67,
+			"month": "January",
+			"location": "Tirunelveli"
 		},
 		"six":{
-			"boothCount": 24,
-			"criticality": "Critical/Vulnerable",
-			"constituency": "Katra Bazar"
+			"value": 24,
+			"month": "February",
+			"location": "Tirunelveli"
 		},
 		"seven":{
-			"boothCount": 17,
-			"criticality": "Vulnerable",
-			"constituency": "Katra Bazar"
+			"value": 17,
+			"month": "March",
+			"location": "Tirunelveli"
 		},
 		"eight":{
-			"boothCount": 154,
-			"criticality": "Normal",
-			"constituency": "Katra Bazar"
+			"value": 54,
+			"month": "April",
+			"location": "Tirunelveli"
 		},
 		"nine":{
-			"boothCount": 61,
-			"criticality": "Critical",
-			"constituency": "Tarabganj"
+			"value": 61,
+			"month": "January",
+			"location": "Madurai"
 		},
 		"ten":{
-			"boothCount": 19,
-			"criticality": "Critical/Vulnerable",
-			"constituency": "Tarabganj"
+			"value": 19,
+			"month": "February",
+			"location": "Madurai"
 		},
 		"eleven":{
-			"boothCount": 40,
-			"criticality": "Vulnerable",
-			"constituency": "Tarabganj"
+			"value": 40,
+			"month": "March",
+			"location": "Madurai"
 		},
 		"twelve":{
-			"boothCount": 134,
-			"criticality": "Normal",
-			"constituency": "Tarabganj"
+			"value": 34,
+			"month": "April",
+			"location": "Madurai"
 		}
     }
 }

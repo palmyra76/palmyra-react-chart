@@ -53,7 +53,7 @@ const chartOptions: any = {
             beginAtZero: true,
             title: {
                 display: true,
-                text: 'Count'
+                text: 'Value'
             },
 
             // suggestedMin: 1,
@@ -78,7 +78,7 @@ const SimpleLineCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{
-                        xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array",
+                        xKey: 'month', xLabel: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }}
                 />
@@ -90,7 +90,7 @@ const SimpleLineCharts = () => {
                     style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', yKey: 'count', yLabel: "Data Set", sourceType: "KeyValue" }} />
+                    accessor={{ xKey: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "KeyValue" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueComponentSetup, KeyValueChartDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
@@ -99,7 +99,7 @@ const SimpleLineCharts = () => {
                     style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ yKey: 'count', yLabel: 'Data Set', sourceType: "Object" }} />
+                    accessor={{ yKey: 'value', yLabel: 'Data Set', sourceType: "Object" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyedObjectComponentSetup, KeyedObjectChartDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
@@ -108,7 +108,7 @@ const SimpleLineCharts = () => {
                     chartOptions={chartOptions}
                     style={lineArrayChartStyle}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
+                    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeylessObjectComponentSetup, KeylessObjectChartDataConfig, ArrayStyleConfig]} />
             </div>
         </Dashboard>

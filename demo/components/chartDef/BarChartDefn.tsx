@@ -10,7 +10,7 @@ const BarChartDefn = () => {
         { property: 'endPoint *', type: 'string', description: 'The API url of the chart' },
         { property: 'onPointClick', type: 'Function', description: 'Click the point to get data' },
         {
-            property: 'style', type: style(),
+            property: 'style', type: style({ type: "bar" }),
             description: 'This property is used to applied the style for chart. If not assign style, random colors will assign'
         },
         { property: 'chartOptions', type: 'Chart js Options', description: 'Chart Options are same as chart.js library options' },

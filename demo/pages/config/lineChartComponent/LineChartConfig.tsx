@@ -7,7 +7,7 @@ const ArrayComponent = `<LineChart
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
     accessor={{
-        xKey: 'name', xLabel: 'Name', yKey: 'count', yLabel: "Data Set", sourceType: "Array",
+        xKey: 'month', xLabel: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
     }}
 />
@@ -18,7 +18,7 @@ const KeyValueComponent = `<LineChart
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', yKey: 'count', yLabel: "Data Set", sourceType: "KeyValue" }}
+    accessor={{ xKey: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "KeyValue" }}
     />
 `;
 
@@ -27,7 +27,7 @@ const KeyedObjectComponent = `<LineChart
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ yKey: 'count', yLabel: 'Data Set', sourceType: "Object" }}
+    accessor={{ yKey: 'value', yLabel: 'Data Set', sourceType: "Object" }}
 />
 `;
 
@@ -36,7 +36,7 @@ const KeylessObjectComponent = `<LineChart
     chartOptions={chartOptions}
     style={lineArrayChartStyle}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} 
+    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} 
 />
 `;
 

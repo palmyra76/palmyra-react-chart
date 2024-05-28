@@ -2,24 +2,24 @@ import CodeHighlighter from '../../../components/syntextHighlighter/CodeHighligh
 
 const arrayChartData = `[
     {
-        "count": 8,
+        "value": 8,
         "min": 4,
-        "name": "January"
+        "month": "January"
     },
     {
-        "count": 4,
+        "value": 4,
         "min": 6,
-        "name": "February"
+        "month": "February"
     },
     {
-        "count": 6,
+        "value": 6,
         "min": 9,
-        "name": "March"
+        "month": "March"
     },
     {
-        "count": 3,
+        "value": 3,
         "min": 9,
-        "name": "April"
+        "month": "April"
     }
 ]
 `;
@@ -27,19 +27,19 @@ const arrayChartData = `[
 
 const keyedObjectChartData = `{
     "January": {
-        "count": 7,
+        "value": 7,
         "min": 5
     },
     "February": {
-        "count": 5,
+        "value": 5,
         "min": 7
     },
     "March": {
-        "count": 8,
+        "value": 8,
         "min": 3
     },
     "April": {
-        "count": 4,
+        "value": 4,
         "min": 2
     }
 }
@@ -47,24 +47,24 @@ const keyedObjectChartData = `{
 
 const keylessObjectData = `{
     "one": {
-        "count": 5,
+        "value": 5,
         "min": 4,
-        "name": "January"
+        "month": "January"
     },
     "two": {
-        "count": 10,
+        "value": 10,
         "min": 8,
-        "name": "February"
+        "month": "February"
     },
     "three": {
-        "count": 8,
+        "value": 8,
         "min": 6,
-        "name": "March"
+        "month": "March"
     },
     "four": {
-        "count": 4,
+        "value": 4,
         "min": 5,
-        "name": "April"
+        "month": "April"
     }
 }
 `;

@@ -47,12 +47,16 @@ var dataMap: Record<ChartType, Partial<Record<RawDataType, DataConverterGen>>> =
 
 var PointConverterMap: Record<string, IgetPointData> = {
     "Line": getScalePointData,
+    "MultiLine": getScalePointData,
     "Bar": getScalePointData,
     "Pie": getScalePointData,
     "Doughnut": getScalePointData,
     "PolarArea": getScalePointData,
     "Radar": getScalePointData,
-    "Bubble": getBubblePointData
+    "Bubble": getBubblePointData,
+    "GroupedBar": getBubblePointData,
+    "StackedBar": getBubblePointData,
+    "Scatter": getBubblePointData,
 }
 
 const getDataConverter = (chartType: string, sourceType: RawDataType, options: ITransformOptions): ChartDataConverter<any> => {

@@ -1,67 +1,64 @@
 {
 	"result": [
 		{
-			"boothCount": 79,
-			"criticality": "Critical",
-			"constituency": "Colonelganj"
+			"value": 79,
+			"month": "January",
+			"location": "Tenkasi"
 		},
 		{
-			"boothCount": 95,
-			"criticality": "Critical/Vulnerable",
-			"constituency": "Colonelganj"
+			"value": 95,
+			"month": "February",
+			"location": "Tenkasi"
 		},
 		{
-			"boothCount": 46,
-			"criticality": "Vulnerable",
-			"constituency": "Colonelganj"
+			"value": 46,
+			"month": "March",
+			"location": "Tenkasi"
 		},
 		{
-			"boothCount": 140,
-			"criticality": "Normal",
-			"constituency": "Colonelganj"
+			"value": 140,
+			"month": "April",
+			"location": "Tenkasi"
 		},
 		{
-			"boothCount": 67,
-			"criticality": "Critical",
-			"constituency": "Katra Bazar"
+			"value": 67,
+			"month": "January",
+			"location": "Tirunelveli"
 		},
 		{
-			"boothCount": 54,
-			"criticality": "Critical/Vulnerable",
-			"constituency": "Katra Bazar"
+			"value": 54,
+			"month": "February",
+			"location": "Tirunelveli"
 		},
 		{
-			"boothCount": 37,
-			"criticality": "Vulnerable",
-			"constituency": "Katra Bazar"
+			"value": 37,
+			"month": "March",
+			"location": "Tirunelveli"
 		},
 		{
-			"boothCount": 134,
-			"criticality": "Normal",
-			"constituency": "Katra Bazar"
+			"value": 134,
+			"month": "April",
+			"location": "Tirunelveli"
 		},
 		{
-			"boothCount": 61,
-			"criticality": "Critical",
-			"constituency": "Tarabganj"
+			"value": 61,
+			"month": "January",
+			"location": "Madurai"
 		},
 		{
-			"boothCount": 24,
-			"criticality": "Critical/Vulnerable",
-			"constituency": "Tarabganj"
+			"value": 24,
+			"month": "February",
+			"location": "Madurai"
 		},
 		{
-			"boothCount": 36,
-			"criticality": "Vulnerable",
-			"constituency": "Tarabganj"
+			"value": 36,
+			"month": "March",
+			"location": "Madurai"
 		},
 		{
-			"boothCount": 112,
-			"criticality": "Normal",
-			"constituency": "Tarabganj"
+			"value": 112,
+			"month": "April",
+			"location": "Madurai"
 		}
-	],
-	"limit": 12,
-	"offset": 0,
-	"total": 0
+	]
 }

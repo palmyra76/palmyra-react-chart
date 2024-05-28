@@ -1,19 +1,19 @@
 {
     "result": {
         "January": {
-            "count": 7,
+            "value": 7,
             "min": 5
         },
         "February": {
-            "count": 5,
+            "value": 5,
             "min": 7
         },
         "March": {
-            "count": 8,
+            "value": 8,
             "min": 3
         },
         "April": {
-            "count": 4,
+            "value": 4,
             "min": 2
         }
     }

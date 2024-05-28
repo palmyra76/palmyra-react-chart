@@ -7,7 +7,7 @@ const ArrayComponent = ` <BarChart
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
     accessor={{
-        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
      }} />
 `;
@@ -17,7 +17,7 @@ const KeyValueComponent = `<BarChart
     style={namedChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Data Set', sourceType: "KeyValue" }} 
+    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'Data Set', sourceType: "KeyValue" }} 
 />
 `;
 
@@ -26,7 +26,7 @@ const KeyedObjectComponent = `<BarChart
     style={namedChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ yKey: 'count', sourceType: "Object" }} />
+    accessor={{ yKey: 'value', sourceType: "Object" }} />
 `;
 
 const KeylessObjectComponent = `<BarChart
@@ -34,7 +34,7 @@ const KeylessObjectComponent = `<BarChart
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
     style={arrayChartStyle}
-    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
+    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
 `;
 
 const ArrayComponentSetup = () => {

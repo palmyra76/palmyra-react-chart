@@ -1,20 +1,20 @@
 {
     "result": {
         "one": {
-            "count": 5,
-            "name": "January"
+            "value": 3,
+            "month": "January"
         },
         "two": {
-            "count": 10,
-            "name": "February"
+            "value": 13,
+            "month": "February"
         },
         "three": {
-            "count": 4,
-            "name": "March"
+            "value": 10,
+            "month": "March"
         },
         "four": {
-            "count": 4,
-            "name": "April"
+            "value": 4,
+            "month": "April"
         }
     }
 }

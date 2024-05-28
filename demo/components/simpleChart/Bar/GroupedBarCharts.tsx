@@ -1,9 +1,9 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
 import { groupedArrayStyle } from "../chartColors";
-import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
+import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
-// import { GroupedBarChart } from "../../../../src/palmyra/react/chart/GroupedBarChart";
+import { GroupedBarChart } from "../../../../src/palmyra/react/chart/GroupedBarChart";
 
 const chartOptions: any = {
     maintainAspectRatio: false,
@@ -43,31 +43,19 @@ const GroupedBarCharts = () => {
         <div>Grouped Bar Chart</div>
         <Dashboard storeFactory={storeFactory}>
             <div>
-                <SimpleChart
+                <GroupedBarChart
                     endPoint={'/simple/chartData/groupChartData/GroupArrayChartData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="GroupedBar"
-                    styleOptions={groupedArrayStyle}
-                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
-                    accessorOptions={{
-                        xKey: 'constituency',
-                        group: 'criticality',
-                        yKey: 'boothCount',
-                        yLabel: 'Criticality',
+                    style={groupedArrayStyle}
+                    plugins={[ChartDataLabels]}
+                        chartOptions={chartOptions}
+                    accessor={{
+                        xKey: 'location',
+                        group: 'month',
+                        yKey: 'value',
+                        yLabel: 'Month',
                         sourceType: "Array"
                     }} />
-                {/* <GroupedBarChart
-                    endPoint={'/simple/chartData/groupChartData/GroupChartData.json'}
-                    onPointClick={(d) => console.log(d)}
-                    style={groupedArrayStyle}
-                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
-                    accessor={{
-                        xKey: 'constituency',
-                        group: 'criticality',
-                        yKey: 'boothCount',
-                        yLabel: 'Criticality',
-                        sourceType: "Array"
-                    }} /> */}
 
                 {/* <SimpleChart endPoint={'/simple/chartData/groupChartData/GroupKeyObjectChartData.json'}
                     type="GroupedBar" styleOptions={groupedArrayStyle}
@@ -79,14 +67,17 @@ const GroupedBarCharts = () => {
                         sourceType: "Object"
                     }} /> */}
 
-                <SimpleChart endPoint={'/simple/chartData/groupChartData/GroupObjectChartData.json'}
-                    type="GroupedBar" styleOptions={groupedArrayStyle}
-                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
-                    accessorOptions={{
-                        xKey: 'constituency',
-                        group: 'criticality',
-                        yKey: 'boothCount',
-                        yLabel: 'Criticality',
+                <GroupedBarChart
+                    endPoint={'/simple/chartData/groupChartData/GroupObjectChartData.json'}
+                    onPointClick={(d) => ChartToastify(d)}
+                    style={groupedArrayStyle}
+                    plugins={[ChartDataLabels]}
+                    chartOptions={chartOptions}
+                    accessor={{
+                        xKey: 'location',
+                        group: 'month',
+                        yKey: 'value',
+                        yLabel: 'Month',
                         sourceType: "Object"
                     }} />
             </div>

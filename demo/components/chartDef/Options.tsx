@@ -1,5 +1,7 @@
 
-const style = () => {
+const style = (props: any) => {
+const link = "https://www.chartjs.org/docs/latest/charts/" + `${props.type}` + ".html#dataset-properties"
+
     return (
         <ul>
             <li>props: DataSetProperties
@@ -7,7 +9,7 @@ const style = () => {
                     <li>borderWidth: number</li>
                     <li>radius: number</li>
                     <li>hoverRadius: number</li>
-                    <li>hidden: boolean ... <a href="https://www.chartjs.org/docs/latest/charts/line.html#dataset-properties">more</a></li>
+                    <li>hidden: boolean ... <a href={link}>more</a></li>
                 </ul>
             </li>
             <li> style: {<ul>

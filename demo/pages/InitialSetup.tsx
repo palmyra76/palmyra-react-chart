@@ -43,16 +43,16 @@ class MyChartStore extends PalmyraAbstractStore implements ChartStore<any>{
 export { MyChartStore };
 `;
 
-const ArrayComponent = ` <BarChart
-    endPoint={'/api/expense/byVendor'}
-    onPointClick={(d) => OpenDetails(d)}
-    style={arrayChartStyle}  storeFactory={storeFactory}
-    chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
-    accessor={{
-        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array"}
-     }} />
-`;
+// const ArrayComponent = ` <BarChart
+//     endPoint={'/api/expense/byVendor'}
+//     onPointClick={(d) => OpenDetails(d)}
+//     style={arrayChartStyle}  storeFactory={storeFactory}
+//     chartOptions={chartOptions}
+//     plugins={[ChartDataLabels]}
+//     accessor={{
+//         xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array"}
+//      }} />
+// `;
 
 const chartStoreChild = () => <div className="config-container">
   <CodeHighlighter code={ChartStoreInterface} showLineNumbers />

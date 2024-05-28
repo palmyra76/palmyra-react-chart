@@ -7,6 +7,7 @@ import { ArrayComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentS
 import { MultiLineChart } from "../../../../src/palmyra/react/chart/MultiLineChart";
 import { KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, arrayDataConfig } from "../../../pages/config/lineChartComponent/MultiLineChartDataConfig";
 import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/MultiLineChartStyleConfig";
+import ChartToastify from "../ChartToastify";
 
 
 const chartOptions: any = {
@@ -33,28 +34,28 @@ const SimpleMultiLineCharts = () => {
             <div>
                 <div className="h2-container"><span className="h2">Array</span></div>
                 <MultiLineChart
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/multiLineChartData/arrayData.json'}
                     style={MultiLineArrayChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Array" }} />
+                    accessor={{ xKey: 'month', xLabel: 'month', yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Array" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <MultiLineChart endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     style={MultiLineArrayChartStyles}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                    accessor={{ yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Object" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyedObjectComponentSetup, KeyedObjectChartDataConfig, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <MultiLineChart endPoint={'/simple/multiLineChartData/objectChartData.json'}
-                    onPointClick={(d) => console.log(d)}
+                    onPointClick={(d) => ChartToastify(d)}
                     chartOptions={chartOptions}
                     style={MultiLineArrayChartStyles}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'name', xLabel: 'Name', yKey: ['count', 'min'], yLabel: ["Total", "Minimum"], sourceType: "Object" }} />
+                    accessor={{ xKey: 'month', xLabel: 'month', yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Object" }} />
                 <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeylessObjectComponentSetup, KeylessObjectChartDataConfig, ArrayStyleConfig]} />
 
             </div>
