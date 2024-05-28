@@ -4,6 +4,10 @@ import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { StackedBarChart } from "../../../../src/palmyra/react/chart/StackedBarChart";
 import ChartToastify from "../ChartToastify";
+import TabX from "../../../components/tab/TabX";
+import { ArrayDataConfig, KeylessObjectChartDataConfig } from "../../../pages/config/barChartComponent/GroupedDataConfig";
+import { ArrayComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/barChartComponent/StackedChartConfig";
+import { ArrayStyleConfig } from "../../../pages/config/barChartComponent/GroupedChartStyleConfig";
 
 const chartOptions: any = {
     maintainAspectRatio: false,
@@ -38,13 +42,14 @@ const chartOptions: any = {
     barThickness: 100
 };
 
-const StackedBarCharts = () => {
+const SimpleStackedBarCharts = () => {
     const storeFactory = new PalmyraStoreFactory({ baseUrl: '/demo/testdata' })
 
-    return (<>
-        <div>Stacked Bar Chart</div>
+    return (<div className="chart-container">
+        <div className="h1-container"><span className="h1"># Simple Grouped Bar Chart</span></div>
         <Dashboard storeFactory={storeFactory}>
             <div>
+                <div className="h2-container"><span className="h2">Array</span></div>
                 <StackedBarChart endPoint={'/simple/chartData/groupChartData/GroupArrayChartData.json'}
                     style={groupedArrayStyle}
                     onPointClick={(d) => ChartToastify(d)}
@@ -56,20 +61,12 @@ const StackedBarCharts = () => {
                         yLabel: 'Month',
                         sourceType: "Array"
                     }} />
-                {/* <SimpleChart endPoint={'/simple/chartData/groupChartData/GroupKeyObjectChartData.json'}
-                    type="StackedBar" styleOptions={groupedChartStyle}
-                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
-                    accessorOptions={{
-                        xKey: 'constituency',
-                        group: 'criticality',
-                        yKey: 'boothCount',
-                        yLabel: 'Criticality',
-                        sourceType: "Object"
-                    }} />*/}
+                <TabX labels={['Chart Data', 'Setup', 'Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 
                 <StackedBarChart endPoint={'/simple/chartData/groupChartData/GroupObjectChartData.json'}
                     style={groupedArrayStyle}
-                    plugins={[ChartDataLabels]} chartOptions={chartOptions}
+                    onPointClick={(d) => ChartToastify(d)}
+                    chartOptions={chartOptions}
                     accessor={{
                         xKey: 'location',
                         group: 'month',
@@ -77,10 +74,12 @@ const StackedBarCharts = () => {
                         yLabel: 'Month',
                         sourceType: "Object"
                     }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeylessObjectChartDataConfig, KeylessObjectComponentSetup, ArrayStyleConfig]} />
+
             </div>
         </Dashboard>
-    </>
+    </div>
     )
 }
 
-export default StackedBarCharts;
+export default SimpleStackedBarCharts;

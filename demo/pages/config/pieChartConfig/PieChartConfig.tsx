@@ -1,43 +1,41 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
-const ArrayComponent = ` <BarChart
+const ArrayComponent = `<PieChart
+    onPointClick={(d) => ChartToastify(d)}
     endPoint={'/simple/chartData/arrayData.json'}
-    onPointClick={(d) => console.log(d)}
-    style={arrayChartStyle}
-    chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
+    style={arrayChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
     accessor={{
-        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
+        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
-     }} />
-`;
-
-const KeyValueComponent = `<BarChart
-    endPoint={'/simple/chartData/keyValueData.json'}
-    onPointClick={(d) => console.log(d)}
-    style={namedChartStyle}
-    chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'Data Set', sourceType: "KeyValue" }} 
+    }}
 />
 `;
 
-const KeyedObjectComponent = `<BarChart
-    endPoint={'/simple/chartData/keyedObjectData.json'}
-    onPointClick={(d) => console.log(d)}
+const KeyValueComponent = `<PieChart
+    endPoint={'/simple/chartData/keyValueData.json'}
+    onPointClick={(d) => ChartToastify(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
-    accessor={{ yKey: 'value', sourceType: "Object" }} />
+    accessor={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }}
+/>
 `;
 
-const KeylessObjectComponent = `<BarChart
-    endPoint={'/simple/chartData/objectChartData.json'}
-    onPointClick={(d) => console.log(d)}
+const KeyedObjectComponent = `<PieChart
+    endPoint={'/simple/chartData/keyedObjectData.json'}
+    onPointClick={(d) => ChartToastify(d)}
+    style={namedChartStyle}
     chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
+    accessor={{ yKey: 'count', sourceType: "Object" }}
+    />
+`;
+
+const KeylessObjectComponent = `<PieChart
+    endPoint={'/simple/chartData/objectChartData.json'}
+    onPointClick={(d) => ChartToastify(d)}
+    chartOptions={chartOptions}
     style={arrayChartStyle}
-    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
+    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }}
+    />
 `;
 
 const ArrayComponentSetup = () => {

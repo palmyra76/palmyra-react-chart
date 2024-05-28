@@ -1,4 +1,4 @@
-import GroupedBarCharts from "../../components/simpleChart/Bar/GroupedBarCharts";
+import GroupedBarCharts from "../../components/simpleChart/Bar/SimpleGroupedBarCharts";
 
 const GroupedBarChartPage = () => {
     return (

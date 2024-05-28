@@ -1,6 +1,38 @@
 import CodeHighlighter from "../../components/syntextHighlighter/CodeHighlighter"
 
 
+const chartOptions = `const chartOptions: any = {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+        title: {
+            text: "Bar Chart",
+            display: true
+        },
+        legend: {
+            position: 'top'
+        },
+        datalabels: { // datalabels style
+            anchor: 'end',
+            align: 'end',
+            offset: -4
+        },
+    },
+    scales: {
+        x: {
+            grid: {
+                display: true
+            }
+        },
+        y: {
+            grid: {
+                display: true
+            }
+        }
+    },
+    barThickness: 70
+};`;
+
 const arrayStyle = `const arrayChartStyle: IDatasetStyleOptions = {
     props: {
         borderWidth: 2
@@ -52,7 +84,7 @@ const namedStyle = `const chartStyle: StyleOptions = [{
 const ArrayStyleConfig = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={arrayStyle} showLineNumbers />
+            <CodeHighlighter code={arrayStyle} options={chartOptions} showLineNumbers />
         </div>
     )
 }
@@ -60,7 +92,7 @@ const ArrayStyleConfig = () => {
 const NamedStyleConfig = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={namedStyle} showLineNumbers />
+            <CodeHighlighter code={namedStyle} options={chartOptions} showLineNumbers />
         </div>
     )
 }

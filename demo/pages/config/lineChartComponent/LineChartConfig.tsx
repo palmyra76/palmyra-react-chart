@@ -15,6 +15,7 @@ const ArrayComponent = `<LineChart
 
 const KeyValueComponent = `<LineChart
     endPoint={'/simple/chartData/keyValueData.json'}
+    onPointClick={(d) => console.log(d)}
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
@@ -24,6 +25,7 @@ const KeyValueComponent = `<LineChart
 
 const KeyedObjectComponent = `<LineChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
+    onPointClick={(d) => console.log(d)}
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
@@ -33,6 +35,7 @@ const KeyedObjectComponent = `<LineChart
 
 const KeylessObjectComponent = `<LineChart
     endPoint={'/simple/chartData/objectChartData.json'}
+    onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
     style={lineArrayChartStyle}
     plugins={[ChartDataLabels]}

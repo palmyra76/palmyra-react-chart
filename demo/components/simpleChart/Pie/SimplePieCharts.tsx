@@ -1,9 +1,19 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { arrayChartStyles, namedChartStyles, namedDataChartStyles } from "../chartColors";
-import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
+import { arrayChartStyle, namedChartStyle } from "../chartColors";
+import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
 import { PieChart } from "../../../../src/palmyra/react/chart/PieChart";
+import {
+    KeyValueChartDataConfig, KeyedObjectChartDataConfig,
+    KeylessObjectChartDataConfig, ArrayDataConfig
+} from "../../../pages/config/ChartDataConfig";
+import { ArrayStyleConfig, NamedStyleConfig } from "../../../pages/config/ChartStyleConfig";
+import TabX from "../../../components/tab/TabX";
+import {
+    ArrayComponentSetup, KeyValueComponentSetup,
+    KeyedObjectComponentSetup, KeylessObjectComponentSetup
+} from "../../../pages/config/pieChartConfig/PieChartConfig";
 
 
 const chartOptions: any = {
@@ -28,44 +38,42 @@ const SimplePieCharts = () => {
         <div className="h1-container"><span className="h1"># Simple Pie Chart</span></div>
         <Dashboard storeFactory={storeFactory}>
             <div>
-
                 <div className="h2-container"><span className="h2">Array</span></div>
-                {/* <SimpleChart type="Pie"
+                <PieChart
                     onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/chartData/arrayData.json'}
-                    styleOptions={namedChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
-                    accessorOptions={{
-                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
-                        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
-                    }} /> */}
-                <PieChart type="Pie"
-                    onPointClick={(d) => ChartToastify(d)}
-                    endPoint={'/simple/chartData/arrayData.json'}
-                    style={namedDataChartStyles} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+                    style={arrayChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessor={{
-                        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+                        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
+
                 <div className="h2-container"><span className="h2">Key Value</span></div>
-                <SimpleChart endPoint={'/simple/chartData/keyValueData.json'}
+                <PieChart
+                    endPoint={'/simple/chartData/keyValueData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Pie" styleOptions={namedChartStyles}
+                    style={namedChartStyle}
                     chartOptions={chartOptions}
-                    accessorOptions={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }} />
+                    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyValueChartDataConfig, KeyValueComponentSetup, NamedStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
-                <SimpleChart endPoint={'/simple/chartData/keyedObjectData.json'}
+                <PieChart
+                    endPoint={'/simple/chartData/keyedObjectData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Pie" styleOptions={arrayChartStyles}
+                    style={namedChartStyle}
                     chartOptions={chartOptions}
-                    accessorOptions={{ yKey: 'count', sourceType: "Object" }} />
+                    accessor={{ yKey: 'value', sourceType: "Object" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyedObjectChartDataConfig, KeyedObjectComponentSetup, NamedStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
-                <SimpleChart endPoint={'/simple/chartData/objectChartData.json'}
+                <PieChart endPoint={'/simple/chartData/objectChartData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Pie" chartOptions={chartOptions}
-                    // styleOptions={arrayChartStyles}
-                    accessorOptions={{ xKey: 'name', yKey: 'count', sourceType: "Object" }} />
+                    chartOptions={chartOptions}
+                    style={arrayChartStyle}
+                    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeylessObjectChartDataConfig, KeylessObjectComponentSetup, ArrayStyleConfig]} />
 
             </div>
         </Dashboard>

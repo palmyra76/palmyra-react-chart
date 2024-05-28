@@ -4,7 +4,7 @@ import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import TabX from "../../tab/TabX";
 import { ArrayComponentSetup, KeyValueComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/barChartComponent/BarChartConfig";
-import { arrayDataConfig, KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig } from "../../../pages/config/ChartDataConfig";
+import { ArrayDataConfig, KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig } from "../../../pages/config/ChartDataConfig";
 import { ArrayStyleConfig, NamedStyleConfig } from "../../../pages/config/ChartStyleConfig";
 import { BarChart } from "../../../../src/palmyra/react/chart/BarChart";
 import ChartToastify from "../ChartToastify";
@@ -62,7 +62,7 @@ const SimpleBarCharts = () => {
                         xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }} />
-                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[arrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <BarChart endPoint={'/simple/chartData/keyValueData.json'}
@@ -71,7 +71,7 @@ const SimpleBarCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'Data Set', sourceType: "KeyValue" }} />
-                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyValueChartDataConfig, KeyValueComponentSetup, NamedStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Options']} Children={[KeyValueChartDataConfig, KeyValueComponentSetup, NamedStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <BarChart endPoint={'/simple/chartData/keyedObjectData.json'}
@@ -80,7 +80,7 @@ const SimpleBarCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{ yKey: 'value', sourceType: "Object" }} />
-                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyedObjectChartDataConfig, KeyedObjectComponentSetup, NamedStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Options']} Children={[KeyedObjectChartDataConfig, KeyedObjectComponentSetup, NamedStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <BarChart endPoint={'/simple/chartData/objectChartData.json'}
@@ -89,7 +89,7 @@ const SimpleBarCharts = () => {
                     plugins={[ChartDataLabels]}
                     style={arrayChartStyle}
                     accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
-                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeylessObjectChartDataConfig, KeylessObjectComponentSetup, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Options']} Children={[KeylessObjectChartDataConfig, KeylessObjectComponentSetup, ArrayStyleConfig]} />
             </div>
         </Dashboard>
     </div>

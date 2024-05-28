@@ -1,41 +1,37 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
-const ArrayComponent = ` <BarChart
+const ArrayComponent = `<DoughnutChart
+    onPointClick={(d) => ChartToastify(d)}
     endPoint={'/simple/chartData/arrayData.json'}
-    onPointClick={(d) => console.log(d)}
     style={arrayChartStyle}
-    chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
+    chartOptions={chartOptions}
     accessor={{
         xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
-     }} />
-`;
-
-const KeyValueComponent = `<BarChart
-    endPoint={'/simple/chartData/keyValueData.json'}
-    onPointClick={(d) => console.log(d)}
-    style={namedChartStyle}
-    chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'Data Set', sourceType: "KeyValue" }} 
+}}
 />
 `;
 
-const KeyedObjectComponent = `<BarChart
-    endPoint={'/simple/chartData/keyedObjectData.json'}
-    onPointClick={(d) => console.log(d)}
+const KeyValueComponent = `<DoughnutChart
+    endPoint={'/simple/chartData/keyValueData.json'}
+    onPointClick={(d) => ChartToastify(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
+    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }} />
+`;
+
+const KeyedObjectComponent = `<DoughnutChart
+    endPoint={'/simple/chartData/keyedObjectData.json'}
+    onPointClick={(d) => ChartToastify(d)}
+    style={namedChartStyle}
+    chartOptions={chartOptions}
     accessor={{ yKey: 'value', sourceType: "Object" }} />
 `;
 
-const KeylessObjectComponent = `<BarChart
+const KeylessObjectComponent = `<DoughnutChart
     endPoint={'/simple/chartData/objectChartData.json'}
-    onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
     style={arrayChartStyle}
     accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
 `;

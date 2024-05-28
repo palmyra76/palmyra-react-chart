@@ -7,7 +7,7 @@ import TabX from "../../tab/TabX";
 import { LineChart } from "../../../../src/palmyra/react/chart/LineChart";
 import { ArrayComponentSetup, KeyValueComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/lineChartComponent/LineChartConfig";
 import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/LineChartStyleConfig";
-import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, arrayDataConfig } from "../../../pages/config/ChartDataConfig";
+import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, ArrayDataConfig } from "../../../pages/config/ChartDataConfig";
 import ChartToastify from "../ChartToastify";
 
 
@@ -82,7 +82,7 @@ const SimpleLineCharts = () => {
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }}
                 />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[ArrayComponentSetup, arrayDataConfig, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Key Value</span></div>
                 <LineChart endPoint={'/simple/chartData/keyValueData.json'}
@@ -91,7 +91,7 @@ const SimpleLineCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "KeyValue" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyValueComponentSetup, KeyValueChartDataConfig, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyValueChartDataConfig, KeyValueComponentSetup, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <LineChart endPoint={'/simple/chartData/keyedObjectData.json'}
@@ -100,7 +100,7 @@ const SimpleLineCharts = () => {
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
                     accessor={{ yKey: 'value', yLabel: 'Data Set', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeyedObjectComponentSetup, KeyedObjectChartDataConfig, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyedObjectChartDataConfig, KeyedObjectComponentSetup, ArrayStyleConfig]} />
 
                 <div className="h2-container"><span className="h2">Keyless Object</span></div>
                 <LineChart endPoint={'/simple/chartData/objectChartData.json'}
@@ -109,7 +109,7 @@ const SimpleLineCharts = () => {
                     style={lineArrayChartStyle}
                     plugins={[ChartDataLabels]}
                     accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
-                <TabX labels={['Setup', 'Chart Data', 'Style Options']} Children={[KeylessObjectComponentSetup, KeylessObjectChartDataConfig, ArrayStyleConfig]} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeylessObjectChartDataConfig, KeylessObjectComponentSetup, ArrayStyleConfig]} />
             </div>
         </Dashboard>
     </div>

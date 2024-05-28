@@ -1,42 +1,42 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
-const ArrayComponent = `<MultiLineChart
-    endPoint={'/simple/multiLineChartData/arrayData.json'}
+const ArrayComponent = `<PolarAreaChart
     onPointClick={(d) => console.log(d)}
-    style={MultiLineArrayChartStyles}
+    endPoint={'/simple/chartData/arrayData.json'}
+    style={arrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'month', xLabel: 'month', yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Array" }}
-    />
-`;
-
-const KeyValueComponent = `<LineChart
-    endPoint={'/simple/chartData/keyValueData.json'}
-    onPointClick={(d) => console.log(d)}
-    style={lineArrayChartStyle}
-    chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "KeyValue" }}
-    />
-`;
-
-const KeyedObjectComponent = ` <MultiLineChart
-    endPoint={'/simple/multiLineChartData/keyedObjectData.json'}
-    onPointClick={(d) => console.log(d)}
-    style={MultiLineArrayChartStyles}
-    chartOptions={chartOptions}
-    plugins={[ChartDataLabels]}
-    accessor={{ yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Object" }}
+    accessor={{
+        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
+        xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
+    }}
 />
 `;
 
-const KeylessObjectComponent = `<MultiLineChart
-    endPoint={'/simple/multiLineChartData/objectChartData.json'}
+const KeyValueComponent = `<PolarAreaChart
+    endPoint={'/simple/chartData/keyValueData.json'}
+    onPointClick={(d) => console.log(d)}
+    style={namedChartStyle}
+    chartOptions={chartOptions}
+    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }} />
+`;
+
+const KeyedObjectComponent = `<PolarAreaChart
+    endPoint={'/simple/chartData/keyedObjectData.json'}
+    onPointClick={(d) => console.log(d)}
+    style={namedChartStyle}
+    chartOptions={chartOptions}
+    accessor={{ yKey: 'value', sourceType: "Object" }}
+/>
+`;
+
+const KeylessObjectComponent = `<PolarAreaChart
+    endPoint={'/simple/chartData/objectChartData.json'}
     onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
-    style={MultiLineArrayChartStyles}
-    plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'month', xLabel: 'month', yKey: ['value', 'min'], yLabel: ["Value", "Minimum"], sourceType: "Object" }} />
+    style={arrayChartStyle}
+    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }}
+/>
 `;
 
 const ArrayComponentSetup = () => {

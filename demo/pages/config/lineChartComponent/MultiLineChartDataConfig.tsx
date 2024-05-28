@@ -69,7 +69,7 @@ const keylessObjectData = `{
 }
 `;
 
-const arrayDataConfig = () => {
+const ArrayDataConfig = () => {
     return (
         <div className="config-container">
             <CodeHighlighter code={arrayChartData} showLineNumbers />
@@ -93,4 +93,4 @@ const KeylessObjectChartDataConfig = () => {
     )
 }
 
-export { arrayDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig }
+export { ArrayDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig }
