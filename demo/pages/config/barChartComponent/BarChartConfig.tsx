@@ -43,7 +43,7 @@ const KeylessObjectComponent = `<BarChart
 const ArrayComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={ArrayComponent} showLineNumbers />
+            <CodeHighlighter code={ArrayComponent} />
         </div>
     )
 }
@@ -51,7 +51,7 @@ const ArrayComponentSetup = () => {
 const KeyValueComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeyValueComponent} showLineNumbers />
+            <CodeHighlighter code={KeyValueComponent} />
         </div>
     )
 }
@@ -59,7 +59,7 @@ const KeyValueComponentSetup = () => {
 const KeyedObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeyedObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeyedObjectComponent} />
         </div>
     )
 }
@@ -67,7 +67,7 @@ const KeyedObjectComponentSetup = () => {
 const KeylessObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeylessObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeylessObjectComponent} />
         </div>
     )
 }

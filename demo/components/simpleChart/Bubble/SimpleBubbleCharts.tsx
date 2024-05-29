@@ -1,8 +1,13 @@
 import { PalmyraStoreFactory } from "palmyra-wire";
-import { lineArrayChartStyles } from "../chartColors";
-import { Dashboard, SimpleChart } from "../../../../src/palmyra/react";
+import { lineArrayChartStyle } from "../chartColors";
+import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
+import TabX from "../../../components/tab/TabX";
+import { ArrayDataConfig } from "../../../pages/config/bubbleChartConfig/BubbleChartDataConfig";
+import { ArrayComponentSetup } from "../../../pages/config/bubbleChartConfig/BubbleChartConfig";
+import { BubbleChart } from "../../../../src/palmyra/react/chart/BubbleChart";
+import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/LineChartStyleConfig";
 
 
 const chartOptions: any = {
@@ -28,13 +33,15 @@ const SimpleBubbleCharts = () => {
             <div>
 
                 <div className="h2-container"><span className="h2">Array</span></div>
-                <SimpleChart type="Bubble"
+                <BubbleChart
                     onPointClick={(d) => ChartToastify(d)}
                     endPoint={'/simple/chartData/bubbleChartData/arrayData.json'}
-                    styleOptions={lineArrayChartStyles}
+                    style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessorOptions={{ xKey: 'average', yKey: 'count', rKey: 'top', yLabel: 'Data Set', sourceType: "Array" }} />
+                    accessor={{ xKey: 'average', yKey: 'value', rKey: 'top', yLabel: 'Data Set', sourceType: "Array" }} />
+
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 
                 {/* <div className="h2-container"><span className="h2">Keyed Object</span></div>
                 <SimpleChart endPoint={'/simple/bubbleChartData/keyedObjectData.json'}

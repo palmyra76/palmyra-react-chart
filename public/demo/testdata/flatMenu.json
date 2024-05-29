@@ -86,7 +86,7 @@
             "id": 16,
             "name": "Chart Types",
             "code": "chartTypes",
-            "children": "18, 19, 20, 21, 22, 23, 24"
+            "children": "18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28"
         },
         {
             "id": 17,
@@ -133,6 +133,30 @@
             "id": 24,
             "name": "Radar Chart",
             "code": "chartTypes/props/radarChart",
+            "parent": 16
+        },
+        {
+            "id": 25,
+            "name": "Grouped Bar Chart",
+            "code": "chartTypes/props/groupedBarChart",
+            "parent": 16
+        },
+        {
+            "id": 26,
+            "name": "Stacked Bar Chart",
+            "code": "chartTypes/props/stackedBarChart",
+            "parent": 16
+        },
+        {
+            "id": 27,
+            "name": "Scatter Chart",
+            "code": "chartTypes/props/scatterChart",
+            "parent": 16
+        },
+        {
+            "id": 28,
+            "name": "Bubble Chart",
+            "code": "chartTypes/props/bubbleChart",
             "parent": 16
         }
     ],

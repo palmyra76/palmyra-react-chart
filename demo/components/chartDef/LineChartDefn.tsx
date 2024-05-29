@@ -11,7 +11,7 @@ const LineChartDefn = () => {
         { property: 'onPointClick', type: 'Function', description: 'Click the point to get data' },
         {
             property: 'style', type: style({ type: "line" }),
-            description: 'This property is used to applied the style for chart. If not assign style, random colors will assign'
+            description: 'This property is used to apply the style to the chart. If no style is assigned, random colors will be assigned.'
         },
         { property: 'chartOptions', type: 'Chart js Options', description: 'Chart Options are same as chart.js library options' },
         { property: 'plugins', type: '', description: '' },

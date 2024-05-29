@@ -1,7 +1,7 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
 const ArrayComponent = `<DoughnutChart
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     endPoint={'/simple/chartData/arrayData.json'}
     style={arrayChartStyle}
     plugins={[ChartDataLabels]}
@@ -15,7 +15,7 @@ const ArrayComponent = `<DoughnutChart
 
 const KeyValueComponent = `<DoughnutChart
     endPoint={'/simple/chartData/keyValueData.json'}
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
     accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }} />
@@ -23,7 +23,7 @@ const KeyValueComponent = `<DoughnutChart
 
 const KeyedObjectComponent = `<DoughnutChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
     accessor={{ yKey: 'value', sourceType: "Object" }} />
@@ -39,7 +39,7 @@ const KeylessObjectComponent = `<DoughnutChart
 const ArrayComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={ArrayComponent} showLineNumbers />
+            <CodeHighlighter code={ArrayComponent} />
         </div>
     )
 }
@@ -47,7 +47,7 @@ const ArrayComponentSetup = () => {
 const KeyValueComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeyValueComponent} showLineNumbers />
+            <CodeHighlighter code={KeyValueComponent} />
         </div>
     )
 }
@@ -55,7 +55,7 @@ const KeyValueComponentSetup = () => {
 const KeyedObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeyedObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeyedObjectComponent} />
         </div>
     )
 }
@@ -63,7 +63,7 @@ const KeyedObjectComponentSetup = () => {
 const KeylessObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeylessObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeylessObjectComponent} />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 
 const style = (props: any) => {
-const link = "https://www.chartjs.org/docs/latest/charts/" + `${props.type}` + ".html#dataset-properties"
+    const link = "https://www.chartjs.org/docs/latest/charts/" + `${props.type}` + ".html#dataset-properties"
 
     return (
         <ul>
@@ -24,8 +24,8 @@ const link = "https://www.chartjs.org/docs/latest/charts/" + `${props.type}` + "
 const accessor = () => {
     return (
         <ul>
-            <li>xKey: attributeAccessor</li>
-            <li>yKey: attributeAccessor</li>
+            <li>xKey: string | number | Date</li>
+            <li>yKey: string | number | Date</li>
             <li>xLabel: String</li>
             <li>yLabel: String</li>
             <li>xKeyLabelMap: Record&lt;string, string&gt;</li>
@@ -35,7 +35,8 @@ const accessor = () => {
 }
 
 const accessorDes = () => {
-    return (
+    return (<>
+        <div>Define xAxis, yAxis</div>
         <ul>
             <li> x Axis for chart</li>
             <li> y Axis for chart</li>
@@ -44,8 +45,38 @@ const accessorDes = () => {
             <li> Label Name Changing</li>
             <li> Type of chart data</li>
         </ul>
+    </>
+    )
+}
+
+const multiLineAccessor = () => {
+    return (
+        <ul>
+            <li>xKey: string </li>
+            <li>yKey: string[]</li>
+            <li>xLabel: String</li>
+            <li>yLabel: String[]</li>
+            <li>xKeyLabelMap: Record&lt;string, string&gt;</li>
+            <li>sourceType: 'Array' | 'Object'</li>
+        </ul>
     )
 }
 
 
-export { style, accessor, accessorDes }
+const multiLineAccessorDes = () => {
+    return (<>
+        <div>Define xAxis, yAxis</div>
+        <ul>
+            <li> x Axis for chart</li>
+            <li> y Axis for chart(string of array)</li>
+            <li> Name of the x Axis</li>
+            <li> Name of the y Axis(string of array)</li>
+            <li> Label Name Changing</li>
+            <li> Type of chart data</li>
+        </ul>
+    </>
+    )
+}
+
+
+export { style, accessor, accessorDes, multiLineAccessor, multiLineAccessorDes }

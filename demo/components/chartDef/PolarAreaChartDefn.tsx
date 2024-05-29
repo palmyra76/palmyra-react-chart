@@ -1,16 +1,16 @@
 import Grid from "../grid/Grid";
 import { DatasetProperties } from "../grid/Types"
-import { accessor, accessorDes, style } from "./Options";
-import { BarImportSetup } from "./import/Import";
+import { style } from "./BarChartDefn";
+import { accessor, accessorDes } from "./Options";
+import { PolarAreaImportSetup } from "./import/Import";
 
-
-const BarChartDefn = () => {
+const PolarAreaChartDefn = () => {
 
     const data: DatasetProperties = [
         { property: 'endPoint *', type: 'string', description: 'The API url of the chart' },
         { property: 'onPointClick', type: 'Function', description: 'Click the point to get data' },
         {
-            property: 'style', type: style({ type: "bar" }),
+            property: 'style', type: style({ type: "polar" }),
             description: 'This property is used to apply the style to the chart. If no style is assigned, random colors will be assigned.'
         },
         { property: 'chartOptions', type: 'Chart js Options', description: 'Chart Options are same as chart.js library options' },
@@ -20,12 +20,10 @@ const BarChartDefn = () => {
 
     return (
         <div className="chart-container">
-            <Grid data={data} header="# Bar Chart Api" import={BarImportSetup} />
+            <Grid data={data} header="# Polar Area Chart Api" import={PolarAreaImportSetup} />
         </div>
     )
 
 }
 
-export default BarChartDefn;
-
-export { style, accessor, accessorDes }
+export default PolarAreaChartDefn;

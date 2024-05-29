@@ -43,7 +43,7 @@ onPointClick={(d) => ChartToastify(d)}
 endPoint={'/simple/chartData/arrayData.json'}
 chartOptions={chartOptions}
 accessor={{
-  xKey: 'name', yKey: 'count', yLabel: 'Data Set'
+  xKey: 'month', yKey: 'value', yLabel: 'Data Set'
 }} />
 `;
 
@@ -52,7 +52,7 @@ accessor={{
 const ArrayComponentSetup = () => {
   return (
     <div className="config-container">
-      <CodeHighlighter code={ArrayComponent} showLineNumbers />
+      <CodeHighlighter code={ArrayComponent} />
     </div>
   )
 }
@@ -77,7 +77,7 @@ function HomePage() {
         endPoint={'/simple/chartData/arrayData.json'}
         chartOptions={chartOptions}
         accessor={{
-          xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array"
+          xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array"
         }} />
 
       <TabX labels={['Setup']} Children={[ArrayComponentSetup]} />

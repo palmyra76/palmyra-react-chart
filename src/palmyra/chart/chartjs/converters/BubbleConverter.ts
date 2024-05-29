@@ -8,11 +8,11 @@ import { AccessorOptions, DataPipeLine } from "../../../react";
 
 
 
-const NoopConverter = (options: ITransformOptions): ChartDataConverter<Bubble> => {
+const NoopConverter = (options: AccessorOptions): ChartDataConverter<Bubble> => {
     return (data) => { return data };
 }
 
-function assignColors(ITransformOptions: ITransformOptions,
+function assignColors(ITransformOptions: AccessorOptions,
     key: string, data: BubbleDataSet) {
     var length = Math.round(getRandomNumber(2, 10));
     var color = generateColors(length);
@@ -20,7 +20,7 @@ function assignColors(ITransformOptions: ITransformOptions,
     data.borderColor = color[length - 1];
 }
 
-function getData(dataMap: Record<string, BubbleDataSet>, key: string, ITransformOptions: ITransformOptions): BubbleDataSet {
+function getData(dataMap: Record<string, BubbleDataSet>, key: string, ITransformOptions: AccessorOptions): BubbleDataSet {
     var r: BubbleDataSet = dataMap[key];
     if (r)
         return r;
@@ -53,7 +53,7 @@ function getKeys(accessorOptions: AccessorOptions): { x: string, y: string, r: s
     }
 }
 
-const ArrayConverter = (options: ITransformOptions): ChartDataConverter<Bubble> => {
+const ArrayConverter = (options: AccessorOptions): ChartDataConverter<Bubble> => {
     const { x, y, r, label } = getKeys(options);
     return (records: any[]): BubbleDataInput => {
         var result: BubbleDataInput = {

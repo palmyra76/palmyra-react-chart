@@ -18,6 +18,7 @@ interface ConverterOptions {
     xLabel?: string,
     yLabel?: string[] | string,
     sourceType?: RawDataType
+    metadata?: string[]
 }
 
 export type { accessor, resultType, attributeAccessor, keyedAccessor, ConverterOptions }

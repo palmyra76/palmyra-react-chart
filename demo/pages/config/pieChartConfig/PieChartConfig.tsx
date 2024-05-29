@@ -1,11 +1,11 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
 const ArrayComponent = `<PieChart
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     endPoint={'/simple/chartData/arrayData.json'}
     style={arrayChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
     accessor={{
-        xKey: 'name', yKey: 'count', yLabel: 'Data Set', sourceType: "Array",
+        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
     }}
 />
@@ -13,35 +13,35 @@ const ArrayComponent = `<PieChart
 
 const KeyValueComponent = `<PieChart
     endPoint={'/simple/chartData/keyValueData.json'}
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ xKey: 'Name', yKey: 'Count', xLabel: 'Name', yLabel: 'Count', sourceType: "KeyValue" }}
+    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }}
 />
 `;
 
 const KeyedObjectComponent = `<PieChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ yKey: 'count', sourceType: "Object" }}
+    accessor={{ yKey: 'value', sourceType: "Object" }}
     />
 `;
 
 const KeylessObjectComponent = `<PieChart
     endPoint={'/simple/chartData/objectChartData.json'}
-    onPointClick={(d) => ChartToastify(d)}
+    onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
     style={arrayChartStyle}
-    accessor={{ xKey: 'name', yKey: 'count', sourceType: "Object" }}
+    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }}
     />
 `;
 
 const ArrayComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={ArrayComponent} showLineNumbers />
+            <CodeHighlighter code={ArrayComponent} />
         </div>
     )
 }
@@ -49,7 +49,7 @@ const ArrayComponentSetup = () => {
 const KeyValueComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeyValueComponent} showLineNumbers />
+            <CodeHighlighter code={KeyValueComponent} />
         </div>
     )
 }
@@ -57,7 +57,7 @@ const KeyValueComponentSetup = () => {
 const KeyedObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeyedObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeyedObjectComponent} />
         </div>
     )
 }
@@ -65,7 +65,7 @@ const KeyedObjectComponentSetup = () => {
 const KeylessObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeylessObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeylessObjectComponent} />
         </div>
     )
 }

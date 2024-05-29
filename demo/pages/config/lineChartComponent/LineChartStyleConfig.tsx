@@ -16,7 +16,7 @@ const namedStyle = `
 const ArrayStyleConfig = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={arrayStyle} showLineNumbers />
+            <CodeHighlighter code={arrayStyle} />
         </div>
     )
 }
@@ -24,7 +24,7 @@ const ArrayStyleConfig = () => {
 const NamedStyleConfig = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={namedStyle} showLineNumbers />
+            <CodeHighlighter code={namedStyle} />
         </div>
     )
 }

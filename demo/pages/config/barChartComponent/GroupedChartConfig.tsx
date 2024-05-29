@@ -36,7 +36,7 @@ const KeylessObjectComponent = `<GroupedBarChart
 const ArrayComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={ArrayComponent} showLineNumbers />
+            <CodeHighlighter code={ArrayComponent} />
         </div>
     )
 }
@@ -45,7 +45,7 @@ const ArrayComponentSetup = () => {
 const KeylessObjectComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={KeylessObjectComponent} showLineNumbers />
+            <CodeHighlighter code={KeylessObjectComponent} />
         </div>
     )
 }

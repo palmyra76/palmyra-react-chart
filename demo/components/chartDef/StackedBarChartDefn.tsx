@@ -1,10 +1,10 @@
 import Grid from "../grid/Grid";
 import { DatasetProperties } from "../grid/Types"
-import { accessor, accessorDes, style } from "./Options";
-import { BarImportSetup } from "./import/Import";
+import { style } from "./BarChartDefn";
+import { accessor, accessorDes } from "./Options";
+import { StackedBarImportSetup } from "./import/Import";
 
-
-const BarChartDefn = () => {
+const StackedBarChartDefn = () => {
 
     const data: DatasetProperties = [
         { property: 'endPoint *', type: 'string', description: 'The API url of the chart' },
@@ -20,12 +20,10 @@ const BarChartDefn = () => {
 
     return (
         <div className="chart-container">
-            <Grid data={data} header="# Bar Chart Api" import={BarImportSetup} />
+            <Grid data={data} header="# Stacked Bar Chart Api" import={StackedBarImportSetup} />
         </div>
     )
 
 }
 
-export default BarChartDefn;
-
-export { style, accessor, accessorDes }
+export default StackedBarChartDefn;

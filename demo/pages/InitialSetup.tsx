@@ -55,10 +55,10 @@ export { MyChartStore };
 // `;
 
 const chartStoreChild = () => <div className="config-container">
-  <CodeHighlighter code={ChartStoreInterface} showLineNumbers />
+  <CodeHighlighter code={ChartStoreInterface} />
 </div>;
 const exampleImplChild = () => <><div className="config-container">
-  <CodeHighlighter code={CustomChartStore} showLineNumbers />
+  <CodeHighlighter code={CustomChartStore} />
 </div></>;
 
 const npmInstallCommand = `npm i palmyra76/palmyra-wire  --save
@@ -70,7 +70,7 @@ function InitialSetup() {
     <div>
       Add the dependency <br />
       <div className="config-container">
-          <CodeHighlighter code={npmInstallCommand} showLineNumbers />
+          <CodeHighlighter code={npmInstallCommand} />
         </div>
       <br /><br />
       <div>
@@ -84,7 +84,7 @@ function InitialSetup() {
 
         2. Create a storeFactory with the defined store
         <div className="config-container">
-          <CodeHighlighter code={chartStoreFactoryInterface} showLineNumbers />
+          <CodeHighlighter code={chartStoreFactoryInterface} />
         </div>
 
 

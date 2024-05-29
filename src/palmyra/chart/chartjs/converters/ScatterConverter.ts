@@ -1,11 +1,12 @@
 
-import { ITransformOptions, RawDataType } from "../../Types";
+import { AccessorOptions } from "@app/palmyra/react";
+import { RawDataType } from "../../Types";
 import { DataConverterGen } from "../DataConverterFactory";
 import { ChartDataConverter, Point, ScatterDataInput, ScatterDataSet } from "../Types";
 import { NoopConverter } from "./ScaleConverter";
 
 
-function getKeys(options: ITransformOptions): { x: string, y: string, label: string } {
+function getKeys(options: AccessorOptions): { x: string, y: string, label: string } {
     const xLabel: string = options?.xLabel || 'name';
     const xKey: any = options?.xKey || 'x';
     const yKey: any = options?.yKey || 'y';
@@ -22,9 +23,9 @@ function getKeys(options: ITransformOptions): { x: string, y: string, label: str
 }
 
 
-const ArrayConverter = (options: ITransformOptions): ChartDataConverter<Point> => {
+const ArrayConverter = (options: AccessorOptions): ChartDataConverter<Point> => {
     const { x, y, label } = getKeys(options);
-    
+
     return (records: any[]): ScatterDataInput => {
         var result: ScatterDataInput = {
             datasets: []
@@ -44,7 +45,7 @@ const ArrayConverter = (options: ITransformOptions): ChartDataConverter<Point> =
         } : (_d: any, _r: any) => { };
 
         records.map((record, index) => {
-            var dataSet: ScatterDataSet = getData(dataMap, record[label], options);            
+            var dataSet: ScatterDataSet = getData(dataMap, record[label], options);
             const d = {
                 x: record[x],
                 y: record[y]
@@ -70,7 +71,7 @@ const converters: Partial<Record<RawDataType, DataConverterGen>> = {
 
 export default converters;
 
-function getData(dataMap: Record<string, ScatterDataSet>, key: string, ITransformOptions: ITransformOptions): ScatterDataSet {
+function getData(dataMap: Record<string, ScatterDataSet>, key: string, ITransformOptions: AccessorOptions): ScatterDataSet {
     var r: ScatterDataSet = dataMap[key];
     if (r)
         return r;

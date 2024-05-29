@@ -131,7 +131,7 @@ const keylessObjectData = `{
 const ArrayDataConfig = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={arrayChartData} showLineNumbers />
+            <CodeHighlighter code={arrayChartData} />
         </div>
     )
 }
@@ -139,7 +139,7 @@ const ArrayDataConfig = () => {
 const KeylessObjectChartDataConfig = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={keylessObjectData} showLineNumbers />
+            <CodeHighlighter code={keylessObjectData} />
         </div>
     )
 }

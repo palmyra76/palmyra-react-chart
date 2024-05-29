@@ -14,7 +14,7 @@ const ArrayComponent = `<ScatterChart
 const ArrayComponentSetup = () => {
     return (
         <div className="config-container">
-            <CodeHighlighter code={ArrayComponent} showLineNumbers />
+            <CodeHighlighter code={ArrayComponent} />
         </div>
     )
 }
