@@ -1,13 +1,14 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
 const ArrayComponent = `<DoughnutChart
-    onPointClick={(d) => console.log(d)}
     endPoint={'/simple/chartData/arrayData.json'}
+    storeFactory={storeFactory}
+    onPointClick={(d) => console.log(d)}
     style={arrayChartStyle}
     plugins={[ChartDataLabels]}
     chartOptions={chartOptions}
     accessor={{
-        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
+        xKey: 'month', yKey: ['value', 'min'], sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
 }}
 />
@@ -15,25 +16,33 @@ const ArrayComponent = `<DoughnutChart
 
 const KeyValueComponent = `<DoughnutChart
     endPoint={'/simple/chartData/keyValueData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }} />
+    accessor={{
+        xKey: 'month', yKey: 'value', xLabel: 'month',
+        yLabel: 'value', sourceType: "KeyValue"
+    }}
+/>
 `;
 
 const KeyedObjectComponent = `<DoughnutChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ yKey: 'value', sourceType: "Object" }} />
+    accessor={{ yKey: 'value', sourceType: "Object" }}
+/>
 `;
 
 const KeylessObjectComponent = `<DoughnutChart
     endPoint={'/simple/chartData/objectChartData.json'}
     chartOptions={chartOptions}
     style={arrayChartStyle}
-    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }} />
+    accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }}
+/>
 `;
 
 const ArrayComponentSetup = () => {

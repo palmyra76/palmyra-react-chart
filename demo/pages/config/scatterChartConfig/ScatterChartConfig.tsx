@@ -1,12 +1,16 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
 const ArrayComponent = `<ScatterChart
-    onPointClick={(d) => console.log(d)}
     endPoint={'/simple/multiLineChartData/arrayData.json'}
+    storeFactory={storeFactory}
+    onPointClick={(d) => console.log(d)}
     style={scatterChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
-    accessor={{ xKey: 'value', yKey: 'min', yLabel: 'Data Set', sourceType: "Array" }}
+    accessor={{
+        xKey: 'value', yKey: 'min', xLabel: 'month',
+        yLabel: 'Data Set', sourceType: "Array"
+    }}
 />
 `;
 

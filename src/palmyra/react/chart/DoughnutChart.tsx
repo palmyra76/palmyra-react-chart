@@ -14,9 +14,9 @@ interface IDoughnutChartOptions extends IRemoteDataChartOptions<'Doughnut'> {
     accessor?: {
         xKey?: attributeAccessor,
         xKeyLabelMap?: Record<string, string>,
-        yKey?: attributeAccessor,
+        yKey?: String | String[],
         xLabel?: String,
-        yLabel?: String,
+        yLabel?: String | String[],
         sourceType?: RawDataType
     }
 }

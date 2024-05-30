@@ -31,7 +31,6 @@ const SimpleBubbleCharts = () => {
         <div className="h1-container"><span className="h1"># Simple Bubble Chart</span></div>
         <Dashboard storeFactory={storeFactory}>
             <div>
-
                 <div className="h2-container"><span className="h2">Array</span></div>
                 <BubbleChart
                     onPointClick={(d) => ChartToastify(d)}
@@ -39,7 +38,7 @@ const SimpleBubbleCharts = () => {
                     style={lineArrayChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'average', yKey: 'value', rKey: 'top', yLabel: 'Data Set', sourceType: "Array" }} />
+                    accessor={{ xKey: 'average', yKey: 'value', xLabel: 'month', rKey: 'top', yLabel: 'Data Set', sourceType: "Array" }} />
 
                 <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 

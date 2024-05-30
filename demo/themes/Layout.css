@@ -17,6 +17,15 @@
     font-weight: bold;
 }
 
+/* -- tooltip-- */
+.MuiTooltip-tooltip {
+    background-color: transparent !important;
+    font-size: 14px !important;
+    color: rgb(200, 200, 200) !important;
+    padding: 0 !important;
+    margin: -5px 10px 0 0 !important;
+}
+
 /* -- Taps & TapPanel userManagement & groups -- */
 .user-form-container {
     height: 400px;
@@ -30,17 +39,14 @@
     margin-bottom: 30px;
 }
 
-.copy-btn {
-    display: none !important;
-    background-color: rgb(255, 255, 255) !important;
-    color: black !important;
-    height: fit-content !important;
-    margin-top: 10px !important;
-    text-transform: none !important;
+.tab-icon {
+    color: rgb(153, 153, 153);
+    margin-right: 20px;
+    cursor: pointer;
 }
 
-.container-hover:hover .copy-btn {
-    display: block !important;
+.tab-icon:hover {
+    color: white;
 }
 
 .user-tabs {
@@ -89,13 +95,11 @@ pre {
     padding: 0px 20px;
 }
 
-
 /* definition table head */
 
 .defn-table-head {
     font-size: 20px !important;
 }
-
 
 .defn-import .user-form-container {
     height: auto;

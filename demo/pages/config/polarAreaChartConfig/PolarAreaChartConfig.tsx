@@ -1,8 +1,9 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
 const ArrayComponent = `<PolarAreaChart
-    onPointClick={(d) => console.log(d)}
     endPoint={'/simple/chartData/arrayData.json'}
+    storeFactory={storeFactory}
+    onPointClick={(d) => console.log(d)}
     style={arrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
@@ -15,23 +16,30 @@ const ArrayComponent = `<PolarAreaChart
 
 const KeyValueComponent = `<PolarAreaChart
     endPoint={'/simple/chartData/keyValueData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }} />
+    accessor={{
+        xKey: 'month', yKey: 'value', xLabel: 'month',
+        yLabel: 'value', sourceType: "KeyValue"
+    }}
+/>
 `;
 
 const KeyedObjectComponent = `<PolarAreaChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ yKey: 'value', sourceType: "Object" }}
+    accessor={{ yKey: 'value', sourceType: "Object"}}
 />
 `;
 
 const KeylessObjectComponent = `<PolarAreaChart
     endPoint={'/simple/chartData/objectChartData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
     style={arrayChartStyle}

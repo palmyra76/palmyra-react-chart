@@ -40,7 +40,10 @@ const SimpleChart = <T extends ChartType>(props: ISimpleChartOptions<T>) => {
             },
             hideDataset() {
 
-            }
+            },
+            onDataRefresh(rawData) {
+                
+            },
         }
     }, [])
 

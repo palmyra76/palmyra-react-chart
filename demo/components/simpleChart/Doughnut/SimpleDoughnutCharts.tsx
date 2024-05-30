@@ -5,9 +5,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
 import { DoughnutChart } from "../../../../src/palmyra/react/chart/DoughnutChart";
 import TabX from "../../../components/tab/TabX";
-import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig, ArrayDataConfig } from "../../../pages/config/ChartDataConfig";
+import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig} from "../../../pages/config/ChartDataConfig";
 import { ArrayStyleConfig, NamedStyleConfig } from "../../../pages/config/ChartStyleConfig";
 import { ArrayComponentSetup, KeyValueComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/doughnutChartConfig/DoughnutChartConfig";
+import { ArrayDataConfig } from "../../../pages/config/lineChartComponent/MultiLineChartDataConfig";
 
 
 const chartOptions: any = {
@@ -34,12 +35,12 @@ const SimpleDoughnutCharts = () => {
                 <div className="h2-container"><span className="h2">Array</span></div>
                 <DoughnutChart
                     onPointClick={(d) => ChartToastify(d)}
-                    endPoint={'/simple/chartData/arrayData.json'}
+                    endPoint={'/simple/multiLineChartData/arrayData.json'}
                     style={arrayChartStyle}
                     plugins={[ChartDataLabels]}
                     chartOptions={chartOptions}
                     accessor={{
-                        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
+                        xKey: 'month', yKey: ['value', 'min'], sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }} />
                 <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />

@@ -43,7 +43,7 @@ const SimpleScatterCharts = () => {
                     style={scatterChartStyle}
                     chartOptions={chartOptions}
                     plugins={[ChartDataLabels]}
-                    accessor={{ xKey: 'value', yKey: 'min', yLabel: 'Data Set', sourceType: "Array" }}
+                    accessor={{ xKey: 'value', yKey: 'min', xLabel: 'month', yLabel: 'Data Set', sourceType: "Array" }}
                 />
                 <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 

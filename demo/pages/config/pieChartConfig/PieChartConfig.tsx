@@ -1,9 +1,12 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter";
 
 const ArrayComponent = `<PieChart
-    onPointClick={(d) => console.log(d)}
     endPoint={'/simple/chartData/arrayData.json'}
-    style={arrayChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
+    storeFactory={storeFactory}
+    onPointClick={(d) => console.log(d)}
+    style={arrayChartStyle}
+    chartOptions={chartOptions}
+    plugins={[ChartDataLabels]}
     accessor={{
         xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
@@ -13,20 +16,25 @@ const ArrayComponent = `<PieChart
 
 const KeyValueComponent = `<PieChart
     endPoint={'/simple/chartData/keyValueData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ xKey: 'month', yKey: 'value', xLabel: 'month', yLabel: 'value', sourceType: "KeyValue" }}
+    accessor={{
+        xKey: 'month', yKey: 'value', xLabel: 'month',
+        yLabel: 'value', sourceType: "KeyValue"
+    }}
 />
 `;
 
 const KeyedObjectComponent = `<PieChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
     accessor={{ yKey: 'value', sourceType: "Object" }}
-    />
+/>
 `;
 
 const KeylessObjectComponent = `<PieChart
@@ -35,7 +43,7 @@ const KeylessObjectComponent = `<PieChart
     chartOptions={chartOptions}
     style={arrayChartStyle}
     accessor={{ xKey: 'month', yKey: 'value', sourceType: "Object" }}
-    />
+/>
 `;
 
 const ArrayComponentSetup = () => {

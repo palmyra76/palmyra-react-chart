@@ -36,7 +36,6 @@ const accessor = () => {
 
 const accessorDes = () => {
     return (<>
-        <div>Define xAxis, yAxis</div>
         <ul>
             <li> x Axis for chart</li>
             <li> y Axis for chart</li>
@@ -78,5 +77,19 @@ const multiLineAccessorDes = () => {
     )
 }
 
+const radarAccessor = () => {
+    return (
+        <ul>
+            <li>xKey: string </li>
+            <li>yKey: string[] | string</li>
+            <li>xLabel: String</li>
+            <li>yLabel: string[] | string</li>
+            <li>xKeyLabelMap: Record&lt;string, string&gt;</li>
+            <li>sourceType: 'Array' | 'Object'</li>
+        </ul>
+    )
+}
 
-export { style, accessor, accessorDes, multiLineAccessor, multiLineAccessorDes }
+
+
+export { style, accessor, accessorDes, multiLineAccessor, multiLineAccessorDes, radarAccessor }

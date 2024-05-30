@@ -2,6 +2,7 @@ import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighligh
 
 const ArrayComponent = `<GroupedBarChart
     endPoint={'/simple/chartData/groupChartData/GroupArrayChartData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={groupedArrayStyle}
     plugins={[ChartDataLabels]}
@@ -19,6 +20,7 @@ const ArrayComponent = `<GroupedBarChart
 
 const KeylessObjectComponent = `<GroupedBarChart
     endPoint={'/simple/chartData/groupChartData/GroupObjectChartData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={groupedArrayStyle}
     plugins={[ChartDataLabels]}

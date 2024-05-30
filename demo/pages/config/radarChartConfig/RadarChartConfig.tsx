@@ -2,6 +2,7 @@ import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighligh
 
 const ArrayComponent = `<RadarChart
     endPoint={'/simple/chartData/arrayData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={arrayChartStyle}
     chartOptions={chartOptions}
@@ -15,15 +16,19 @@ const ArrayComponent = `<RadarChart
 
 const KeyValueComponent = `<RadarChart
     endPoint={'/simple/chartData/keyValueData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
-    accessor={{ xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "KeyValue" }}
+    accessor={{
+        xKey: 'month', yKey: 'value',
+        yLabel: 'Data Set', sourceType: "KeyValue" }}
 />
 `;
 
 const KeyedObjectComponent = `<RadarChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={namedChartStyle}
     chartOptions={chartOptions}
@@ -33,6 +38,7 @@ const KeyedObjectComponent = `<RadarChart
 
 const KeylessObjectComponent = `<RadarChart
     endPoint={'/simple/chartData/objectChartData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
     style={arrayChartStyle}

@@ -2,6 +2,7 @@ import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighligh
 
 const ArrayComponent = `<LineChart
     endPoint={'/simple/chartData/arrayData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
@@ -15,16 +16,18 @@ const ArrayComponent = `<LineChart
 
 const KeyValueComponent = `<LineChart
     endPoint={'/simple/chartData/keyValueData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
     plugins={[ChartDataLabels]}
     accessor={{ xKey: 'month', yKey: 'value', yLabel: "Data Set", sourceType: "KeyValue" }}
-    />
+/>
 `;
 
 const KeyedObjectComponent = `<LineChart
     endPoint={'/simple/chartData/keyedObjectData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     style={lineArrayChartStyle}
     chartOptions={chartOptions}
@@ -35,6 +38,7 @@ const KeyedObjectComponent = `<LineChart
 
 const KeylessObjectComponent = `<LineChart
     endPoint={'/simple/chartData/objectChartData.json'}
+    storeFactory={storeFactory}
     onPointClick={(d) => console.log(d)}
     chartOptions={chartOptions}
     style={lineArrayChartStyle}

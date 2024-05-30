@@ -1,7 +1,7 @@
 import CodeHighlighter from "../../../components/syntextHighlighter/CodeHighlighter"
 
 
-const arrayStyle = `const lineChartStyle: IDatasetStyleOptions = {
+const arrayStyle = `const arrayChartStyle: IDatasetStyleOptions = {
     style: [{
         backgroundColor: 'rgba(220,53,69,0.5)',
         borderColor: 'rgba(220,53,69,1)'

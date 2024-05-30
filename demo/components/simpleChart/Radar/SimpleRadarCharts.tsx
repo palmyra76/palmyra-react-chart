@@ -5,9 +5,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
 import { RadarChart } from "../../../../src/palmyra/react/chart/RadarChart";
 import TabX from "../../../components/tab/TabX";
-import { ArrayDataConfig, KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig } from "../../../pages/config/ChartDataConfig";
+import { KeyValueChartDataConfig, KeyedObjectChartDataConfig, KeylessObjectChartDataConfig } from "../../../pages/config/ChartDataConfig";
 import { ArrayStyleConfig, NamedStyleConfig } from "../../../pages/config/ChartStyleConfig";
 import { ArrayComponentSetup, KeyValueComponentSetup, KeyedObjectComponentSetup, KeylessObjectComponentSetup } from "../../../pages/config/radarChartConfig/RadarChartConfig";
+import { ArrayDataConfig } from "../../../pages/config/lineChartComponent/MultiLineChartDataConfig";
 
 
 const chartOptions: any = {
@@ -34,11 +35,11 @@ const SimpleRadarCharts = () => {
 
                 <div className="h2-container"><span className="h2">Array</span></div>
                 <RadarChart
-                    endPoint={'/simple/chartData/arrayData.json'}
+                    endPoint={'/simple/multiLineChartData/arrayData.json'}
                     onPointClick={(d) => ChartToastify(d)}
                     style={arrayChartStyle} chartOptions={chartOptions} plugins={[ChartDataLabels]}
                     accessor={{
-                        xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array",
+                        xKey: 'month', yKey: ['value', 'min'], yLabel: ['Data Set 1', 'Data Set 2'], sourceType: "Array",
                         xKeyLabelMap: { "jan": "January", "feb": "February", "mar": "March", "apr": "April" }
                     }} />
                 <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
