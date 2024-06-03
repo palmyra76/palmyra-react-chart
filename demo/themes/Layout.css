@@ -105,6 +105,48 @@ pre {
     height: auto;
 }
 
+.defn-import {
+    padding: 0px 20px;
+}
+
 .defn-table-column:hover {
     background-color: rgb(252, 252, 252);
+}
+
+
+/* -- Home -- */
+
+.home-card {
+    border: rgb(232, 234, 238) 1px solid;
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 15px;
+    /* width: 200px; */
+    font-size: 18px;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: linear-gradient(to right bottom, rgba(235, 245, 255, 0.3) 25%, rgba(246, 247, 248, 0.2) 100%);
+}
+
+.home-card:hover {
+    box-shadow: rgb(204, 230, 255) 0px 2px 8px;;
+}
+
+.home-card-container {
+    margin-top: 25px;
+    /* padding: 20px; */
+    /* width: 800px; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.home-chart {
+    /* margin-right: auto;
+    margin-left: auto; */
+    width: 1000px;
+    margin-top: 10px;
+}
+
+.chart-doc-para{
+    margin-top: 2em;
 }

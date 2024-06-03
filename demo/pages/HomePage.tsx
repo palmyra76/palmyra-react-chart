@@ -38,16 +38,16 @@ const chartOptions: any = {
 };
 
 
-const ArrayComponent = `<BarChart storeFactory={storeFactory}
-onPointClick={(d) => ChartToastify(d)}
-endPoint={'/simple/chartData/arrayData.json'}
-chartOptions={chartOptions}
-accessor={{
-  xKey: 'month', yKey: 'value', yLabel: 'Data Set'
-}} />
+const ArrayComponent = `<BarChart
+  storeFactory={storeFactory}
+  endPoint={'/simple/chartData/arrayData.json'}
+  onPointClick={(d) => console.log(d)}
+  chartOptions={chartOptions}
+  accessor={{
+    xKey: 'month', yKey: 'value', yLabel: 'Data Set'
+  }}
+/>
 `;
-
-
 
 const ArrayComponentSetup = () => {
   return (
@@ -57,29 +57,35 @@ const ArrayComponentSetup = () => {
   )
 }
 
-
 function HomePage() {
 
   const storeFactory = new PalmyraStoreFactory({ baseUrl: '/demo/testdata' })
 
   return (
-    <div>
-      <div>
-        1. Abstract the Server/REST communication to fetch the server data.
-        <br />
-        2. Automated Data Conversion from REST data to ChartJS
-        <br />
-        3. Easy to use callbacks for User Interaction.
-        <br />
+    <div className="chart-container">
+      <div className="h1-container"><span className="h1">Palmyra Chart Demo</span></div>
+      <div>Simple React UI Based Chart Library.</div>
+      <div className="home-card-container">
+        <div className="home-card">
+          Abstract the Server/REST communication to fetch the server data.
+        </div>
+        <div className="home-card">
+          Automated Data Conversion from REST data to ChartJS
+        </div>
+        <div className="home-card">
+          Easy to use callbacks for User Interaction.
+        </div>
       </div>
-      <BarChart storeFactory={storeFactory}
-        onPointClick={(d) => ChartToastify(d)}
-        endPoint={'/simple/chartData/arrayData.json'}
-        chartOptions={chartOptions}
-        accessor={{
-          xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array"
-        }} />
-
+      <div className="home-chart">
+        <BarChart
+          storeFactory={storeFactory}
+          onPointClick={(d) => ChartToastify(d)}
+          endPoint={'/simple/chartData/arrayData.json'}
+          chartOptions={chartOptions}
+          accessor={{
+            xKey: 'month', yKey: 'value', yLabel: 'Data Set', sourceType: "Array"
+          }} />
+      </div>
       <TabX labels={['Setup']} Children={[ArrayComponentSetup]} />
     </div>
   )

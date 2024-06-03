@@ -1,7 +1,8 @@
 import { ChartOptions, ChartType as ChartJsType, Plugin } from "chart.js"
-import { ChartType, IChartOptions, ITransformOptions, StyleOptions } from "../Types"
+import { ChartType, IChartOptions, StyleOptions } from "../Types"
 import { MutableRefObject } from "react"
 import { IChartJS } from ".."
+import { AccessorOptions } from "../../../palmyra/react"
 
 interface Colorable {
     borderColor?: any,
@@ -69,7 +70,7 @@ interface ChartStyleConverter<DataSetType> {
 }
 
 interface IStyleConverterFactory {
-    (styleOptions: StyleOptions, transformOptions?: ITransformOptions): ChartStyleConverter<DataSetType>
+    (styleOptions: StyleOptions, transformOptions?: AccessorOptions): ChartStyleConverter<DataSetType>
 }
 
 export type { IChartJSOptions }

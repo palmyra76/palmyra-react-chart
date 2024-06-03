@@ -54,6 +54,9 @@ export { MyChartStore };
 //      }} />
 // `;
 
+const npmInstallCommand = `npm install palmyra76/palmyra-wire  --save
+npm install palmyra76/palmyra-react-chart --save`;
+
 const chartStoreChild = () => <div className="config-container">
   <CodeHighlighter code={ChartStoreInterface} />
 </div>;
@@ -61,38 +64,41 @@ const exampleImplChild = () => <><div className="config-container">
   <CodeHighlighter code={CustomChartStore} />
 </div></>;
 
-const npmInstallCommand = `npm i palmyra76/palmyra-wire  --save
-npm i palmyra76/palmyra-react-chart --save`;
+const dependency = () => <><div className="config-container">
+  <CodeHighlighter code={npmInstallCommand} />
+</div></>;
+
+const chartStore = () => <><div className="config-container">
+  <CodeHighlighter code={chartStoreFactoryInterface} />
+</div></>;
 
 function InitialSetup() {
 
-  return (
-    <div>
-      Add the dependency <br />
-      <div className="config-container">
-          <CodeHighlighter code={npmInstallCommand} />
-        </div>
-      <br /><br />
-      <div>
-        1. Define the store to fetch the server data by implementing the interface ChartStore. <br />
-        An example implementation using axios and available abstract store is available for reference.
-        <div className="config-container">
-          <TabX labels={['ChartStore', 'Example Implementation']} Children={[chartStoreChild, exampleImplChild]} />
-        </div>
-
-        <br />
-
-        2. Create a storeFactory with the defined store
-        <div className="config-container">
-          <CodeHighlighter code={chartStoreFactoryInterface} />
-        </div>
-
-
-        <br />
-        3. Start using the Charts --- Checkout Examples / APIs       
-        <br />
-      </div>
+  return (<div className="chart-container">
+    <div className="h1-container"><span className="h1">Add the dependency</span></div>
+    <h3># Default installation</h3>
+    {/* <div className="config-container">
+      <CodeHighlighter code={npmInstallCommand} />
+    </div> */}
+    <div className="defn-import">
+      <TabX labels={['Install']} Children={[dependency]} />
     </div>
+    <div>
+      <div className="chart-doc-para">1. Define the store to fetch the server data by implementing the interface ChartStore. <br />
+        An example implementation using axios and available abstract store is available for reference.</div>
+      <div className="config-container">
+        <TabX labels={['ChartStore', 'Example Implementation']} Children={[chartStoreChild, exampleImplChild]} />
+      </div>
+      <div className="chart-doc-para">2. Create a storeFactory with the defined store</div>
+      {/* <div className="config-container">
+        <CodeHighlighter code={chartStoreFactoryInterface} />
+      </div> */}
+      <div className="defn-import">
+        <TabX labels={['Chart Store']} Children={[chartStore]} />
+      </div>
+      <div className="chart-doc-para">3. Start using the Charts --- Checkout Examples / APIs</div>
+    </div>
+  </div>
   )
 }
 
