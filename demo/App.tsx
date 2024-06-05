@@ -27,8 +27,9 @@ import PolarAreaChartDefnPage from "./pages/Definition/PolarAreaDefnPage";
 import RadarChartDefnPage from "./pages/Definition/RadarDefnPage";
 import BubbleChartDefnPage from "./pages/Definition/BubbleChartDefnPage";
 import ScatterChartDefnPage from "./pages/Definition/ScatterChartDefnPage";
-import StackedBarChartDefnPage from "./pages/Definition/StackedBarChartDefnPage copy 3";
+import StackedBarChartDefnPage from "./pages/Definition/StackedBarChartDefnPage";
 import GroupedBarChartDefnPage from "./pages/Definition/GroupedBarChartDefnPage";
+
 
 
 function App() {

@@ -129,7 +129,7 @@ pre {
 }
 
 .home-card:hover {
-    box-shadow: rgb(204, 230, 255) 0px 2px 8px;;
+    box-shadow: rgb(204, 230, 255) 0px 2px 8px;
 }
 
 .home-card-container {
@@ -147,6 +147,6 @@ pre {
     margin-top: 10px;
 }
 
-.chart-doc-para{
+.chart-doc-para {
     margin-top: 2em;
 }

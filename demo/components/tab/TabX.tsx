@@ -3,7 +3,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Box, Tooltip } from '@mui/material';
 import { useRef, useState } from "react";
-import { toast } from "react-toastify";
 import { TbCopy } from "react-icons/tb";
 
 
@@ -15,19 +14,16 @@ const TabX = (props: TabInput) => {
     const [value, setValue] = useState<any>(0);
     const { labels, Children } = props;
     const contentRef = useRef(null);
+    const [title, setTitle] = useState<string>("copy")
 
     const copyToClipboard = () => {
         const text = contentRef?.current?.textContent;
         navigator.clipboard.writeText(text)
             .then(() => {
-                toast("The source code has been copied to your clipboard", {
-                    position: "bottom-left",
-                    autoClose: 1500,
-                    theme: 'dark',
-                    hideProgressBar: true,
-                    pauseOnHover: false,
-                    closeButton: false,
-                });
+                setTitle("copied")
+                setTimeout(() => {
+                    setTitle("copy")
+                }, 1000)
             })
             .catch((err) => {
                 console.error('Failed to copy: ', err);
@@ -48,7 +44,7 @@ const TabX = (props: TabInput) => {
                         <Tab key={index} label={label} className="user-tab" disableRipple />
                     ))}
                 </Tabs>
-                <Tooltip placement="left" title="copy">
+                <Tooltip placement="left" title={title}>
                     <div>
                         <TbCopy className="tab-icon" onClick={copyToClipboard} />
                     </div>
