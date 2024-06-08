@@ -1,24 +1,24 @@
 {
     "result": {
         "January": {
-            "count": 10,
-            "average": 43,
-            "top": 10
+            "value": 15,
+            "average": 12,
+            "top": 26
         },
         "February": {
-            "count": 15,
-            "average": 45,
-            "top": 4
+            "value": 21,
+            "average": 12,
+            "top": 12
         },
         "March": {
-            "count": 20,
+            "value": 20,
             "average": 20,
             "top": 20
         },
         "April": {
-            "count": 17,
-            "average": 54,
-            "top": 10
+            "value": 12,
+            "average": 14,
+            "top": 20
         }
     }
 }

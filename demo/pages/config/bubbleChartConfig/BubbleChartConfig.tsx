@@ -14,6 +14,18 @@ const ArrayComponent = `<BubbleChart
 />
 `;
 
+const KeyedObjectComponent = `<BubbleChart
+    endPoint={'/simple/chartData/bubbleChartData/keyedObjectData.json'}
+    onPointClick={(d) => console.log(d)}
+    style={arrayChartStyle}
+    chartOptions={chartOptions}
+    accessor={{
+        xKey: 'average', yKey: 'value', xLabel: 'month',
+        rKey: 'top', yLabel: 'Data Set', sourceType: "Object"
+    }}
+/>
+`;
+
 const ArrayComponentSetup = () => {
     return (
         <div className="config-container">
@@ -22,5 +34,12 @@ const ArrayComponentSetup = () => {
     )
 }
 
+const KeyedObjectComponentSetup = () => {
+    return (
+        <div className="config-container">
+            <CodeHighlighter code={KeyedObjectComponent} />
+        </div>
+    )
+}
 
-export { ArrayComponentSetup }
+export { ArrayComponentSetup, KeyedObjectComponentSetup }

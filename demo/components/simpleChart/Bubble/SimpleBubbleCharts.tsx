@@ -4,8 +4,8 @@ import { Dashboard } from "../../../../src/palmyra/react";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartToastify from "../ChartToastify";
 import TabX from "../../../components/tab/TabX";
-import { ArrayDataConfig } from "../../../pages/config/bubbleChartConfig/BubbleChartDataConfig";
-import { ArrayComponentSetup } from "../../../pages/config/bubbleChartConfig/BubbleChartConfig";
+import { ArrayDataConfig, KeyedObjectDataConfig } from "../../../pages/config/bubbleChartConfig/BubbleChartDataConfig";
+import { ArrayComponentSetup, KeyedObjectComponentSetup } from "../../../pages/config/bubbleChartConfig/BubbleChartConfig";
 import { BubbleChart } from "../../../../src/palmyra/react/chart/BubbleChart";
 import { ArrayStyleConfig } from "../../../pages/config/lineChartComponent/LineChartStyleConfig";
 
@@ -42,19 +42,21 @@ const SimpleBubbleCharts = () => {
 
                 <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[ArrayDataConfig, ArrayComponentSetup, ArrayStyleConfig]} />
 
-                {/* <div className="h2-container"><span className="h2">Keyed Object</span></div>
-                <SimpleChart endPoint={'/simple/bubbleChartData/keyedObjectData.json'}
+                <div className="h2-container"><span className="h2">Keyed Object</span></div>
+                <BubbleChart endPoint={'/simple/chartData/bubbleChartData/keyedObjectData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Bubble" styleOptions={lineArrayChartStyles}
+                    style={lineArrayChartStyle}
                     chartOptions={chartOptions}
-                    accessorOptions={{ yKey: 'count', rKey: 'top', sourceType: "Object" }} />
+                    accessor={{ xKey: 'average', yKey: 'value', xLabel: 'month', rKey: 'top', yLabel: 'Data Set', sourceType: "Object" }} />
+                <TabX labels={['Chart Data', 'Setup', 'Style Options']} Children={[KeyedObjectDataConfig, KeyedObjectComponentSetup, ArrayStyleConfig]} />
 
-                <div className="h2-container"><span className="h2">Keyless Object</span></div>
-                <SimpleChart endPoint={'/simple/bubbleChartData/objectChartData.json'}
+
+                {/* <div className="h2-container"><span className="h2">Keyless Object</span></div>
+                <BubbleChart endPoint={'/simple/chartData/bubbleChartData/objectChartData.json'}
                     onPointClick={(d) => ChartToastify(d)}
-                    type="Bubble" chartOptions={chartOptions}
-                    // styleOptions={arrayChartStyles}
-                    accessorOptions={{ xKey: 'average', yKey: 'count', rKey: 'top', sourceType: "Object" }} /> */}
+                    chartOptions={chartOptions}
+                    style={lineArrayChartStyle}
+                    accessor={{ xKey: 'average', yKey: 'value', xLabel: 'month', rKey: 'top', yLabel: 'Data Set', sourceType: "Object" }} /> */}
             </div>
         </Dashboard>
     </div>

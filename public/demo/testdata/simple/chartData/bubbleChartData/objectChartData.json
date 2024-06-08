@@ -1,28 +1,28 @@
 {
     "result": {
         "one": {
-            "count": 10,
-            "average": 43,
-            "top": 10,
-            "name": "January"
+            "value": 15,
+            "average": 13,
+            "top": 20,
+            "month": "January"
         },
         "two": {
-            "count": 15,
-            "average": 45,
-            "top": 4,
-            "name": "February"
+            "value": 16,
+            "average": 25,
+            "top": 25,
+            "month": "February"
         },
         "three": {
-            "count": 20,
-            "average": 20,
-            "top": 20,
-            "name": "March"
+            "value": 21,
+            "average": 12,
+            "top": 16,
+            "month": "March"
         },
         "four": {
-            "count": 17,
-            "average": 54,
+            "value": 14,
+            "average": 12,
             "top": 10,
-            "name": "April"
+            "month": "April"
         }
     }
 }
